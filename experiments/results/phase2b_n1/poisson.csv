@@ -1,0 +1,2 @@
+q,n,a,b,S,t,tuple_values,poisson_gb,poisson_plan_s,lift_s,fft_s,sums_s,poisson_s,fft_flops,sum_adds,fast_s,fast_flops,fast_gb,fast_plan_s,fast_reps,poisson_reps,max_rel_err_poisson,max_rel_err_fast,max_rel_diff_all,samples
+8,6,2,4,38955282,2,6.871947674e+10,559.8841872,5.310448872,371.737516,1654.843355,2346.943297,4373.524168,2.473901162e+12,7.978041754e+10,0.823952987,673409896,1.089176784,0.21403947,6,1,6.402737591e-15,4.142947853e-15,1.422103548e-14,200

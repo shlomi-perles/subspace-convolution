@@ -1,0 +1,78 @@
+% Figure: full transform Z_n, time ratio (a) and operation ratio (b) per field.
+% Data: figures/data/*.dat from analysis/figure_data.py.  Build (in figures/):
+%   pdflatex zeta_fields.tex
+\documentclass[border=1pt]{standalone}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.17}
+\definecolor{cq2}{HTML}{2A78D6}
+\definecolor{cq4}{HTML}{1BAF7A}
+\definecolor{cq8}{HTML}{E87BA4}
+\definecolor{cq16}{HTML}{008300}
+\definecolor{cq32}{HTML}{EDA100}
+\definecolor{ink}{HTML}{2B2B2A}
+\definecolor{muted}{HTML}{6B6A66}
+\definecolor{gridc}{HTML}{E4E3DF}
+\definecolor{shade}{HTML}{EFEEEA}
+\tikzset{
+  panellabel/.style={anchor=north west, font=\small, color=ink},
+}
+% Frames are tight to the data: an extreme point lies on the frame and is drawn over
+% it (pgfplots draws the background, grid, ticks and frame first, then the contents of
+% the axis in the order written: the reference line, then the data).
+\pgfplotsset{
+  panel/.style={
+    width=7.2cm, height=5.2cm, enlargelimits=false, clip=false,
+    axis line style={muted}, tick style={muted},
+    tick label style={font=\footnotesize, color=ink},
+    label style={font=\small, color=ink},
+    grid=major, major grid style={gridc, line width=0.4pt},
+    xlabel={subspaces $N_q(n)$},
+    ytick={0.5,1,2,5,10,20,50,100}, yticklabels={0.5,1,2,5,10,20,50,100},
+    legend style={font=\footnotesize, draw=none, fill=white, fill opacity=0.85, text opacity=1},
+    legend cell align=left,
+  },
+  series/.style={color=#1, line width=1.1pt, mark size=2.2pt,
+    mark options={solid, fill=#1, draw=white, line width=0.4pt}},
+}
+\newcommand{\referenceline}{% y = 1 across the frame
+  \draw[muted, line width=0.6pt] ({rel axis cs:0,0} |- {axis cs:1e5,1}) -- ({rel axis cs:1,0} |- {axis cs:1e5,1});}
+\def\datadir{data}
+\begin{document}
+\begin{tikzpicture}
+\begin{loglogaxis}[panel, name=a, ylabel={time ratio}, xtick={1e4,1e6,1e8},
+    legend to name=fieldlegend, legend columns=5,
+    legend style={/tikz/every even column/.append style={column sep=8pt}}]
+  \referenceline
+  \foreach \q/\m in {2/*, 4/triangle*, 8/diamond*, 16/square*, 32/pentagon*} {
+    \edef\temp{\noexpand\addplot[series=cq\q, mark=\m, error bars/.cd, y dir=both, y explicit,
+        error bar style={color=cq\q, line width=0.6pt}, error mark options={draw=none}]
+      table[x=N, y=ratio, y error minus=lo, y error plus=hi] {\datadir/time_q\q.dat};
+      \noexpand\addlegendentry{$q=\q$}}
+    \temp
+  }
+  \foreach \q/\m in {2/*, 4/triangle*, 8/diamond*, 16/square*, 32/pentagon*} {
+    \edef\temp{\noexpand\addplot[only marks, mark=\m, mark size=2.6pt, color=cq\q,
+        mark options={fill=white, draw=cq\q, line width=0.8pt}, forget plot]
+      table[x=N, y=ratio] {\datadir/time_q\q_sampled.dat};}
+    \temp
+  }
+  \node[panellabel] at (rel axis cs:0.01,0.99) {(a)};
+\end{loglogaxis}
+\begin{loglogaxis}[panel, name=b, at={(a.east)}, anchor=west, xshift=1.5cm,
+    ylabel={operation ratio}, xtick={1e4,1e6,1e8,1e10,1e12,1e14,1e16},
+    % N > 1e10: the covering pairs of every field shown exceed 2 TB (4 bytes per pair).
+    % Part of the axis background, so the grid, ticks and frame are drawn over it.
+    axis background/.style={path picture={
+      \fill[fill=shade] ({axis cs:1e10,1} |- {rel axis cs:0,0}) rectangle (rel axis cs:1,1);}}]
+  \node[anchor=south, font=\footnotesize, color=muted] at ({axis cs:2e14,1} |- {rel axis cs:0,0.02}) {exceeds memory};
+  \referenceline
+  \foreach \q/\m in {2/*, 4/triangle*, 8/diamond*, 16/square*, 32/pentagon*} {
+    \edef\temp{\noexpand\addplot[series=cq\q, mark=\m] table[x=N, y=ratio] {\datadir/ops_q\q.dat};}
+    \temp
+  }
+  \node[panellabel] at (rel axis cs:0.01,0.99) {(b)};
+\end{loglogaxis}
+\node[anchor=south] at ($(a.north)!0.5!(b.north)$) {\pgfplotslegendfromname{fieldlegend}};
+\end{tikzpicture}
+\end{document}

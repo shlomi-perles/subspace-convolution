@@ -1,0 +1,59 @@
+[19:14:18] memory available: 2019 GB
+[19:14:50] unit tests passed
+[19:14:50] start paired_q2
+[19:16:44] end   paired_q2: exit 0, peak 3.29 GB, 114 s
+[19:16:44] start paired_q3
+[19:17:08] end   paired_q3: exit 0, peak 0.74 GB, 24 s
+[19:17:08] start paired_q4
+[19:17:13] end   paired_q4: exit 0, peak 0.23 GB, 5 s
+[19:17:13] start paired_q5
+[19:18:13] end   paired_q5: exit 0, peak 1.65 GB, 60 s
+[19:18:13] start paired_q8
+[19:18:21] end   paired_q8: exit 0, peak 0.30 GB, 8 s
+[19:18:21] start paired_q16
+[19:18:22] end   paired_q16: exit 0, peak 0.02 GB, 1 s
+[19:18:22] start paired_q9
+[19:18:42] end   paired_q9: exit 0, peak 0.65 GB, 20 s
+[19:18:42] start paired_q7
+[19:18:56] end   paired_q7: exit 0, peak 0.11 GB, 14 s
+[19:18:56] start paired_q11
+[19:22:10] end   paired_q11: exit 0, peak 2.26 GB, 194 s
+[19:22:10] start paired_q13
+[19:34:34] end   paired_q13: exit 0, peak 7.51 GB, 744 s
+[19:34:34] start incidence
+[19:44:16] end   incidence: exit 0, peak 3.58 GB, 582 s
+[19:44:16] start kernel_2_4_2
+[19:44:16] end   kernel_2_4_2: exit 0, peak 0.00 GB, 0 s
+[19:44:16] start kernel_2_6_3
+[19:44:16] end   kernel_2_6_3: exit 0, peak 0.00 GB, 0 s
+[19:44:16] start kernel_2_8_4
+[19:44:22] end   kernel_2_8_4: exit 0, peak 0.78 GB, 6 s
+[19:44:22] start kernel_2_10_5
+[19:56:57] end   kernel_2_10_5: exit 0, peak 63.42 GB, 755 s
+[19:56:57] start kernel_3_4_2
+[19:56:57] end   kernel_3_4_2: exit 0, peak 0.00 GB, 0 s
+[19:56:57] start kernel_3_6_3
+[20:00:39] end   kernel_3_6_3: exit 0, peak 0.13 GB, 222 s
+[20:00:39] start kernel_4_4_2
+[20:00:39] end   kernel_4_4_2: exit 0, peak 0.00 GB, 0 s
+[20:00:39] start kernel_4_6_3
+[20:01:03] end   kernel_4_6_3: exit 0, peak 5.44 GB, 24 s
+[20:01:03] start kernel_5_4_2
+[20:01:03] end   kernel_5_4_2: exit 0, peak 0.00 GB, 0 s
+[20:01:03] start kernel_5_6_3
+[20:10:57] end   kernel_5_6_3: exit 0, peak 102.25 GB, 594 s
+[20:10:57] start paired_q4_n7
+[20:25:57] end   paired_q4_n7: exit 0, peak 20.06 GB, 900 s
+[20:25:57] start paired_q16_n5
+[20:59:40] end   paired_q16_n5: exit 0, peak 35.82 GB, 2023 s
+[20:59:40] start paired_q7_n6
+[21:40:20] end   paired_q7_n6: exit 0, peak 35.94 GB, 2440 s
+[21:40:20] start paired_q3_n8
+[22:07:17] end   paired_q3_n8: exit 0, peak 43.74 GB, 1617 s
+[22:07:17] start paired_q2_n10
+[22:48:13] end   paired_q2_n10: exit 0, peak 60.07 GB, 2456 s
+[22:48:13] start paired_q8_n6
+[00:36:00] end   paired_q8_n6: exit 0, peak 134.74 GB, 6467 s
+[00:36:00] start verify
+[00:38:38] end   verify: exit 0, peak 8.72 GB, 158 s
+[00:38:38] DONE. Download results_bigmem.tar.gz (20K) and send it back.

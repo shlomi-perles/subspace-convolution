@@ -1,0 +1,79 @@
+  covering-pair sweep: 0.006222 s, 7.38e+06 pairs, 0.05 GB, plan 0.163 s, rel diff to fast on all outputs 2.8e-16
+q=2 (n,a,b)=(8,2,6) S=2.16e+04: fast 0.0002275 s (0.00 GB), rel err 1.5e-15; direct 7.03e+06 pairs (261.3 ns/pair on the fly), layers 7.38e+06 pairs / 4.17e+05 values, tuples 1.05e+06 ops / 6.55e+04 values
+  covering-pair sweep: 17.51 s, 6.73e+09 pairs, 34.04 GB, plan 129 s, rel diff to fast on all outputs 6.7e-16
+q=3 (n,a,b)=(8,2,6) S=1.79e+06: fast 0.03202 s (0.09 GB), rel err 5.9e-15; direct 9.87e+09 pairs (221.6 ns/pair on the fly), layers 6.73e+09 pairs / 1.28e+08 values, tuples 6.89e+08 ops / 4.3e+07 values
+q=4 (n,a,b)=(8,2,6) S=4.77e+07: fast 1.014 s (1.33 GB), rel err 1.2e-14; direct 2.22e+12 pairs (238.9 ns/pair on the fly), layers 1.12e+12 pairs / 9.37e+09 values, tuples 1.37e+11 ops / 4.29e+09 values
+  covering-pair sweep: 0.3226 s, 2.02e+08 pairs, 1.29 GB, plan 3.51 s, rel diff to fast on all outputs 3.8e-16
+q=2 (n,a,b)=(9,3,6) S=1.58e+06: fast 0.01793 s (0.05 GB), rel err 1.6e-15; direct 1.1e+09 pairs (318.8 ns/pair on the fly), layers 2.02e+08 pairs / 8.2e+06 values, tuples 3.62e+09 ops / 1.34e+08 values
+  covering-pair sweep: 21.58 s, 8.38e+09 pairs, 48.91 GB, plan 213 s, rel diff to fast on all outputs 7.2e-16
+q=2 (n,a,b)=(10,3,7) S=1.27e+07: fast 0.2555 s (0.42 GB), rel err 4.8e-15; direct 7.5e+10 pairs (367.2 ns/pair on the fly), layers 8.38e+09 pairs / 2.29e+08 values, tuples 3.22e+10 ops / 1.07e+09 values
+q=2 (n,a,b)=(11,3,8) S=1.02e+08: fast 2.941 s (3.36 GB), rel err 1.3e-14; direct 4.95e+12 pairs (429.6 ns/pair on the fly), layers 4.7e+11 pairs / 8.93e+09 values, tuples 2.83e+11 ops / 8.59e+09 values
+q=2 (n,a,b)=(12,2,10) S=5.59e+06: fast 0.07838 s (0.16 GB), rel err 2e-14; direct 4.87e+11 pairs (374.3 ns/pair on the fly), layers 3.66e+13 pairs / 4.88e+11 values, tuples 4.03e+08 ops / 1.68e+07 values
+q=2 (n,a,b)=(13,2,11) S=2.24e+07: fast 0.4145 s (0.62 GB), rel err 3.5e-14; direct 7.8e+12 pairs (422.6 ns/pair on the fly), layers 4e+15 pairs / 3.76e+13 values, tuples 1.74e+09 ops / 6.71e+07 values
+q=2 (n,a,b)=(14,2,12) S=8.95e+07: fast 2.121 s (2.49 GB), rel err 7.3e-14; direct 1.25e+14 pairs (467.8 ns/pair on the fly), layers 6.15e+17 pairs / 4.07e+15 values, tuples 7.52e+09 ops / 2.68e+08 values
+q=3 (n,a,b)=(9,2,7) S=1.61e+07: fast 0.4697 s (0.82 GB), rel err 1.3e-14; direct 8.03e+11 pairs (260.2 ns/pair on the fly), layers 1.26e+12 pairs / 1.37e+10 values, tuples 6.97e+09 ops / 3.87e+08 values
+q=2 (n,a,b)=(16,1,15) S=1.31e+05: fast 0.001905 s (0.00 GB), rel err 7.9e-15; direct 2.15e+09 pairs (348.0 ns/pair on the fly), layers 1.5e+22 pairs / 4.25e+19 values, tuples 1.05e+06 ops / 6.55e+04 values
+q=3 (n,a,b)=(15,1,14) S=1.43e+07: fast 0.2815 s (0.53 GB), rel err 6.3e-14; direct 1.72e+13 pairs (341.6 ns/pair on the fly), layers 1.44e+24 pairs / 6.8e+19 values, tuples 2.15e+08 ops / 1.43e+07 values
+  covering-pair sweep: 7.572 s, 3.07e+09 pairs, 14.83 GB, plan 70.7 s, rel diff to fast on all outputs 4.8e-16
+q=4 (n,a,b)=(7,2,5) S=2.98e+06: fast 0.03298 s (0.08 GB), rel err 3e-15; direct 8.64e+09 pairs (195.9 ns/pair on the fly), layers 3.07e+09 pairs / 5.14e+07 values, tuples 7.52e+09 ops / 2.68e+08 values
+  covering-pair sweep: 113.5 s, 2.28e+10 pairs, 99.27 GB, plan 470 s, rel diff to fast on all outputs 7.9e-16
+q=8 (n,a,b)=(6,2,4) S=3.9e+07: fast 0.8055 s (1.09 GB), rel err 4.1e-15; direct 9.24e+10 pairs (216.4 ns/pair on the fly), layers 2.28e+10 pairs / 1.95e+08 values, tuples 2.47e+12 ops / 6.87e+10 values
+q=8 (n,a,b)=(7,2,5) S=2.49e+09: fast 80.47 s (69.73 GB), rel err 3e-14; direct 3.79e+14 pairs (330.3 ns/pair on the fly), layers 5.84e+13 pairs / 1.62e+11 values, tuples 1.85e+14 ops / 4.4e+12 values
+q=4 (n,a,b)=(9,2,7) S=7.64e+08: fast 20.16 s (21.30 GB), rel err 5.2e-14; direct 5.69e+14 pairs (274.7 ns/pair on the fly), layers 8.19e+14 pairs / 3.39e+12 values, tuples 2.47e+12 ops / 6.87e+10 values
+q=2 (n,a,b)=(12,3,9) S=8.17e+08: fast 28.39 s (27.01 GB), rel err 5.2e-14; direct 3.22e+14 pairs (474.4 ns/pair on the fly), layers 3.66e+13 pairs / 4.88e+11 values, tuples 2.47e+12 ops / 6.87e+10 values
+q=2 (n,a,b)=(16,1,15): Poisson table q^16 = 6.55e+04 values (0.0 GB)
+  fast: 0.001847 s (median of 15), 1.38e+06 flops, 0.00 GB, plan 0.0336 s
+  poisson: lift 0.0001034 s, fft 0.0004467 s, sums 0.0007068 s, total 0.001257 s (9 runs), 0.0 GB, plan 0.00499 s
+  check: max rel err vs direct (200 samples): poisson 7.8e-15, fast 7.9e-15; poisson vs fast on all 65535 outputs: 2.7e-16
+q=2 (n,a,b)=(8,2,6): Poisson table q^16 = 6.55e+04 values (0.0 GB)
+  fast: 0.000302 s (median of 15), 2.62e+05 flops, 0.00 GB, plan 0.00673 s
+  poisson: lift 3.439e-05 s, fft 0.0004783 s, sums 0.0007039 s, total 0.001217 s (9 runs), 0.0 GB, plan 0.00264 s
+  check: max rel err vs direct (200 samples): poisson 1.6e-15, fast 1.5e-15; poisson vs fast on all 10795 outputs: 4.4e-16
+q=2 (n,a,b)=(12,2,10): Poisson table q^24 = 1.68e+07 values (0.1 GB)
+  fast: 0.0791 s (median of 15), 9.66e+07 flops, 0.16 GB, plan 0.128 s
+  poisson: lift 0.02429 s, fft 0.1505 s, sums 0.3742 s, total 0.549 s (9 runs), 0.2 GB, plan 0.139 s
+  check: max rel err vs direct (200 samples): poisson 2e-14, fast 2e-14; poisson vs fast on all 2794155 outputs: 1.1e-15
+q=2 (n,a,b)=(13,2,11): Poisson table q^26 = 6.71e+07 values (0.5 GB)
+  fast: 0.4213 s (median of 11), 4.13e+08 flops, 0.62 GB, plan 0.428 s
+  poisson: lift 0.1016 s, fft 0.6095 s, sums 1.557 s, total 2.268 s (3 runs), 1.0 GB, plan 0.525 s
+  check: max rel err vs direct (200 samples): poisson 3.5e-14, fast 3.5e-14; poisson vs fast on all 11180715 outputs: 8.3e-16
+q=2 (n,a,b)=(14,2,12): Poisson table q^28 = 2.68e+08 values (2.1 GB)
+  fast: 2.126 s (median of 3), 1.76e+09 flops, 2.49 GB, plan 1.64 s
+  poisson: lift 0.4162 s, fft 2.803 s, sums 6.437 s, total 9.656 s (1 run), 3.9 GB, plan 2.2 s
+  check: max rel err vs direct (200 samples): poisson 7.3e-14, fast 7.3e-14; poisson vs fast on all 44731051 outputs: 3.3e-15
+q=3 (n,a,b)=(8,2,6): Poisson table q^16 = 4.3e+07 values (0.7 GB)
+  fast: 0.03232 s (median of 15), 8.18e+07 flops, 0.09 GB, plan 0.0362 s
+  poisson: lift 0.1068 s, fft 0.65 s, sums 0.6015 s, total 1.358 s (3 runs), 0.8 GB, plan 0.0588 s
+  check: max rel err vs direct (200 samples): poisson 5.9e-15, fast 5.9e-15; poisson vs fast on all 896260 outputs: 1.1e-15
+q=3 (n,a,b)=(9,2,7): Poisson table q^18 = 3.87e+08 values (6.2 GB)
+  fast: 0.4648 s (median of 10), 8.3e+08 flops, 0.82 GB, plan 0.158 s
+  poisson: lift 1.035 s, fft 7.239 s, sums 5.921 s, total 14.2 s (1 run), 6.8 GB, plan 0.435 s
+  check: max rel err vs direct (200 samples): poisson 1.3e-14, fast 1.3e-14; poisson vs fast on all 8069620 outputs: 9.4e-16
+q=2 (n,a,b)=(9,3,6): Poisson table q^27 = 1.34e+08 values (1.1 GB)
+  fast: 0.0175 s (median of 15), 2.76e+07 flops, 0.05 GB, plan 0.035 s
+  poisson: lift 0.1626 s, fft 1.266 s, sums 2.193 s, total 3.621 s (3 runs), 1.1 GB, plan 0.0614 s
+  check: max rel err vs direct (200 samples): poisson 1.7e-15, fast 1.6e-15; poisson vs fast on all 788035 outputs: 2.7e-15
+q=4 (n,a,b)=(7,2,5): Poisson table q^14 = 2.68e+08 values (2.1 GB)
+  fast: 0.03235 s (median of 15), 4.47e+07 flops, 0.08 GB, plan 0.0385 s
+  poisson: lift 0.3336 s, fft 2.799 s, sums 3.348 s, total 6.48 s (1 run), 2.4 GB, plan 0.125 s
+  check: max rel err vs direct (200 samples): poisson 2.9e-15, fast 3e-15; poisson vs fast on all 1490853 outputs: 3.1e-15
+q=2 (n,a,b)=(10,3,7): Poisson table q^30 = 1.07e+09 values (8.6 GB)
+  fast: 0.2565 s (median of 15), 2.53e+08 flops, 0.42 GB, plan 0.148 s
+  poisson: lift 1.463 s, fft 12.67 s, sums 20.79 s, total 34.93 s (1 run), 9.0 GB, plan 0.401 s
+  check: max rel err vs direct (200 samples): poisson 4.5e-15, fast 4.8e-15; poisson vs fast on all 6347715 outputs: 3.5e-15
+q=4 (n,a,b)=(8,2,6): Poisson table q^16 = 4.29e+09 values (34.4 GB)
+  fast: 1.015 s (median of 4), 8.17e+08 flops, 1.33 GB, plan 0.367 s
+  poisson: lift 7.751 s, fft 60.55 s, sums 62.86 s, total 131.2 s (1 run), 37.6 GB, plan 1.78 s
+  check: max rel err vs direct (200 samples): poisson 1.2e-14, fast 1.2e-14; poisson vs fast on all 23859109 outputs: 2.7e-15
+q=2 (n,a,b)=(11,3,8): Poisson table q^33 = 8.59e+09 values (68.7 GB)
+  fast: 2.872 s (median of 3), 2.24e+09 flops, 3.36 GB, plan 1.15 s
+  poisson: lift 19.95 s, fft 131.8 s, sums 209.8 s, total 361.5 s (1 run), 72.4 GB, plan 3.32 s
+  check: max rel err vs direct (200 samples): poisson 1.3e-14, fast 1.3e-14; poisson vs fast on all 50955971 outputs: 3.6e-15
+q=4 (n,a,b)=(9,2,7): Poisson table q^18 = 6.87e+10 values (549.8 GB)
+  fast: 20.42 s (median of 3), 1.47e+10 flops, 21.30 GB, plan 6.16 s
+  poisson: lift 374 s, fft 1619 s, sums 1961 s, total 3954 s (1 run), 601.7 GB, plan 34.4 s
+  check: max rel err vs direct (200 samples): poisson 5.3e-14, fast 5.2e-14; poisson vs fast on all 381767589 outputs: 2.9e-15
+q=2 (n,a,b)=(12,3,9): Poisson table q^36 = 6.87e+10 values (549.8 GB)
+  fast: 27.95 s (median of 3), 1.96e+10 flops, 27.01 GB, plan 11 s
+  poisson: lift 375.2 s, fft 1635 s, sums 2545 s, total 4555 s (1 run), 579.2 GB, plan 32.1 s
+  check: max rel err vs direct (200 samples): poisson 5.2e-14, fast 5.2e-14; poisson vs fast on all 408345795 outputs: 3.4e-15

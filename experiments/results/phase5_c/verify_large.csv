@@ -1,0 +1,19 @@
+experiment,q,n,a,b,size,check,samples,max_rel_err,note,seconds
+zeta,5,7,0,7,666124288,direct_sums_sampled,430,7.329501381e-16,uniform W and dims 0 1 2 3 4 5,0.040566865
+zeta,5,7,0,7,666124288,direct_mobius_sums_sampled,430,6.842153436e-16,uniform W and dims 0 1 2 3 4 5,40.55466059
+zeta,5,7,0,7,666124288,direct_sum_full_space,1,9.003680039e-16,,0
+zeta,5,7,0,7,666124288,hybrid_vs_fft,666124288,1.255871099e-16,t=4,40.57321622
+zeta,5,7,0,7,666124288,sweep_vs_fft,666124288,3.662957372e-16,covering pairs 279.9364168 GB,2603.216872
+zeta,5,7,0,7,666124288,sweep_vs_fft_mobius,666124288,1.83439066e-15,covering pairs 279.9364168 GB,382.4609985
+zeta,2,10,0,10,229755605,direct_sums_sampled,445,3.293147688e-16,uniform W and dims 0 1 2 3 4 5 6 7 8,0.260392039
+zeta,2,10,0,10,229755605,direct_mobius_sums_sampled,445,2.562776129e-16,uniform W and dims 0 1 2 3 4 5 6 7 8,12.02328392
+zeta,2,10,0,10,229755605,direct_sum_full_space,1,5.462689503e-16,,0
+zeta,2,10,0,10,229755605,hybrid_vs_fft,229755605,2.087626069e-16,t=8,9.102078609
+zeta,2,10,0,10,229755605,sweep_vs_fft,229755605,2.087626069e-16,covering pairs 33.89591014 GB,358.0201965
+zeta,2,10,0,10,229755605,sweep_vs_fft_mobius,229755605,7.795549894e-16,covering pairs 33.89591014 GB,35.3168158
+zeta,3,8,0,8,127902864,direct_sums_sampled,435,3.83001153e-16,uniform W and dims 0 1 2 3 4 5 6,0.041764548
+zeta,3,8,0,8,127902864,direct_mobius_sums_sampled,435,8.506545034e-16,uniform W and dims 0 1 2 3 4 5 6,6.457509284
+zeta,3,8,0,8,127902864,direct_sum_full_space,1,4.486010561e-17,,0
+zeta,3,8,0,8,127902864,hybrid_vs_fft,127902864,2.579887973e-16,t=6,5.705624198
+zeta,3,8,0,8,127902864,sweep_vs_fft,127902864,2.59463019e-15,covering pairs 26.93084672 GB,225.6716551
+zeta,3,8,0,8,127902864,sweep_vs_fft_mobius,127902864,1.46905726e-15,covering pairs 26.93084672 GB,24.76251951

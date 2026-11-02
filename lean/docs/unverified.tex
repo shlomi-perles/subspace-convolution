@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem*{lemC}{Lemma C.2 (FGLSZ19, Lemma~3.1 and its construction)}
+
+\newcommand{\F}{\mathbb F}
+\newcommand{\Gr}{\operatorname{Gr}_q}
+\newcommand{\ZetaTransform}{\mathsf{Z}}
+\newcommand{\ETH}{\mathrm{ETH}}
+\DeclareMathOperator{\poly}{poly}
+
+\title{What the Lean verification of\\ \emph{A Fast Algorithm for Subspace Convolution}
+does not cover}
+\author{Companion to the directory \texttt{lean/} of the repository
+\texttt{shlomi-perles/subspace-convolution}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+Every numbered result of the paper is formalized and checked by Lean using only the three standard
+axioms:
+\begin{itemize}
+  \item Theorems~1.1, 1.2 and~1.4, Lemmas~2.1 and~3.1, Theorem~5.1, Corollary~F.1 and
+    Theorem~G.1;
+  \item Lemma~7.1, Theorem~7.1, Corollary~7.2, Proposition~7.3, Lemmas~C.3 and~C.4,
+    Theorems~C.1, D.1 and~D.2.
+\end{itemize}
+The unnumbered claims are formalized too: the estimates of Appendices~A and~B, the equations of
+Sections~3--5, the applications of Section~5 and Appendix~E, and the footnote of Section~1.
+This note lists, as precisely as possible, what is \emph{not} formalized: modelling choices,
+hypotheses, and the few claims outside the model.
+
+\section*{A. The transform part (Sections 1--5, Appendices A, B, E, F, G)}
+
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{Arithmetic operations are gates of straight-line programs.}
+  \begin{itemize}
+    \item Linear computations are programs with gates $z=ax+by$; bilinear ones (span convolution,
+      kernels whose coefficients are inputs, the count $\sum_U f(U)B_g(U)$) may also multiply two
+      computed values.
+    \item One gate is at most three ring operations, so the bounds are the paper's operation
+      counts up to a factor of three.
+    \item Programs are non-uniform: one program for each $n,k$ (and each coefficient ring).
+  \end{itemize}
+\item \textbf{Index construction is not formalized.} The paper's claims that constructing subspace
+  bases, cosets, kernels and coordinate changes takes table size times $\poly(n)$ work
+  (Section~1, Section~5.2 and the first paragraph of Appendix~F) concern a machine model. They are
+  not formalized.
+\item \textbf{Bit costs (Corollary~F.1).}
+  \begin{itemize}
+    \item Proved: the Möbius coefficients and the output bound; the choice of a modulus
+      $L\in\{2B+1,2B+2\}$ coprime to $p$; exact recovery from centered residues; and the number of
+      operations modulo $L$.
+    \item Taken as the bit-cost model: each operation modulo $L$ is charged $(\log_2 L+1)^2$ bit
+      operations (schoolbook arithmetic).
+    \item Not formalized: the remarks after Corollary~F.1, namely
+      \begin{itemize}
+        \item evaluating over explicitly represented finite fields;
+        \item the polynomial bit overhead of span convolution;
+        \item determinant bounds for rational kernel coefficients and the resulting
+          $\poly(n,H)$ bit costs of kernel applications and of solving.
+      \end{itemize}
+  \end{itemize}
+\item \textbf{Theorem~5.1 outside the arithmetic model.}
+  \begin{itemize}
+    \item Formalized: both transforms (with their costs over $\mathbb Q$), the table $t$, and
+      the identities $a=\ZetaTransform_n t$ and $C=\ZetaTransform_n^{-1}(2^{a})$.
+    \item Accounted for in the documentation only: building $t$ ($\ell$ increments) and
+      $2^0,\dots,2^\ell$ ($\ell$ doublings). Indexing the list by the integer $a(U)$ is a table
+      lookup, not an arithmetic operation.
+  \end{itemize}
+\item \textbf{Invariant linear systems (Appendix~E).}
+  \begin{itemize}
+    \item Formalized: the structure of the small system~(small-system), the equivalence
+      ``$K$ invertible $\iff$ $\det B\ne0$'', and the inverse kernel $C$ when $Bc=e_0$.
+    \item Formalized: the cost of applying $C=K^{-1}$.
+    \item Not counted as gates: solving the $(d+1)\times(d+1)$ system, which needs field
+      divisions.
+  \end{itemize}
+\item \textbf{Statements about other algorithms are not formalized.}
+  \begin{itemize}
+    \item Running times of earlier algorithms (\cite{KKW16}, \cite{MOR04}, \cite{BTV10},
+      \cite{GHO13}) and Kennes' addition-only lower bound \cite{Ken92} are cited facts. Formalized are only
+      the counts they rest on (cover pairs, the inclusion count of Section~5.3).
+    \item The eigenvalues of the Grassmann graph, which the paper cites from \cite{Sri14,MOR04},
+      are \emph{proved} in Lean.
+  \end{itemize}
+\end{enumerate}
+
+\section*{B. The coloring part (Section 7, Appendices C, D): hypotheses and unmodelled details}
+
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{Lemma~C.2 is a hypothesis.} It is cited from Fomin--Golovach--Lokshtanov--Saurabh--Zehavi
+  and enters Theorem~C.1 as a hypothesis about the cost model:
+  \begin{lemC}
+  Under $\ETH$, for any computable $f$, 4-Monotone min-CSP has no $f(k)n^{o(k)}$ algorithm, even
+  when $|\mathcal C|=O(k^2n^2)$ and $L:=\max(1,\max_C|\mathcal R_C|)\le\max(n,4)$.
+  \end{lemC}
+\item \textbf{ETH and \#ETH are hypotheses.}
+  \begin{itemize}
+    \item Theorems~D.1 and~D.2 assume them in an abstract cost model.
+    \item A Lean-checked refutation of ETH was published in October 2026
+      (\texttt{github.com/anthropics/formal-math}, folder \texttt{eth/}); it has not been peer
+      reviewed. If it is correct, the conditional forms of Theorems~C.1, D.1 and~D.2 hold
+      vacuously.
+    \item The unconditional running-time transfers are proved, and they are unaffected.
+  \end{itemize}
+\item \textbf{Running times of the reductions are assumed.} The cost model assumes the following
+  instead of proving them on a machine model:
+  \begin{itemize}
+    \item the constructions take $g_1(k)n^{O(1)}$ time (Theorem~C.1) and $2^{O(k)}\poly(m)$ time
+      (Appendix~D);
+    \item exact division by the known factor of eq.~(cnt:identity) is cheap (Theorem~D.2).
+  \end{itemize}
+\item \textbf{Computability of $f$ is not tracked.}
+  \begin{itemize}
+    \item Theorem~C.1 is formalized for arbitrary real-valued $f$ on both sides.
+    \item Applying Lemma~C.2 as stated needs the step ``the composite bound $F(k)$ is computable
+      when $f$ is''. That step is not formalized.
+  \end{itemize}
+\item \textbf{Bit complexity of Theorem~7.1 is not modelled.}
+  \begin{itemize}
+    \item Theorem~7.1 and Corollary~7.2 are verified in arithmetic operations, counting the
+      transitions of the aggregated dynamic program.
+    \item Not formalized: the claims that all counts have $O(N\log N)$ bits, and that exact
+      arithmetic costs a polynomial factor.
+  \end{itemize}
+\item \textbf{The cost of reconstructing an optimal coloring is not bounded.}
+  \begin{itemize}
+    \item The backtracking recursion and its correctness are formalized; its running time is not.
+    \item Neither is the separate reconstruction for the linear-layout program of
+      Corollary~7.2.
+  \end{itemize}
+\item \textbf{Unrooted rank-decompositions are not formalized.}
+  \begin{itemize}
+    \item A rank-decomposition is formalized as a rooted binary tree.
+    \item The passage from a subcubic tree (``suppress degree-two vertices and subdivide an edge
+      to root it'') is not formalized.
+  \end{itemize}
+\item \textbf{Appendix~D is verified for a variant grouping.}
+  \begin{itemize}
+    \item Lean makes the clause-local groups once per literal occurrence, so $g=2k+3m$. The paper
+      makes them once per pair $(i,j\in J_i)$, so $g=2k+\sum_i|J_i|$.
+    \item The counting identity, the vertex count and the width bound $2k+19$ are proved for this
+      variant.
+  \end{itemize}
+\item \textbf{Rank-decomposition versions are only partly formalized.}
+  \begin{itemize}
+    \item For Theorems~C.1, D.1 and~D.2 only the caterpillar width bound is proved: the
+      caterpillar of the supplied layout has the same width.
+    \item The corresponding cost-model statements for supplied rank-decompositions are not
+      stated.
+  \end{itemize}
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{BTV10} B.-M.~Bui-Xuan, J.~A.~Telle, M.~Vatshelle, \emph{$H$-join decomposable graphs and
+algorithms with runtime single exponential in rankwidth}, Discrete Appl.\ Math.\ 158(7), 2010.
+\bibitem{FGLSZ19} F.~V.~Fomin, P.~A.~Golovach, D.~Lokshtanov, S.~Saurabh, M.~Zehavi,
+\emph{Clique-width III: Hamiltonian Cycle and the Odd Case of Graph Coloring},
+ACM Trans.\ Algorithms 15(1), 2019.
+\bibitem{GHO13} R.~Ganian, P.~Hlin\v{e}n\'y, J.~Obdr\v{z}\'alek, \emph{A unified approach to
+polynomial algorithms on graphs of bounded (bi-)rank-width}, European J.\ Combin.\ 34(3), 2013.
+\bibitem{Ken92} R.~Kennes, \emph{Computational aspects of the M\"obius transformation of graphs},
+IEEE Trans.\ Syst.\ Man Cybern.\ 22(2), 1992.
+\bibitem{KKW16} P.~Kaski, J.~Kohonen, T.~Westerb\"ack, \emph{Fast M\"obius inversion in semimodular
+lattices and ER-labelable posets}, Electron.\ J.\ Combin.\ 23(3), 2016.
+\bibitem{MOR04} D.~K.~Maslen, M.~E.~Orrison, D.~N.~Rockmore, \emph{Computing isotypic projections
+with the Lanczos iteration}, SIAM J.\ Matrix Anal.\ Appl.\ 25(3), 2004.
+\bibitem{Sri14} M.~K.~Srinivasan, \emph{The Goldman--Rota identity and the Grassmann scheme},
+Electron.\ J.\ Combin.\ 21(1), 2014.
+\end{thebibliography}
+
+\end{document}

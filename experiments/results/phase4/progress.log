@@ -1,0 +1,10 @@
+[23:46:28] unit tests passed
+[23:46:28] start paired_q7
+[23:46:33] end   paired_q7: exit 0, peak 0.12 GB, 5 s
+[23:46:33] start paired_q11
+[23:47:48] end   paired_q11: exit 0, peak 2.36 GB, 75 s
+[23:47:48] start paired_q13
+[23:53:57] end   paired_q13: exit 0, peak 7.89 GB, 369 s
+[23:53:57] start paired_q7_n6
+[00:17:03] end   paired_q7_n6: exit 0, peak 37.48 GB, 1386 s
+[00:17:03] DONE

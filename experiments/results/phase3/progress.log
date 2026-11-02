@@ -1,0 +1,10 @@
+[19:41:59] unit tests (5-bit build, includes q=32) passed
+[19:41:59] start paired_q32_small
+[19:42:15] end   paired_q32_small: exit 0, peak 0.53 GB, 16 s
+[19:42:15] start paired_q32_n5
+[23:35:07] end   paired_q32_n5: exit 0, peak 179.11 GB, 13972 s
+[23:35:07] start sampled_q16_n5
+[23:36:37] end   sampled_q16_n5: exit 0, peak 2.00 GB, 90 s
+[23:36:37] start sampled_q8_n6
+[23:45:30] end   sampled_q8_n6: exit 0, peak 10.29 GB, 533 s
+[23:45:30] DONE

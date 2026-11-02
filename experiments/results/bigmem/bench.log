@@ -1,0 +1,165 @@
+q=2 n=4 N=67 zeta: speedup over sweep  FFT 0.16x [0.16, 0.17]  hybrid(t=3) 0.47x [0.46, 0.48]  (fft 6.029e-06 s, hybrid 2.099e-06 s, sweep 9.72e-07 s)
+q=2 n=4 N=67 mobius: speedup over sweep  FFT 0.14x [0.14, 0.14]  hybrid(t=3) 0.42x [0.41, 0.44]  (fft 5.659e-06 s, hybrid 1.94e-06 s, sweep 8.04e-07 s)
+q=2 n=5 N=374 zeta: speedup over sweep  FFT 0.37x [0.37, 0.38]  hybrid(t=4) 0.98x [0.97, 1.00]  (fft 1.672e-05 s, hybrid 6.37e-06 s, sweep 6.238e-06 s)
+q=2 n=5 N=374 mobius: speedup over sweep  FFT 0.32x [0.32, 0.32]  hybrid(t=4) 0.89x [0.87, 0.90]  (fft 1.853e-05 s, hybrid 6.667e-06 s, sweep 5.909e-06 s)
+q=2 n=6 N=2825 zeta: speedup over sweep  FFT 0.92x [0.89, 0.92]  hybrid(t=5) 1.61x [1.55, 1.61]  (fft 4.704e-05 s, hybrid 2.7e-05 s, sweep 4.344e-05 s)
+q=2 n=6 N=2825 mobius: speedup over sweep  FFT 0.81x [0.81, 0.81]  hybrid(t=5) 1.48x [1.47, 1.48]  (fft 3.346e-05 s, hybrid 1.836e-05 s, sweep 2.707e-05 s)
+q=2 n=7 N=29212 zeta: speedup over sweep  FFT 1.48x [1.46, 1.49]  hybrid(t=5) 2.10x [2.08, 2.16]  (fft 0.000197 s, hybrid 0.0001384 s, sweep 0.0002918 s)
+q=2 n=7 N=29212 mobius: speedup over sweep  FFT 1.27x [1.21, 1.30]  hybrid(t=5) 1.88x [1.79, 1.92]  (fft 0.0002171 s, hybrid 0.0001467 s, sweep 0.0002752 s)
+q=2 n=8 N=417199 zeta: speedup over sweep  FFT 1.59x [1.57, 1.60]  hybrid(t=6) 2.31x [2.29, 2.32]  (fft 0.004156 s, hybrid 0.002868 s, sweep 0.006624 s)
+q=2 n=8 N=417199 mobius: speedup over sweep  FFT 1.43x [1.40, 1.45]  hybrid(t=6) 2.15x [2.12, 2.16]  (fft 0.004504 s, hybrid 0.003003 s, sweep 0.006459 s)
+q=2 n=9 N=8283458 zeta: speedup over sweep  FFT 1.51x [1.51, 1.52]  hybrid(t=7) 2.43x [2.42, 2.44]  (fft 0.2295 s, hybrid 0.1429 s, sweep 0.3474 s)
+q=2 n=9 N=8283458 mobius: speedup over sweep  FFT 1.37x [1.36, 1.38]  hybrid(t=7) 2.27x [2.26, 2.28]  (fft 0.2428 s, hybrid 0.1469 s, sweep 0.3335 s)
+q=3 n=4 N=212 zeta: speedup over sweep  FFT 0.32x [0.32, 0.33]  hybrid(t=3) 0.69x [0.69, 0.70]  (fft 1.084e-05 s, hybrid 5.058e-06 s, sweep 3.499e-06 s)
+q=3 n=4 N=212 mobius: speedup over sweep  FFT 0.30x [0.29, 0.30]  hybrid(t=3) 0.65x [0.65, 0.66]  (fft 1.197e-05 s, hybrid 5.411e-06 s, sweep 3.532e-06 s)
+q=3 n=5 N=2664 zeta: speedup over sweep  FFT 0.94x [0.94, 0.94]  hybrid(t=4) 1.30x [1.30, 1.31]  (fft 4.483e-05 s, hybrid 3.222e-05 s, sweep 4.197e-05 s)
+q=3 n=5 N=2664 mobius: speedup over sweep  FFT 0.84x [0.84, 0.84]  hybrid(t=4) 1.22x [1.22, 1.22]  (fft 3.193e-05 s, hybrid 2.195e-05 s, sweep 2.674e-05 s)
+q=3 n=6 N=56632 zeta: speedup over sweep  FFT 1.46x [1.46, 1.47]  hybrid(t=5) 1.66x [1.65, 1.67]  (fft 0.0004471 s, hybrid 0.0003947 s, sweep 0.0006539 s)
+q=3 n=6 N=56632 mobius: speedup over sweep  FFT 1.33x [1.32, 1.35]  hybrid(t=5) 1.59x [1.57, 1.60]  (fft 0.0004997 s, hybrid 0.000427 s, sweep 0.0006756 s)
+q=3 n=7 N=2052656 zeta: speedup over sweep  FFT 1.80x [1.77, 1.82]  hybrid(t=5) 2.16x [2.12, 2.17]  (fft 0.0412 s, hybrid 0.03445 s, sweep 0.07446 s)
+q=3 n=7 N=2052656 mobius: speedup over sweep  FFT 1.73x [1.72, 1.74]  hybrid(t=5) 2.14x [2.14, 2.17]  (fft 0.04398 s, hybrid 0.03554 s, sweep 0.07612 s)
+q=4 n=4 N=529 zeta: speedup over sweep  FFT 0.55x [0.55, 0.56]  hybrid(t=3) 0.84x [0.84, 0.85]  (fft 1.773e-05 s, hybrid 1.165e-05 s, sweep 9.811e-06 s)
+q=4 n=4 N=529 mobius: speedup over sweep  FFT 0.50x [0.49, 0.50]  hybrid(t=3) 0.78x [0.77, 0.78]  (fft 1.92e-05 s, hybrid 1.228e-05 s, sweep 9.531e-06 s)
+q=4 n=5 N=12278 zeta: speedup over sweep  FFT 1.66x [1.62, 1.66]  hybrid(t=4) 2.17x [2.14, 2.18]  (fft 8.656e-05 s, hybrid 6.609e-05 s, sweep 0.0001437 s)
+q=4 n=5 N=12278 mobius: speedup over sweep  FFT 1.49x [1.49, 1.50]  hybrid(t=4) 2.02x [2.00, 2.02]  (fft 8.594e-05 s, hybrid 6.715e-05 s, sweep 0.0001285 s)
+q=4 n=6 N=565723 zeta: speedup over sweep  FFT 2.48x [2.45, 2.52]  hybrid(t=4) 3.59x [3.55, 3.63]  (fft 0.006597 s, hybrid 0.004558 s, sweep 0.01635 s)
+q=4 n=6 N=565723 mobius: speedup over sweep  FFT 2.28x [2.25, 2.29]  hybrid(t=4) 3.39x [3.33, 3.40]  (fft 0.007005 s, hybrid 0.004723 s, sweep 0.01598 s)
+q=5 n=4 N=1120 zeta: speedup over sweep  FFT 0.87x [0.83, 0.88]  hybrid(t=3) 1.19x [1.14, 1.21]  (fft 2.23e-05 s, hybrid 1.635e-05 s, sweep 1.96e-05 s)
+q=5 n=4 N=1120 mobius: speedup over sweep  FFT 0.78x [0.77, 0.78]  hybrid(t=3) 1.09x [1.08, 1.09]  (fft 2.409e-05 s, hybrid 1.714e-05 s, sweep 1.869e-05 s)
+q=5 n=5 N=42176 zeta: speedup over sweep  FFT 2.02x [2.00, 2.04]  hybrid(t=3) 2.27x [2.25, 2.28]  (fft 0.0003192 s, hybrid 0.0002842 s, sweep 0.0006468 s)
+q=5 n=5 N=42176 mobius: speedup over sweep  FFT 1.83x [1.80, 1.83]  hybrid(t=3) 2.11x [2.08, 2.12]  (fft 0.0003448 s, hybrid 0.0002988 s, sweep 0.0006283 s)
+q=5 n=6 N=3583232 zeta: speedup over sweep  FFT 2.68x [2.60, 2.70]  hybrid(t=4) 3.31x [3.30, 3.32]  (fft 0.08875 s, hybrid 0.07186 s, sweep 0.2379 s)
+q=5 n=6 N=3583232 mobius: speedup over sweep  FFT 2.44x [2.43, 2.52]  hybrid(t=4) 3.18x [3.18, 3.19]  (fft 0.09763 s, hybrid 0.0749 s, sweep 0.2384 s)
+q=8 n=3 N=148 zeta: speedup over sweep  FFT 0.25x [0.25, 0.26]  hybrid(t=2) 0.32x [0.31, 0.33]  (fft 9.178e-06 s, hybrid 7.337e-06 s, sweep 2.33e-06 s)
+q=8 n=3 N=148 mobius: speedup over sweep  FFT 0.23x [0.23, 0.24]  hybrid(t=2) 0.29x [0.29, 0.30]  (fft 9.916e-06 s, hybrid 7.864e-06 s, sweep 2.29e-06 s)
+q=8 n=4 N=5917 zeta: speedup over sweep  FFT 1.27x [1.27, 1.28]  hybrid(t=3) 1.58x [1.58, 1.58]  (fft 7.13e-05 s, hybrid 5.749e-05 s, sweep 9.075e-05 s)
+q=8 n=4 N=5917 mobius: speedup over sweep  FFT 1.18x [1.18, 1.18]  hybrid(t=3) 1.48x [1.48, 1.48]  (fft 5.694e-05 s, hybrid 4.537e-05 s, sweep 6.725e-05 s)
+q=8 n=5 N=617894 zeta: speedup over sweep  FFT 4.07x [4.03, 4.12]  hybrid(t=3) 5.83x [5.80, 5.84]  (fft 0.008576 s, hybrid 0.006008 s, sweep 0.03502 s)
+q=8 n=5 N=617894 mobius: speedup over sweep  FFT 3.84x [3.83, 3.86]  hybrid(t=3) 5.58x [5.55, 5.60]  (fft 0.009 s, hybrid 0.006192 s, sweep 0.0346 s)
+q=16 n=3 N=548 zeta: speedup over sweep  FFT 0.36x [0.36, 0.36]  hybrid(t=2) 0.39x [0.39, 0.40]  (fft 3.608e-05 s, hybrid 3.3e-05 s, sweep 1.301e-05 s)
+q=16 n=3 N=548 mobius: speedup over sweep  FFT 0.33x [0.33, 0.33]  hybrid(t=2) 0.37x [0.37, 0.37]  (fft 2.393e-05 s, hybrid 2.169e-05 s, sweep 7.969e-06 s)
+q=16 n=4 N=78901 zeta: speedup over sweep  FFT 2.65x [2.65, 2.66]  hybrid(t=3) 3.25x [3.24, 3.28]  (fft 0.000733 s, hybrid 0.0005984 s, sweep 0.001943 s)
+q=16 n=4 N=78901 mobius: speedup over sweep  FFT 2.50x [2.49, 2.51]  hybrid(t=3) 3.11x [3.10, 3.11]  (fft 0.0007712 s, hybrid 0.0006194 s, sweep 0.001926 s)
+q=9 n=3 N=184 zeta: speedup over sweep  FFT 0.35x [0.35, 0.35]  hybrid(t=2) 0.47x [0.46, 0.47]  (fft 8.518e-06 s, hybrid 6.469e-06 s, sweep 3.016e-06 s)
+q=9 n=3 N=184 mobius: speedup over sweep  FFT 0.32x [0.32, 0.32]  hybrid(t=2) 0.43x [0.43, 0.43]  (fft 9.392e-06 s, hybrid 6.997e-06 s, sweep 2.992e-06 s)
+q=9 n=4 N=9104 zeta: speedup over sweep  FFT 1.66x [1.65, 1.66]  hybrid(t=3) 1.96x [1.95, 1.97]  (fft 0.0001002 s, hybrid 7.624e-05 s, sweep 0.0001664 s)
+q=9 n=4 N=9104 mobius: speedup over sweep  FFT 1.51x [1.51, 1.53]  hybrid(t=3) 1.81x [1.80, 1.84]  (fft 7.533e-05 s, hybrid 6.287e-05 s, sweep 0.0001136 s)
+q=9 n=5 N=1225248 zeta: speedup over sweep  FFT 4.26x [4.21, 4.34]  hybrid(t=3) 5.14x [5.08, 5.22]  (fft 0.02273 s, hybrid 0.01882 s, sweep 0.09679 s)
+q=9 n=5 N=1225248 mobius: speedup over sweep  FFT 4.11x [4.04, 4.16]  hybrid(t=3) 5.10x [4.94, 5.13]  (fft 0.02396 s, hybrid 0.01954 s, sweep 0.09966 s)
+q=7 n=3 N=116 zeta: speedup over sweep  FFT 0.05x [0.05, 0.05]  hybrid(t=2) 0.06x [0.06, 0.06]  (fft 3.47e-05 s, hybrid 2.949e-05 s, sweep 1.827e-06 s)
+q=7 n=3 N=116 mobius: speedup over sweep  FFT 0.05x [0.05, 0.05]  hybrid(t=2) 0.06x [0.06, 0.06]  (fft 3.526e-05 s, hybrid 2.977e-05 s, sweep 1.686e-06 s)
+q=7 n=4 N=3652 zeta: speedup over sweep  FFT 0.08x [0.08, 0.08]  hybrid(t=3) 0.10x [0.10, 0.10]  (fft 0.0004673 s, hybrid 0.0003608 s, sweep 3.654e-05 s)
+q=7 n=4 N=3652 mobius: speedup over sweep  FFT 0.07x [0.07, 0.07]  hybrid(t=3) 0.09x [0.09, 0.09]  (fft 0.0004428 s, hybrid 0.000362 s, sweep 3.306e-05 s)
+q=7 n=5 N=285704 zeta: speedup over sweep  FFT 0.23x [0.23, 0.24]  hybrid(t=4) 0.30x [0.30, 0.31]  (fft 0.04635 s, hybrid 0.03541 s, sweep 0.01073 s)
+q=7 n=5 N=285704 mobius: speedup over sweep  FFT 0.23x [0.22, 0.23]  hybrid(t=4) 0.30x [0.29, 0.30]  (fft 0.04657 s, hybrid 0.03546 s, sweep 0.01055 s)
+q=11 n=3 N=268 zeta: speedup over sweep  FFT 0.04x [0.04, 0.04]  hybrid(t=2) 0.05x [0.05, 0.05]  (fft 6.435e-05 s, hybrid 5.91e-05 s, sweep 2.723e-06 s)
+q=11 n=3 N=268 mobius: speedup over sweep  FFT 0.04x [0.04, 0.04]  hybrid(t=2) 0.04x [0.04, 0.04]  (fft 6.941e-05 s, hybrid 6.367e-05 s, sweep 2.856e-06 s)
+q=11 n=4 N=19156 zeta: speedup over sweep  FFT 0.08x [0.08, 0.09]  hybrid(t=3) 0.10x [0.10, 0.10]  (fft 0.003609 s, hybrid 0.002937 s, sweep 0.0003064 s)
+q=11 n=4 N=19156 mobius: speedup over sweep  FFT 0.08x [0.08, 0.09]  hybrid(t=3) 0.10x [0.10, 0.11]  (fft 0.003626 s, hybrid 0.002929 s, sweep 0.0003061 s)
+q=11 n=5 N=3961832 zeta: speedup over sweep  FFT 0.57x [0.57, 0.57]  hybrid(t=4) 0.73x [0.73, 0.74]  (fft 1.071 s, hybrid 0.8295 s, sweep 0.6072 s)
+q=11 n=5 N=3961832 mobius: speedup over sweep  FFT 0.56x [0.56, 0.56]  hybrid(t=4) 0.72x [0.72, 0.73]  (fft 1.077 s, hybrid 0.8325 s, sweep 0.6026 s)
+q=13 n=3 N=368 zeta: speedup over sweep  FFT 0.04x [0.04, 0.04]  hybrid(t=2) 0.04x [0.04, 0.04]  (fft 0.0001424 s, hybrid 0.0001332 s, sweep 5.643e-06 s)
+q=13 n=3 N=368 mobius: speedup over sweep  FFT 0.04x [0.04, 0.04]  hybrid(t=2) 0.04x [0.04, 0.04]  (fft 9.314e-05 s, hybrid 8.699e-05 s, sweep 3.814e-06 s)
+q=13 n=4 N=35872 zeta: speedup over sweep  FFT 0.09x [0.09, 0.09]  hybrid(t=3) 0.11x [0.11, 0.11]  (fft 0.007812 s, hybrid 0.006397 s, sweep 0.0006734 s)
+q=13 n=4 N=35872 mobius: speedup over sweep  FFT 0.09x [0.09, 0.09]  hybrid(t=3) 0.11x [0.10, 0.11]  (fft 0.007841 s, hybrid 0.006409 s, sweep 0.0006755 s)
+q=13 n=5 N=10581824 zeta: speedup over sweep  FFT 1.15x [1.15, 1.15]  hybrid(t=4) 1.48x [1.48, 1.48]  (fft 3.37 s, hybrid 2.612 s, sweep 3.868 s)
+q=13 n=5 N=10581824 mobius: speedup over sweep  FFT 1.14x [1.14, 1.14]  hybrid(t=4) 1.47x [1.46, 1.47]  (fft 3.39 s, hybrid 2.629 s, sweep 3.859 s)
+q=2 (n,a,b)=(8,2,6) S=2.16e+04: fast 0.0001925 s (0.00 GB), rel err 1.5e-15; direct 7.03e+06 pairs (287.6 ns/pair on the fly), layers 7.38e+06 pairs / 4.17e+05 values, tuples 1.05e+06 ops / 6.55e+04 values
+q=3 (n,a,b)=(8,2,6) S=1.79e+06: fast 0.03213 s (0.09 GB), rel err 5.9e-15; direct 9.87e+09 pairs (220.7 ns/pair on the fly), layers 6.73e+09 pairs / 1.28e+08 values, tuples 6.89e+08 ops / 4.3e+07 values
+q=4 (n,a,b)=(8,2,6) S=4.77e+07: fast 1.034 s (1.33 GB), rel err 1.2e-14; direct 2.22e+12 pairs (230.2 ns/pair on the fly), layers 1.12e+12 pairs / 9.37e+09 values, tuples 1.37e+11 ops / 4.29e+09 values
+q=2 (n,a,b)=(9,3,6) S=1.58e+06: fast 0.01817 s (0.05 GB), rel err 1.6e-15; direct 1.1e+09 pairs (324.0 ns/pair on the fly), layers 2.02e+08 pairs / 8.2e+06 values, tuples 3.62e+09 ops / 1.34e+08 values
+q=2 (n,a,b)=(10,3,7) S=1.27e+07: fast 0.2589 s (0.42 GB), rel err 4.8e-15; direct 7.5e+10 pairs (372.8 ns/pair on the fly), layers 8.38e+09 pairs / 2.29e+08 values, tuples 3.22e+10 ops / 1.07e+09 values
+q=2 (n,a,b)=(11,3,8) S=1.02e+08: fast 2.925 s (3.36 GB), rel err 1.3e-14; direct 4.95e+12 pairs (433.8 ns/pair on the fly), layers 4.7e+11 pairs / 8.93e+09 values, tuples 2.83e+11 ops / 8.59e+09 values
+q=2 (n,a,b)=(12,2,10) S=5.59e+06: fast 0.07893 s (0.16 GB), rel err 2e-14; direct 4.87e+11 pairs (383.4 ns/pair on the fly), layers 3.66e+13 pairs / 4.88e+11 values, tuples 4.03e+08 ops / 1.68e+07 values
+q=2 (n,a,b)=(13,2,11) S=2.24e+07: fast 0.4329 s (0.62 GB), rel err 3.5e-14; direct 7.8e+12 pairs (427.0 ns/pair on the fly), layers 4e+15 pairs / 3.76e+13 values, tuples 1.74e+09 ops / 6.71e+07 values
+q=2 (n,a,b)=(14,2,12) S=8.95e+07: fast 2.151 s (2.49 GB), rel err 7.3e-14; direct 1.25e+14 pairs (473.8 ns/pair on the fly), layers 6.15e+17 pairs / 4.07e+15 values, tuples 7.52e+09 ops / 2.68e+08 values
+q=3 (n,a,b)=(9,2,7) S=1.61e+07: fast 0.4723 s (0.82 GB), rel err 1.3e-14; direct 8.03e+11 pairs (270.5 ns/pair on the fly), layers 1.26e+12 pairs / 1.37e+10 values, tuples 6.97e+09 ops / 3.87e+08 values
+q=2 (n,a,b)=(16,1,15) S=1.31e+05: fast 0.001932 s (0.00 GB), rel err 7.9e-15; direct 2.15e+09 pairs (364.9 ns/pair on the fly), layers 1.5e+22 pairs / 4.25e+19 values, tuples 1.05e+06 ops / 6.55e+04 values
+q=3 (n,a,b)=(15,1,14) S=1.43e+07: fast 0.286 s (0.53 GB), rel err 6.3e-14; direct 1.72e+13 pairs (346.1 ns/pair on the fly), layers 1.44e+24 pairs / 6.8e+19 values, tuples 2.15e+08 ops / 1.43e+07 values
+q=2 Gr(4,2) v=35 fast kernel: 9.569e-06 s (plan 0.00152 s)
+   lattice kernel: 1.627e-06 s (plan 0.00121 s)
+   graph kernel: 3.99e-06 s (adjacency 0.000421 s, nnz 630), rel err fast 1.6e-16 lattice 1.6e-16
+   factored recurrence: 2.872e-06 s (incidence lists 7.03e-05 s, 4.2e-07 GB), rel err fast 2.3e-16
+   dense kernel: 0.0004846 s, rel err fast 3.1e-16
+q=2 Gr(6,3) v=1395 fast kernel: 0.0001386 s (plan 0.00216 s)
+   lattice kernel: 7.028e-05 s (plan 0.00237 s)
+   graph kernel: 0.0005537 s (adjacency 0.00873 s, nnz 136710), rel err fast 6.4e-16 lattice 5.6e-16
+   factored recurrence: 6.195e-05 s (incidence lists 0.000484 s, 3.91e-05 GB), rel err fast 3.2e-16
+   dense kernel: 0.3624 s, rel err fast 2.1e-15
+q=2 Gr(8,4) v=200787 fast kernel: 0.007362 s (plan 0.0216 s)
+   lattice kernel: 0.007752 s (plan 0.0855 s)
+   graph kernel: 0.5384 s (adjacency 1.75 s, nnz 90354150), rel err fast 1.3e-15 lattice 1.4e-15
+   factored recurrence: 0.02208 s (incidence lists 0.0741 s, 0.012 GB), rel err fast 5.2e-16
+q=2 Gr(10,5) v=109221651 fast kernel: 17.12 s (plan 5.85 s)
+   lattice kernel: 21 s (plan 73.6 s)
+   factored recurrence: 106.1 s (incidence lists 91 s, 13.5 GB), rel err fast 6.5e-16
+q=3 Gr(4,2) v=130 fast kernel: 1.794e-05 s (plan 0.00155 s)
+   lattice kernel: 5.487e-06 s (plan 0.00138 s)
+   graph kernel: 3.429e-05 s (adjacency 0.00166 s, nnz 6240), rel err fast 5.8e-16 lattice 5.8e-16
+   factored recurrence: 1.012e-05 s (incidence lists 0.00021 s, 2.08e-06 GB), rel err fast 4.4e-16
+   dense kernel: 0.005015 s, rel err fast 7.3e-16
+q=3 Gr(6,3) v=33880 fast kernel: 0.001159 s (plan 0.00819 s)
+   lattice kernel: 0.0009136 s (plan 0.0153 s)
+   graph kernel: 0.06076 s (adjacency 0.258 s, nnz 17177160), rel err fast 1.3e-15 lattice 1.2e-15
+   factored recurrence: 0.002276 s (incidence lists 0.0156 s, 0.00176 GB), rel err fast 7.1e-16
+   dense kernel: 219.6 s, rel err fast 1.1e-14
+q=4 Gr(4,2) v=357 fast kernel: 3.783e-05 s (plan 0.00158 s)
+   lattice kernel: 1.77e-05 s (plan 0.0013 s)
+   graph kernel: 0.000226 s (adjacency 0.0033 s, nnz 35700), rel err fast 7.5e-16 lattice 5.3e-16
+   factored recurrence: 1.726e-05 s (incidence lists 0.00033 s, 7.14e-06 GB), rel err fast 5.3e-16
+   dense kernel: 0.02151 s, rel err fast 1.3e-15
+q=4 Gr(6,3) v=376805 fast kernel: 0.0126 s (plan 0.0255 s)
+   lattice kernel: 0.01575 s (plan 0.102 s)
+   graph kernel: 3.008 s (adjacency 9.62 s, nnz 664684020), rel err fast 3e-15 lattice 2.9e-15
+   factored recurrence: 0.04959 s (incidence lists 0.123 s, 0.0317 GB), rel err fast 5e-16
+q=5 Gr(4,2) v=806 fast kernel: 6.486e-05 s (plan 0.00178 s)
+   lattice kernel: 3.742e-05 s (plan 0.00141 s)
+   graph kernel: 0.0006035 s (adjacency 0.00623 s, nnz 145080), rel err fast 6.9e-16 lattice 8e-16
+   factored recurrence: 2.655e-05 s (incidence lists 0.000338 s, 1.93e-05 GB), rel err fast 4.6e-16
+   dense kernel: 0.07349 s, rel err fast 1.9e-15
+q=5 Gr(6,3) v=2558556 fast kernel: 0.168 s (plan 0.0921 s)
+   lattice kernel: 0.3629 s (plan 0.771 s)
+   graph kernel: 94.16 s (adjacency 200 s, nnz 12293861580), rel err fast 5.1e-15 lattice 4.9e-15
+   factored recurrence: 0.8105 s (incidence lists 0.999 s, 0.317 GB), rel err fast 8e-16
+q=4 n=7 N=51409856 zeta: speedup over sweep  FFT 3.61x [3.60, 3.61]  hybrid(t=5) 5.08x [5.07, 5.09]  (fft 2.075 s, hybrid 1.474 s, sweep 7.479 s)
+q=4 n=7 N=51409856 mobius: speedup over sweep  FFT 3.41x [3.41, 3.42]  hybrid(t=5) 4.95x [4.94, 4.95]  (fft 2.183 s, hybrid 1.507 s, sweep 7.451 s)
+q=16 n=5 N=36070982 zeta: speedup over sweep  FFT 16.89x [16.87, 16.90]  hybrid(t=3) 21.36x [21.34, 21.41]  (fft 1.498 s, hybrid 1.185 s, sweep 25.31 s)
+q=16 n=5 N=36070982 mobius: speedup over sweep  FFT 16.20x [16.19, 16.23]  hybrid(t=3) 20.93x [20.92, 20.95]  (fft 1.56 s, hybrid 1.209 s, sweep 25.29 s)
+q=7 n=6 N=61946920 zeta: speedup over sweep  FFT 1.31x [1.31, 1.31]  hybrid(t=5) 1.82x [1.82, 1.82]  (fft 14.99 s, hybrid 10.77 s, sweep 19.6 s)
+q=7 n=6 N=61946920 mobius: speedup over sweep  FFT 1.28x [1.28, 1.29]  hybrid(t=5) 1.80x [1.80, 1.81]  (fft 15.19 s, hybrid 10.82 s, sweep 19.5 s)
+q=3 n=8 N=127902864 zeta: speedup over sweep  FFT 2.96x [2.95, 2.96]  hybrid(t=6) 3.72x [3.71, 3.73]  (fft 5.869 s, hybrid 4.671 s, sweep 17.36 s)
+q=3 n=8 N=127902864 mobius: speedup over sweep  FFT 2.74x [2.74, 2.75]  hybrid(t=6) 3.55x [3.55, 3.55]  (fft 6.273 s, hybrid 4.845 s, sweep 17.21 s)
+q=2 n=10 N=229755605 zeta: speedup over sweep  FFT 1.96x [1.96, 1.96]  hybrid(t=8) 3.03x [3.03, 3.03]  (fft 10.98 s, hybrid 7.109 s, sweep 21.56 s)
+q=2 n=10 N=229755605 mobius: speedup over sweep  FFT 1.84x [1.83, 1.84]  hybrid(t=8) 2.95x [2.94, 2.95]  (fft 11.67 s, hybrid 7.268 s, sweep 21.42 s)
+q=8 n=6 N=195118127 zeta: speedup over sweep  FFT 12.86x [12.83, 12.86]  hybrid(t=4) 16.80x [16.78, 16.81]  (fft 8.518 s, hybrid 6.514 s, sweep 109.4 s)
+q=8 n=6 N=195118127 mobius: speedup over sweep  FFT 12.25x [12.23, 12.26]  hybrid(t=4) 16.44x [16.41, 16.47]  (fft 8.928 s, hybrid 6.653 s, sweep 109.3 s)
+zeta q=2 n=10 (a,b)=(0,10) direct_sums_sampled: 445 outputs, max rel err 3.29e-16 (0.3 s) uniform W and dims 0 1 2 3 4 5 6 7 8
+zeta q=2 n=10 (a,b)=(0,10) direct_mobius_sums_sampled: 445 outputs, max rel err 2.56e-16 (12.0 s) uniform W and dims 0 1 2 3 4 5 6 7 8
+zeta q=2 n=10 (a,b)=(0,10) direct_sum_full_space: 1 outputs, max rel err 5.46e-16 (0.0 s) 
+zeta q=2 n=10 (a,b)=(0,10) hybrid_vs_fft: 229755605 outputs, max rel err 2.09e-16 (9.1 s) t=8
+zeta q=3 n=8 (a,b)=(0,8) direct_sums_sampled: 435 outputs, max rel err 3.83e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=3 n=8 (a,b)=(0,8) direct_mobius_sums_sampled: 435 outputs, max rel err 8.51e-16 (6.6 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=3 n=8 (a,b)=(0,8) direct_sum_full_space: 1 outputs, max rel err 4.49e-17 (0.0 s) 
+zeta q=3 n=8 (a,b)=(0,8) hybrid_vs_fft: 127902864 outputs, max rel err 2.58e-16 (5.8 s) t=6
+zeta q=4 n=7 (a,b)=(0,7) direct_sums_sampled: 435 outputs, max rel err 3.38e-16 (0.2 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=4 n=7 (a,b)=(0,7) direct_mobius_sums_sampled: 435 outputs, max rel err 2.16e-16 (2.2 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=4 n=7 (a,b)=(0,7) direct_sum_full_space: 1 outputs, max rel err 4.11e-15 (0.0 s) 
+zeta q=4 n=7 (a,b)=(0,7) hybrid_vs_fft: 51409856 outputs, max rel err 1.23e-15 (2.3 s) t=6
+incidence q=2 n=16 (a,b)=(1,15) direct_sums_sampled: 100 outputs, max rel err 3.02e-16 (0.1 s) 
+incidence q=2 n=10 (a,b)=(2,8) direct_sums_sampled: 100 outputs, max rel err 1.72e-16 (0.0 s) 
+incidence q=2 n=11 (a,b)=(2,9) direct_sums_sampled: 100 outputs, max rel err 2.37e-16 (0.1 s) 
+incidence q=2 n=12 (a,b)=(2,10) direct_sums_sampled: 100 outputs, max rel err 3.21e-16 (0.5 s) 
+incidence q=2 n=13 (a,b)=(2,11) direct_sums_sampled: 100 outputs, max rel err 1.7e-16 (2.2 s) 
+incidence q=2 n=14 (a,b)=(2,12) direct_sums_sampled: 100 outputs, max rel err 3.04e-16 (9.9 s) 
+incidence q=2 n=9 (a,b)=(3,6) direct_sums_sampled: 100 outputs, max rel err 2.87e-16 (0.0 s) 
+incidence q=2 n=10 (a,b)=(3,7) direct_sums_sampled: 100 outputs, max rel err 3.32e-16 (0.0 s) 
+incidence q=3 n=11 (a,b)=(1,10) direct_sums_sampled: 100 outputs, max rel err 3.66e-16 (0.1 s) 
+incidence q=3 n=12 (a,b)=(1,11) direct_sums_sampled: 100 outputs, max rel err 5.63e-16 (0.2 s) 
+incidence q=3 n=13 (a,b)=(1,12) direct_sums_sampled: 100 outputs, max rel err 3.23e-16 (0.6 s) 
+incidence q=3 n=14 (a,b)=(1,13) direct_sums_sampled: 100 outputs, max rel err 2.88e-16 (1.9 s) 
+incidence q=3 n=15 (a,b)=(1,14) direct_sums_sampled: 100 outputs, max rel err 4.73e-16 (6.2 s) 
+incidence q=3 n=8 (a,b)=(2,6) direct_sums_sampled: 100 outputs, max rel err 5.82e-16 (0.0 s) 
+incidence q=3 n=9 (a,b)=(2,7) direct_sums_sampled: 100 outputs, max rel err 5.5e-16 (0.2 s) 
+kernel q=2 n=10 (a,b)=(5,5) direct_sums_sampled: 4 outputs, max rel err 2.92e-16 (19.9 s) 
+kernel q=5 n=6 (a,b)=(3,3) direct_sums_sampled: 50 outputs, max rel err 4.29e-16 (2.7 s) 
+kernel q=5 n=6 (a,b)=(3,3) sweep_vs_fft: 2558556 outputs, max rel err 6e-16 (1.2 s) 

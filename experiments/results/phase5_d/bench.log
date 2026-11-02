@@ -1,0 +1,162 @@
+zeta q=16 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 1.75e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=16 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 2.65e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=16 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 2.69e-16 (0.0 s) 
+zeta q=16 n=4 (a,b)=(0,4) hybrid_vs_fft: 78901 outputs, max rel err 3.39e-16 (0.0 s) t=3
+zeta q=16 n=4 (a,b)=(0,4) sweep_vs_fft: 78901 outputs, max rel err 2.12e-16 (0.1 s) covering pairs 0.009576848 GB
+zeta q=16 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 78901 outputs, max rel err 2.11e-15 (0.0 s) covering pairs 0.009576848 GB
+zeta q=3 n=6 (a,b)=(0,6) direct_sums_sampled: 430 outputs, max rel err 4.65e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5
+zeta q=3 n=6 (a,b)=(0,6) direct_mobius_sums_sampled: 430 outputs, max rel err 9.33e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5
+zeta q=3 n=6 (a,b)=(0,6) direct_sum_full_space: 1 outputs, max rel err 9.58e-16 (0.0 s) 
+zeta q=3 n=6 (a,b)=(0,6) hybrid_vs_fft: 56632 outputs, max rel err 3.53e-16 (0.0 s) t=5
+zeta q=3 n=6 (a,b)=(0,6) sweep_vs_fft: 56632 outputs, max rel err 7.05e-16 (0.0 s) covering pairs 0.003878784 GB
+zeta q=3 n=6 (a,b)=(0,6) sweep_vs_fft_mobius: 56632 outputs, max rel err 2.75e-16 (0.0 s) covering pairs 0.003878784 GB
+zeta q=13 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 6.66e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=13 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 5.88e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=13 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 2.47e-15 (0.0 s) 
+zeta q=13 n=4 (a,b)=(0,4) hybrid_vs_fft: 35872 outputs, max rel err 9.6e-16 (0.0 s) t=3
+zeta q=13 n=4 (a,b)=(0,4) sweep_vs_fft: 35872 outputs, max rel err 1.33e-15 (0.0 s) covering pairs 0.00350336 GB
+zeta q=13 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 35872 outputs, max rel err 1.4e-18 (0.0 s) covering pairs 0.00350336 GB
+zeta q=5 n=5 (a,b)=(0,5) direct_sums_sampled: 425 outputs, max rel err 5.07e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=5 n=5 (a,b)=(0,5) direct_mobius_sums_sampled: 425 outputs, max rel err 2.34e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=5 n=5 (a,b)=(0,5) direct_sum_full_space: 1 outputs, max rel err 3.73e-16 (0.0 s) 
+zeta q=5 n=5 (a,b)=(0,5) hybrid_vs_fft: 42176 outputs, max rel err 2.31e-16 (0.0 s) t=3
+zeta q=5 n=5 (a,b)=(0,5) sweep_vs_fft: 42176 outputs, max rel err 4.62e-16 (0.0 s) covering pairs 0.00349888 GB
+zeta q=5 n=5 (a,b)=(0,5) sweep_vs_fft_mobius: 42176 outputs, max rel err 5.8e-18 (0.0 s) covering pairs 0.00349888 GB
+zeta q=11 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 4.62e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=11 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 5.52e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=11 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 1.03e-15 (0.0 s) 
+zeta q=11 n=4 (a,b)=(0,4) hybrid_vs_fft: 19156 outputs, max rel err 9.01e-16 (0.0 s) t=3
+zeta q=11 n=4 (a,b)=(0,4) sweep_vs_fft: 19156 outputs, max rel err 3.22e-15 (0.0 s) covering pairs 0.001569408 GB
+zeta q=11 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 19156 outputs, max rel err 2.18e-15 (0.0 s) covering pairs 0.001569408 GB
+zeta q=2 n=7 (a,b)=(0,7) direct_sums_sampled: 435 outputs, max rel err 1.78e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=2 n=7 (a,b)=(0,7) direct_mobius_sums_sampled: 435 outputs, max rel err 1.76e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=2 n=7 (a,b)=(0,7) direct_sum_full_space: 1 outputs, max rel err 1.27e-16 (0.0 s) 
+zeta q=2 n=7 (a,b)=(0,7) hybrid_vs_fft: 29212 outputs, max rel err 2.94e-16 (0.0 s) t=5
+zeta q=2 n=7 (a,b)=(0,7) sweep_vs_fft: 29212 outputs, max rel err 2.94e-16 (0.0 s) covering pairs 0.0014351 GB
+zeta q=2 n=7 (a,b)=(0,7) sweep_vs_fft_mobius: 29212 outputs, max rel err 1.51e-16 (0.0 s) covering pairs 0.0014351 GB
+zeta q=4 n=5 (a,b)=(0,5) direct_sums_sampled: 425 outputs, max rel err 3.18e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=4 n=5 (a,b)=(0,5) direct_mobius_sums_sampled: 425 outputs, max rel err 2.83e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=4 n=5 (a,b)=(0,5) direct_sum_full_space: 1 outputs, max rel err 2.42e-16 (0.0 s) 
+zeta q=4 n=5 (a,b)=(0,5) hybrid_vs_fft: 12278 outputs, max rel err 5.04e-16 (0.0 s) t=4
+zeta q=4 n=5 (a,b)=(0,5) sweep_vs_fft: 12278 outputs, max rel err 4.2e-16 (0.0 s) covering pairs 0.000721556 GB
+zeta q=4 n=5 (a,b)=(0,5) sweep_vs_fft_mobius: 12278 outputs, max rel err 2.45e-16 (0.0 s) covering pairs 0.000721556 GB
+zeta q=9 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 3.86e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=9 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 2.67e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=9 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 1.14e-16 (0.0 s) 
+zeta q=9 n=4 (a,b)=(0,4) hybrid_vs_fft: 9104 outputs, max rel err 1.28e-16 (0.0 s) t=3
+zeta q=9 n=4 (a,b)=(0,4) sweep_vs_fft: 9104 outputs, max rel err 1.92e-16 (0.0 s) covering pairs 0.00060352 GB
+zeta q=9 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 9104 outputs, max rel err 4.24e-16 (0.0 s) covering pairs 0.00060352 GB
+zeta q=8 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 2.19e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=8 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 4.04e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=8 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 2.54e-16 (0.0 s) 
+zeta q=8 n=4 (a,b)=(0,4) hybrid_vs_fft: 5917 outputs, max rel err 1.67e-16 (0.0 s) t=3
+zeta q=8 n=4 (a,b)=(0,4) sweep_vs_fft: 5917 outputs, max rel err 1.67e-16 (0.0 s) covering pairs 0.00034632 GB
+zeta q=8 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 5917 outputs, max rel err 9.7e-16 (0.0 s) covering pairs 0.00034632 GB
+zeta q=7 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 5.18e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=7 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 6.78e-17 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=7 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 6.01e-16 (0.0 s) 
+zeta q=7 n=4 (a,b)=(0,4) hybrid_vs_fft: 3652 outputs, max rel err 2.01e-16 (0.0 s) t=3
+zeta q=7 n=4 (a,b)=(0,4) sweep_vs_fft: 3652 outputs, max rel err 1.21e-15 (0.0 s) covering pairs 0.0001856 GB
+zeta q=7 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 3652 outputs, max rel err 8.94e-16 (0.0 s) covering pairs 0.0001856 GB
+zeta q=3 n=5 (a,b)=(0,5) direct_sums_sampled: 425 outputs, max rel err 1.71e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=3 n=5 (a,b)=(0,5) direct_mobius_sums_sampled: 425 outputs, max rel err 1.9e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=3 n=5 (a,b)=(0,5) direct_sum_full_space: 1 outputs, max rel err 7.14e-17 (0.0 s) 
+zeta q=3 n=5 (a,b)=(0,5) hybrid_vs_fft: 2664 outputs, max rel err 2.41e-16 (0.0 s) t=4
+zeta q=3 n=5 (a,b)=(0,5) sweep_vs_fft: 2664 outputs, max rel err 2.41e-16 (0.0 s) covering pairs 0.000102608 GB
+zeta q=3 n=5 (a,b)=(0,5) sweep_vs_fft_mobius: 2664 outputs, max rel err 1.96e-16 (0.0 s) covering pairs 0.000102608 GB
+zeta q=2 n=6 (a,b)=(0,6) direct_sums_sampled: 430 outputs, max rel err 1.41e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5
+zeta q=2 n=6 (a,b)=(0,6) direct_mobius_sums_sampled: 430 outputs, max rel err 5.03e-17 (0.0 s) uniform W and dims 0 1 2 3 4 5
+zeta q=2 n=6 (a,b)=(0,6) direct_sum_full_space: 1 outputs, max rel err 1.41e-16 (0.0 s) 
+zeta q=2 n=6 (a,b)=(0,6) hybrid_vs_fft: 2825 outputs, max rel err 2.44e-16 (0.0 s) t=5
+zeta q=2 n=6 (a,b)=(0,6) sweep_vs_fft: 2825 outputs, max rel err 4.89e-16 (0.0 s) covering pairs 9.4248e-05 GB
+zeta q=2 n=6 (a,b)=(0,6) sweep_vs_fft_mobius: 2825 outputs, max rel err 1.48e-17 (0.0 s) covering pairs 9.4248e-05 GB
+zeta q=5 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 2.82e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=5 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 2.29e-17 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=5 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 3.14e-16 (0.0 s) 
+zeta q=5 n=4 (a,b)=(0,4) hybrid_vs_fft: 1120 outputs, max rel err 1.26e-16 (0.0 s) t=3
+zeta q=5 n=4 (a,b)=(0,4) sweep_vs_fft: 1120 outputs, max rel err 3.77e-16 (0.0 s) covering pairs 3.9936e-05 GB
+zeta q=5 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 1120 outputs, max rel err 3.05e-16 (0.0 s) covering pairs 3.9936e-05 GB
+zeta q=16 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 1.45e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=16 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 3.78e-17 (0.0 s) uniform W and dims 0 1 2
+zeta q=16 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 3.85e-17 (0.0 s) 
+zeta q=16 n=3 (a,b)=(0,3) hybrid_vs_fft: 548 outputs, max rel err 7.71e-17 (0.0 s) t=2
+zeta q=16 n=3 (a,b)=(0,3) sweep_vs_fft: 548 outputs, max rel err 1.73e-16 (0.0 s) covering pairs 2.0748e-05 GB
+zeta q=16 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 548 outputs, max rel err 3.64e-16 (0.0 s) covering pairs 2.0748e-05 GB
+zeta q=4 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 1.68e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=4 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 2.24e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=4 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 1.65e-16 (0.0 s) 
+zeta q=4 n=4 (a,b)=(0,4) hybrid_vs_fft: 529 outputs, max rel err 1.68e-16 (0.0 s) t=3
+zeta q=4 n=4 (a,b)=(0,4) sweep_vs_fft: 529 outputs, max rel err 3.36e-16 (0.0 s) covering pairs 1.496e-05 GB
+zeta q=4 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 529 outputs, max rel err 1.23e-16 (0.0 s) covering pairs 1.496e-05 GB
+zeta q=13 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 5.45e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=13 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 2.2e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=13 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 1.4e-16 (0.0 s) 
+zeta q=13 n=3 (a,b)=(0,3) hybrid_vs_fft: 368 outputs, max rel err 1.45e-16 (0.0 s) t=2
+zeta q=13 n=3 (a,b)=(0,3) sweep_vs_fft: 368 outputs, max rel err 5.81e-16 (0.0 s) covering pairs 1.1712e-05 GB
+zeta q=13 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 368 outputs, max rel err 1.45e-16 (0.0 s) covering pairs 1.1712e-05 GB
+zeta q=2 n=5 (a,b)=(0,5) direct_sums_sampled: 425 outputs, max rel err 1e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=2 n=5 (a,b)=(0,5) direct_mobius_sums_sampled: 425 outputs, max rel err 1.32e-16 (0.0 s) uniform W and dims 0 1 2 3 4
+zeta q=2 n=5 (a,b)=(0,5) direct_sum_full_space: 1 outputs, max rel err 1e-16 (0.0 s) 
+zeta q=2 n=5 (a,b)=(0,5) hybrid_vs_fft: 374 outputs, max rel err 2.29e-16 (0.0 s) t=4
+zeta q=2 n=5 (a,b)=(0,5) sweep_vs_fft: 374 outputs, max rel err 2.29e-16 (0.0 s) covering pairs 8.308e-06 GB
+zeta q=2 n=5 (a,b)=(0,5) sweep_vs_fft_mobius: 374 outputs, max rel err 1.35e-16 (0.0 s) covering pairs 8.308e-06 GB
+zeta q=11 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 3.16e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=11 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 5.61e-17 (0.0 s) uniform W and dims 0 1 2
+zeta q=11 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 3.42e-16 (0.0 s) 
+zeta q=11 n=3 (a,b)=(0,3) hybrid_vs_fft: 268 outputs, max rel err 2.97e-16 (0.0 s) t=2
+zeta q=11 n=3 (a,b)=(0,3) sweep_vs_fft: 268 outputs, max rel err 7.43e-16 (0.0 s) covering pairs 7.448e-06 GB
+zeta q=11 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 268 outputs, max rel err 1.48e-16 (0.0 s) covering pairs 7.448e-06 GB
+zeta q=3 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 2.14e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=3 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 9.14e-17 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=3 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 3.06e-16 (0.0 s) 
+zeta q=3 n=4 (a,b)=(0,4) hybrid_vs_fft: 212 outputs, max rel err 1.01e-16 (0.0 s) t=3
+zeta q=3 n=4 (a,b)=(0,4) sweep_vs_fft: 212 outputs, max rel err 1.8e-16 (0.0 s) covering pairs 4.48e-06 GB
+zeta q=3 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 212 outputs, max rel err 2.18e-16 (0.0 s) covering pairs 4.48e-06 GB
+zeta q=9 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 2.05e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=9 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 1.62e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=9 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 4.93e-15 (0.0 s) 
+zeta q=9 n=3 (a,b)=(0,3) hybrid_vs_fft: 184 outputs, max rel err 1.26e-16 (0.0 s) t=2
+zeta q=9 n=3 (a,b)=(0,3) sweep_vs_fft: 184 outputs, max rel err 2.53e-16 (0.0 s) covering pairs 4.368e-06 GB
+zeta q=9 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 184 outputs, max rel err 1.85e-16 (0.0 s) covering pairs 4.368e-06 GB
+zeta q=8 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 1.35e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=8 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 3.02e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=8 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 1.46e-16 (0.0 s) 
+zeta q=8 n=3 (a,b)=(0,3) hybrid_vs_fft: 148 outputs, max rel err 7.7e-17 (0.0 s) t=2
+zeta q=8 n=3 (a,b)=(0,3) sweep_vs_fft: 148 outputs, max rel err 1.54e-16 (0.0 s) covering pairs 3.212e-06 GB
+zeta q=8 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 148 outputs, max rel err 3.9e-16 (0.0 s) covering pairs 3.212e-06 GB
+zeta q=7 n=3 (a,b)=(0,3) direct_sums_sampled: 415 outputs, max rel err 2.23e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=7 n=3 (a,b)=(0,3) direct_mobius_sums_sampled: 415 outputs, max rel err 3.04e-16 (0.0 s) uniform W and dims 0 1 2
+zeta q=7 n=3 (a,b)=(0,3) direct_sum_full_space: 1 outputs, max rel err 1.22e-16 (0.0 s) 
+zeta q=7 n=3 (a,b)=(0,3) hybrid_vs_fft: 116 outputs, max rel err 1.99e-16 (0.0 s) t=2
+zeta q=7 n=3 (a,b)=(0,3) sweep_vs_fft: 116 outputs, max rel err 2.98e-16 (0.0 s) covering pairs 2.28e-06 GB
+zeta q=7 n=3 (a,b)=(0,3) sweep_vs_fft_mobius: 116 outputs, max rel err 1.59e-17 (0.0 s) covering pairs 2.28e-06 GB
+zeta q=2 n=4 (a,b)=(0,4) direct_sums_sampled: 420 outputs, max rel err 1.24e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=2 n=4 (a,b)=(0,4) direct_mobius_sums_sampled: 420 outputs, max rel err 2.3e-16 (0.0 s) uniform W and dims 0 1 2 3
+zeta q=2 n=4 (a,b)=(0,4) direct_sum_full_space: 1 outputs, max rel err 8.09e-17 (0.0 s) 
+zeta q=2 n=4 (a,b)=(0,4) hybrid_vs_fft: 67 outputs, max rel err 1.24e-16 (0.0 s) t=3
+zeta q=2 n=4 (a,b)=(0,4) sweep_vs_fft: 67 outputs, max rel err 2.49e-16 (0.0 s) covering pairs 9.6e-07 GB
+zeta q=2 n=4 (a,b)=(0,4) sweep_vs_fft_mobius: 67 outputs, max rel err 3.77e-16 (0.0 s) covering pairs 9.6e-07 GB
+kernel q=8 n=6 (a,b)=(3,3) direct_sums_sampled: 12 outputs, max rel err 8.58e-16 (45.9 s) 
+kernel q=8 n=6 (a,b)=(3,3) sweep_vs_fft: 156087945 outputs, max rel err 9.22e-16 (272.5 s) 
+kernel q=3 n=8 (a,b)=(4,4) direct_sums_sampled: 26 outputs, max rel err 9.62e-16 (87.1 s) 
+kernel q=3 n=8 (a,b)=(4,4) sweep_vs_fft: 75913222 outputs, max rel err 9.16e-16 (91.9 s) 
+kernel q=2 n=10 (a,b)=(5,5) direct_sums_sampled: 18 outputs, max rel err 2.18e-16 (113.3 s) 
+kernel q=2 n=10 (a,b)=(5,5) sweep_vs_fft: 109221651 outputs, max rel err 5.59e-16 (109.7 s) 
+kernel q=5 n=6 (a,b)=(3,3) direct_sums_sampled: 100 outputs, max rel err 4.29e-16 (6.7 s) 
+kernel q=5 n=6 (a,b)=(3,3) sweep_vs_fft: 2558556 outputs, max rel err 6e-16 (1.4 s) 
+kernel q=4 n=6 (a,b)=(3,3) direct_sums_sampled: 100 outputs, max rel err 3.17e-16 (1.8 s) 
+kernel q=4 n=6 (a,b)=(3,3) sweep_vs_fft: 376805 outputs, max rel err 5.03e-16 (0.1 s) 
+kernel q=2 n=8 (a,b)=(4,4) direct_sums_sampled: 100 outputs, max rel err 3.69e-16 (0.8 s) 
+kernel q=2 n=8 (a,b)=(4,4) sweep_vs_fft: 200787 outputs, max rel err 4.69e-16 (0.1 s) 
+kernel q=3 n=6 (a,b)=(3,3) direct_sums_sampled: 100 outputs, max rel err 4.18e-16 (0.4 s) 
+kernel q=3 n=6 (a,b)=(3,3) sweep_vs_fft: 33880 outputs, max rel err 6.37e-16 (0.0 s) 
+kernel q=2 n=6 (a,b)=(3,3) direct_sums_sampled: 100 outputs, max rel err 1.94e-16 (0.0 s) 
+kernel q=2 n=6 (a,b)=(3,3) sweep_vs_fft: 1395 outputs, max rel err 3.2e-16 (0.0 s) 
+kernel q=2 n=4 (a,b)=(2,2) direct_sums_sampled: 100 outputs, max rel err 1.55e-16 (0.0 s) 
+kernel q=2 n=4 (a,b)=(2,2) sweep_vs_fft: 35 outputs, max rel err 1.55e-16 (0.0 s) 
+kernel q=3 n=4 (a,b)=(2,2) direct_sums_sampled: 100 outputs, max rel err 3.83e-16 (0.0 s) 
+kernel q=3 n=4 (a,b)=(2,2) sweep_vs_fft: 130 outputs, max rel err 3.64e-16 (0.0 s) 
+kernel q=4 n=4 (a,b)=(2,2) direct_sums_sampled: 100 outputs, max rel err 3.94e-16 (0.0 s) 
+kernel q=4 n=4 (a,b)=(2,2) sweep_vs_fft: 357 outputs, max rel err 3.74e-16 (0.0 s) 
+kernel q=5 n=4 (a,b)=(2,2) direct_sums_sampled: 100 outputs, max rel err 6.41e-16 (0.0 s) 
+kernel q=5 n=4 (a,b)=(2,2) sweep_vs_fft: 806 outputs, max rel err 5.72e-16 (0.0 s) 

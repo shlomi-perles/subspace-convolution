@@ -1,0 +1,24 @@
+# Each part also has its own .gitignore (experiments/, lean/).
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# LaTeX
+*.aux
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+
+# Logs, except the campaign logs under experiments/results/
+*.log
+!/experiments/results/**/*.log

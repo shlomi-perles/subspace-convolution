@@ -1,0 +1,10 @@
+q=8 Gr(6,3) v=156087945 fast kernel: 16.82 s (plan 4.01 s)
+   lattice kernel: 110.6 s (plan 90.9 s)
+   factored recurrence: 372.1 s (incidence lists 157 s, 45.6 GB), rel err fast 1.3e-15
+q=3 Gr(8,4) v=75913222 fast kernel: 10.27 s (plan 4.23 s)
+   lattice kernel: 24.2 s (plan 33.7 s)
+   factored recurrence: 81.88 s (incidence lists 46.4 s, 12.1 GB), rel err fast 9.2e-16
+q=8 (n,a,b)=(6,2,4): Poisson table q^12 = 6.87e+10 values (549.8 GB)
+  fast: 0.824 s (median of 6), 6.73e+08 flops, 1.09 GB, plan 0.214 s
+  poisson: lift 371.7 s, fft 1655 s, sums 2347 s, total 4374 s (1 run), 559.9 GB, plan 5.31 s
+  check: max rel err vs direct (200 samples): poisson 6.4e-15, fast 4.1e-15; poisson vs fast on all 19477641 outputs: 1.4e-14

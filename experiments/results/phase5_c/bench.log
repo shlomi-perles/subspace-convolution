@@ -1,0 +1,18 @@
+zeta q=5 n=7 (a,b)=(0,7) direct_sums_sampled: 430 outputs, max rel err 7.33e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5
+zeta q=5 n=7 (a,b)=(0,7) direct_mobius_sums_sampled: 430 outputs, max rel err 6.84e-16 (40.6 s) uniform W and dims 0 1 2 3 4 5
+zeta q=5 n=7 (a,b)=(0,7) direct_sum_full_space: 1 outputs, max rel err 9e-16 (0.0 s) 
+zeta q=5 n=7 (a,b)=(0,7) hybrid_vs_fft: 666124288 outputs, max rel err 1.26e-16 (40.6 s) t=4
+zeta q=5 n=7 (a,b)=(0,7) sweep_vs_fft: 666124288 outputs, max rel err 3.66e-16 (2603.2 s) covering pairs 279.9364168 GB
+zeta q=5 n=7 (a,b)=(0,7) sweep_vs_fft_mobius: 666124288 outputs, max rel err 1.83e-15 (382.5 s) covering pairs 279.9364168 GB
+zeta q=2 n=10 (a,b)=(0,10) direct_sums_sampled: 445 outputs, max rel err 3.29e-16 (0.3 s) uniform W and dims 0 1 2 3 4 5 6 7 8
+zeta q=2 n=10 (a,b)=(0,10) direct_mobius_sums_sampled: 445 outputs, max rel err 2.56e-16 (12.0 s) uniform W and dims 0 1 2 3 4 5 6 7 8
+zeta q=2 n=10 (a,b)=(0,10) direct_sum_full_space: 1 outputs, max rel err 5.46e-16 (0.0 s) 
+zeta q=2 n=10 (a,b)=(0,10) hybrid_vs_fft: 229755605 outputs, max rel err 2.09e-16 (9.1 s) t=8
+zeta q=2 n=10 (a,b)=(0,10) sweep_vs_fft: 229755605 outputs, max rel err 2.09e-16 (358.0 s) covering pairs 33.89591014 GB
+zeta q=2 n=10 (a,b)=(0,10) sweep_vs_fft_mobius: 229755605 outputs, max rel err 7.8e-16 (35.3 s) covering pairs 33.89591014 GB
+zeta q=3 n=8 (a,b)=(0,8) direct_sums_sampled: 435 outputs, max rel err 3.83e-16 (0.0 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=3 n=8 (a,b)=(0,8) direct_mobius_sums_sampled: 435 outputs, max rel err 8.51e-16 (6.5 s) uniform W and dims 0 1 2 3 4 5 6
+zeta q=3 n=8 (a,b)=(0,8) direct_sum_full_space: 1 outputs, max rel err 4.49e-17 (0.0 s) 
+zeta q=3 n=8 (a,b)=(0,8) hybrid_vs_fft: 127902864 outputs, max rel err 2.58e-16 (5.7 s) t=6
+zeta q=3 n=8 (a,b)=(0,8) sweep_vs_fft: 127902864 outputs, max rel err 2.59e-15 (225.7 s) covering pairs 26.93084672 GB
+zeta q=3 n=8 (a,b)=(0,8) sweep_vs_fft_mobius: 127902864 outputs, max rel err 1.47e-15 (24.8 s) covering pairs 26.93084672 GB

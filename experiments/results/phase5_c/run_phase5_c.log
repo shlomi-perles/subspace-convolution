@@ -1,0 +1,12 @@
+/root/phase5/bench/bench_coloring.cpp: In lambda function:
+/root/phase5/bench/bench_coloring.cpp:157:41: warning: unused parameter 'name' [-Wunused-parameter]
+  157 |   auto measure = [&](const std::string& name) {
+      |                      ~~~~~~~~~~~~~~~~~~~^~~~
+[09:51:28] unit tests (4-bit build) passed
+[09:51:28] start verify_5_7_4
+[10:43:54] end   verify_5_7_4: exit 0, peak 416.87 GB, 3146 s
+[10:43:54] start verify_2_10_8
+[10:51:14] end   verify_2_10_8: exit 0, peak 63.15 GB, 440 s
+[10:51:14] start verify_3_8_6
+[10:55:49] end   verify_3_8_6: exit 0, peak 47.40 GB, 275 s
+[10:55:49] DONE

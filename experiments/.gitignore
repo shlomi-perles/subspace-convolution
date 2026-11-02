@@ -1,0 +1,13 @@
+# Builds (the campaign scripts use build_*/)
+/build*/
+
+# Output of a campaign run in this directory (results_<campaign>/, claims_<campaign>/);
+# the measurements behind the paper are committed under results/
+/results_*/
+/claims_*/
+*.tar.gz
+.rss
+
+# Local helpers
+scripts_local_*.sh
+*.bundle

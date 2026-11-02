@@ -1,0 +1,31 @@
+experiment,q,n,a,b,size,check,samples,max_rel_err,note,seconds
+zeta,2,10,0,10,229755605,direct_sums_sampled,445,3.293147688e-16,uniform W and dims 0 1 2 3 4 5 6 7 8,0.256732757
+zeta,2,10,0,10,229755605,direct_mobius_sums_sampled,445,2.562776129e-16,uniform W and dims 0 1 2 3 4 5 6 7 8,12.0430035
+zeta,2,10,0,10,229755605,direct_sum_full_space,1,5.462689503e-16,,0
+zeta,2,10,0,10,229755605,hybrid_vs_fft,229755605,2.087626069e-16,t=8,9.066775625
+zeta,3,8,0,8,127902864,direct_sums_sampled,435,3.83001153e-16,uniform W and dims 0 1 2 3 4 5 6,0.041473099
+zeta,3,8,0,8,127902864,direct_mobius_sums_sampled,435,8.506545034e-16,uniform W and dims 0 1 2 3 4 5 6,6.580232087
+zeta,3,8,0,8,127902864,direct_sum_full_space,1,4.486010561e-17,,0
+zeta,3,8,0,8,127902864,hybrid_vs_fft,127902864,2.579887973e-16,t=6,5.778749425
+zeta,4,7,0,7,51409856,direct_sums_sampled,435,3.380855727e-16,uniform W and dims 0 1 2 3 4 5 6,0.205300382
+zeta,4,7,0,7,51409856,direct_mobius_sums_sampled,435,2.163767157e-16,uniform W and dims 0 1 2 3 4 5 6,2.235786271
+zeta,4,7,0,7,51409856,direct_sum_full_space,1,4.108086654e-15,,0
+zeta,4,7,0,7,51409856,hybrid_vs_fft,51409856,1.229333597e-15,t=6,2.271178223
+incidence,2,16,1,15,131070,direct_sums_sampled,100,3.022990183e-16,,0.090801491
+incidence,2,10,2,8,348502,direct_sums_sampled,100,1.719315885e-16,,0.023348713
+incidence,2,11,2,9,1396054,direct_sums_sampled,100,2.370958599e-16,,0.123081406
+incidence,2,12,2,10,5588310,direct_sums_sampled,100,3.209543454e-16,,0.508733137
+incidence,2,13,2,11,22361430,direct_sums_sampled,100,1.697034085e-16,,2.243898976
+incidence,2,14,2,12,89462102,direct_sums_sampled,100,3.044814609e-16,,9.92434777
+incidence,2,9,3,6,1576070,direct_sums_sampled,100,2.868440052e-16,,0.004408519
+incidence,2,10,3,7,12695430,direct_sums_sampled,100,3.319339353e-16,,0.047350575
+incidence,3,11,1,10,177146,direct_sums_sampled,100,3.65831904e-16,,0.053859852
+incidence,3,12,1,11,531440,direct_sums_sampled,100,5.629267201e-16,,0.174460429
+incidence,3,13,1,12,1594322,direct_sums_sampled,100,3.230349336e-16,,0.577103047
+incidence,3,14,1,13,4782968,direct_sums_sampled,100,2.879252645e-16,,1.886683252
+incidence,3,15,1,14,14348906,direct_sums_sampled,100,4.72744066e-16,,6.186899388
+incidence,3,8,2,6,1792520,direct_sums_sampled,100,5.817631307e-16,,0.026667172
+incidence,3,9,2,7,16139240,direct_sums_sampled,100,5.49730097e-16,,0.214896474
+kernel,2,10,5,5,109221651,direct_sums_sampled,4,2.917136466e-16,,19.93491035
+kernel,5,6,3,3,2558556,direct_sums_sampled,50,4.293216535e-16,,2.702439932
+kernel,5,6,3,3,2558556,sweep_vs_fft,2558556,6.002982142e-16,,1.240052676

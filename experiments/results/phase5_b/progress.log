@@ -1,0 +1,19 @@
+[09:51:27] unit tests (4-bit build) passed
+[09:52:05] unit tests (5-bit build) passed
+[09:52:05] start verify_8_6_4
+[10:12:17] end   verify_8_6_4: exit 0, peak 138.87 GB, 1212 s
+[10:12:17] start verify_16_5_3
+[10:14:46] end   verify_16_5_3: exit 0, peak 36.40 GB, 149 s
+[10:14:46] start verify_13_5_3
+[10:15:16] end   verify_13_5_3: exit 0, peak 8.05 GB, 30 s
+[10:15:16] start verify_11_5_4
+[10:15:24] end   verify_11_5_4: exit 0, peak 2.59 GB, 8 s
+[10:15:24] start verify_5_6_4
+[10:15:29] end   verify_5_6_4: exit 0, peak 1.61 GB, 5 s
+[10:15:29] start verify_32_3_2
+[10:15:29] end   verify_32_3_2: exit 0, peak 0.00 GB, 0 s
+[10:15:29] start verify_32_4_3
+[10:15:32] end   verify_32_4_3: exit 0, peak 0.53 GB, 3 s
+[10:15:32] start verify_32_5_3
+[10:24:41] end   verify_32_5_3: exit 0, peak 82.76 GB, 549 s
+[10:24:41] DONE

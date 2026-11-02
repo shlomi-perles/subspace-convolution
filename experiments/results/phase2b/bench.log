@@ -1,0 +1,4 @@
+q=9 n=6 N=540023488 zeta: speedup over sweep  FFT 18.02x [18.00, 18.04]  hybrid(t=4) 20.03x [20.01, 20.09]  (fft 28.38 s, hybrid 25.6 s, sweep 512.5 s)
+q=9 n=6 N=540023488 mobius: speedup over sweep  FFT 17.07x [17.07, 17.12]  hybrid(t=4) 19.25x [19.21, 19.29]  (fft 30.24 s, hybrid 26.89 s, sweep 519.1 s)
+q=5 n=7 N=666124288 zeta: speedup over sweep  FFT 11.39x [11.35, 11.40]  hybrid(t=4) 12.76x [12.74, 12.77]  (fft 31.03 s, hybrid 27.69 s, sweep 353.4 s)
+q=5 n=7 N=666124288 mobius: speedup over sweep  FFT 10.59x [10.58, 10.60]  hybrid(t=4) 12.04x [12.04, 12.06]  (fft 33.23 s, hybrid 29.22 s, sweep 351.9 s)

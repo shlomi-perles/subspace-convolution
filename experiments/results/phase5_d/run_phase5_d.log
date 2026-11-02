@@ -1,0 +1,76 @@
+/root/phase5/bench/bench_coloring.cpp: In lambda function:
+/root/phase5/bench/bench_coloring.cpp:157:41: warning: unused parameter 'name' [-Wunused-parameter]
+  157 |   auto measure = [&](const std::string& name) {
+      |                      ~~~~~~~~~~~~~~~~~~~^~~~
+[09:51:28] unit tests (4-bit build) passed
+[09:51:28] start verify_16_4_3
+[09:51:28] end   verify_16_4_3: exit 0, peak 0.02 GB, 0 s
+[09:51:28] start verify_3_6_5
+[09:51:28] end   verify_3_6_5: exit 0, peak 0.01 GB, 0 s
+[09:51:28] start verify_13_4_3
+[09:51:28] end   verify_13_4_3: exit 0, peak 0.01 GB, 0 s
+[09:51:28] start verify_5_5_3
+[09:51:28] end   verify_5_5_3: exit 0, peak 0.01 GB, 0 s
+[09:51:28] start verify_11_4_3
+[09:51:29] end   verify_11_4_3: exit 0, peak 0.01 GB, 1 s
+[09:51:29] start verify_2_7_5
+[09:51:29] end   verify_2_7_5: exit 0, peak 0.01 GB, 0 s
+[09:51:29] start verify_4_5_4
+[09:51:29] end   verify_4_5_4: exit 0, peak 0.01 GB, 0 s
+[09:51:29] start verify_9_4_3
+[09:51:29] end   verify_9_4_3: exit 0, peak 0.01 GB, 0 s
+[09:51:29] start verify_8_4_3
+[09:51:29] end   verify_8_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_7_4_3
+[09:51:29] end   verify_7_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_3_5_4
+[09:51:29] end   verify_3_5_4: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_2_6_5
+[09:51:29] end   verify_2_6_5: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_5_4_3
+[09:51:29] end   verify_5_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_16_3_2
+[09:51:29] end   verify_16_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_4_4_3
+[09:51:29] end   verify_4_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_13_3_2
+[09:51:29] end   verify_13_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_2_5_4
+[09:51:29] end   verify_2_5_4: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_11_3_2
+[09:51:29] end   verify_11_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_3_4_3
+[09:51:29] end   verify_3_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_9_3_2
+[09:51:29] end   verify_9_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_8_3_2
+[09:51:29] end   verify_8_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_7_3_2
+[09:51:29] end   verify_7_3_2: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_2_4_3
+[09:51:29] end   verify_2_4_3: exit 0, peak 0.00 GB, 0 s
+[09:51:29] start verify_kernel_8_6_3
+[09:57:14] end   verify_kernel_8_6_3: exit 0, peak 84.30 GB, 345 s
+[09:57:14] start verify_kernel_3_8_4
+[10:00:29] end   verify_kernel_3_8_4: exit 0, peak 31.08 GB, 195 s
+[10:00:29] start verify_kernel_2_10_5
+[10:04:39] end   verify_kernel_2_10_5: exit 0, peak 39.86 GB, 250 s
+[10:04:39] start verify_kernel_5_6_3
+[10:04:47] end   verify_kernel_5_6_3: exit 0, peak 1.11 GB, 8 s
+[10:04:47] start verify_kernel_4_6_3
+[10:04:49] end   verify_kernel_4_6_3: exit 0, peak 0.13 GB, 2 s
+[10:04:49] start verify_kernel_2_8_4
+[10:04:50] end   verify_kernel_2_8_4: exit 0, peak 0.08 GB, 1 s
+[10:04:50] start verify_kernel_3_6_3
+[10:04:50] end   verify_kernel_3_6_3: exit 0, peak 0.01 GB, 0 s
+[10:04:50] start verify_kernel_2_6_3
+[10:04:50] end   verify_kernel_2_6_3: exit 0, peak 0.00 GB, 0 s
+[10:04:50] start verify_kernel_2_4_2
+[10:04:50] end   verify_kernel_2_4_2: exit 0, peak 0.00 GB, 0 s
+[10:04:50] start verify_kernel_3_4_2
+[10:04:50] end   verify_kernel_3_4_2: exit 0, peak 0.00 GB, 0 s
+[10:04:51] start verify_kernel_4_4_2
+[10:04:51] end   verify_kernel_4_4_2: exit 0, peak 0.00 GB, 0 s
+[10:04:51] start verify_kernel_5_4_2
+[10:04:51] end   verify_kernel_5_4_2: exit 0, peak 0.00 GB, 0 s
+[10:04:51] DONE

@@ -1,0 +1,11 @@
+case,exit_code,peak_rss_gb,seconds
+verify_9_6_4,0,485.70,4756
+verify_7_6_4,0,38.30,247
+verify_4_7_5,0,21.32,116
+verify_2_9_7,0,2.76,10
+verify_9_5_3,0,0.66,1
+verify_3_7_5,0,0.75,3
+verify_8_5_3,0,0.29,1
+verify_4_6_4,0,0.23,0
+verify_7_5_4,0,0.12,0
+verify_2_8_6,0,0.13,1

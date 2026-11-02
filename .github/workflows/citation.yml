@@ -1,0 +1,20 @@
+name: Citation
+
+on:
+  push:
+    branches: [main]
+    paths: ["CITATION.cff", ".github/workflows/citation.yml"]
+  pull_request:
+    paths: ["CITATION.cff", ".github/workflows/citation.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate CITATION.cff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx run cffconvert --validate

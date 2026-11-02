@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this code, these measurements or the formalization, please cite the paper (preferred citation below)."
+title: "A Fast Algorithm for Subspace Convolution: implementation, experiments and Lean 4 formalization"
+type: software
+authors:
+  - family-names: Perles
+    given-names: Shlomo A.
+    affiliation: The Hebrew University of Jerusalem
+  - family-names: Weinstein
+    given-names: Omri
+    affiliation: The Hebrew University of Jerusalem
+license: Apache-2.0
+repository-code: "https://github.com/shlomi-perles/subspace-convolution"
+keywords:
+  - subspace lattice
+  - zeta transform
+  - Möbius inversion
+  - fast Fourier transform
+  - Grassmann graph
+  - rank-width
+  - graph coloring
+  - Lean 4
+  - Mathlib
+  - formal verification
+preferred-citation:
+  type: unpublished
+  title: "A Fast Algorithm for Subspace Convolution"
+  authors:
+    - family-names: Perles
+      given-names: Shlomo A.
+      affiliation: The Hebrew University of Jerusalem
+    - family-names: Weinstein
+      given-names: Omri
+      affiliation: The Hebrew University of Jerusalem
+  year: 2026

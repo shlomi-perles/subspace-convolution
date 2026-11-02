@@ -1,0 +1,32 @@
+[00:39:09] unit tests passed
+[00:39:09] start incidence
+[01:19:12] end   incidence: exit 0, peak 138.69 GB, 2403 s
+[01:19:12] start poisson_2_16_1_15
+[01:19:14] end   poisson_2_16_1_15: exit 0, peak 0.01 GB, 2 s
+[01:19:14] start poisson_2_8_2_6
+[01:19:14] end   poisson_2_8_2_6: exit 0, peak 0.01 GB, 0 s
+[01:19:14] start poisson_2_12_2_10
+[01:19:34] end   poisson_2_12_2_10: exit 0, peak 0.30 GB, 20 s
+[01:19:34] start poisson_2_13_2_11
+[01:20:44] end   poisson_2_13_2_11: exit 0, peak 1.17 GB, 70 s
+[01:20:44] start poisson_2_14_2_12
+[01:25:23] end   poisson_2_14_2_12: exit 0, peak 4.67 GB, 279 s
+[01:25:23] start poisson_3_8_2_6
+[01:25:28] end   poisson_3_8_2_6: exit 0, peak 0.74 GB, 5 s
+[01:25:28] start poisson_3_9_2_7
+[01:25:57] end   poisson_3_9_2_7: exit 0, peak 6.56 GB, 29 s
+[01:25:57] start poisson_2_9_3_6
+[01:26:08] end   poisson_2_9_3_6: exit 0, peak 1.08 GB, 11 s
+[01:26:08] start poisson_4_7_2_5
+[01:26:17] end   poisson_4_7_2_5: exit 0, peak 2.23 GB, 9 s
+[01:26:17] start poisson_2_10_3_7
+[01:27:01] end   poisson_2_10_3_7: exit 0, peak 8.58 GB, 44 s
+[01:27:01] start poisson_4_8_2_6
+[01:29:42] end   poisson_4_8_2_6: exit 0, peak 35.57 GB, 161 s
+[01:29:42] start poisson_2_11_3_8
+[01:36:51] end   poisson_2_11_3_8: exit 0, peak 68.57 GB, 429 s
+[01:36:51] start poisson_4_9_2_7
+[03:01:00] end   poisson_4_9_2_7: exit 0, peak 568.90 GB, 5049 s
+[03:01:00] start poisson_2_12_3_9
+[04:34:06] end   poisson_2_12_3_9: exit 0, peak 548.52 GB, 5586 s
+[04:34:06] DONE

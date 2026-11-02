@@ -1,0 +1,44 @@
+name: Lean
+
+on:
+  push:
+    branches: [main]
+    paths: ["lean/**", ".github/workflows/lean.yml"]
+  pull_request:
+    paths: ["lean/**", ".github/workflows/lean.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: lean
+
+jobs:
+  build:
+    name: Build and axiom audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Fetches the Mathlib cache and runs `lake build`.
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+
+      - name: No sorry, admit or native_decide in the sources
+        run: |
+          if grep -rnwE 'sorry|admit|native_decide' --include='*.lean' SubspaceConvolution SubspaceConvolution.lean Audit.lean; then
+            echo "Forbidden keyword found in the sources." >&2
+            exit 1
+          fi
+
+      - name: Axiom audit (only propext, Classical.choice, Quot.sound)
+        run: |
+          lake env lean Audit.lean > audit.log
+          python3 scripts/check_axioms.py audit.log Audit.lean

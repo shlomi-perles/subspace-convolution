@@ -1,0 +1,47 @@
+name: Experiments
+
+on:
+  push:
+    branches: [main]
+    paths: ["experiments/**", "paper/experiments_appendix.tex", ".github/workflows/experiments.yml"]
+  pull_request:
+    paths: ["experiments/**", "paper/experiments_appendix.tex", ".github/workflows/experiments.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: experiments
+
+jobs:
+  build-and-test:
+    name: Build and test (${{ matrix.bits }}-bit coordinates)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        bits: [4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DFSC_NATIVE=OFF -DFSC_COORD_BITS=${{ matrix.bits }}
+      - name: Build
+        run: cmake --build build -j
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+  paper-assets:
+    name: Tables and figure data match results/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate and compare
+        run: python analysis/paper_assets.py --check

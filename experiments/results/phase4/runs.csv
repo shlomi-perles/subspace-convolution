@@ -1,0 +1,5 @@
+case,exit_code,peak_rss_gb,seconds
+paired_q7,0,0.12,5
+paired_q11,0,2.36,75
+paired_q13,0,7.89,369
+paired_q7_n6,0,37.48,1386

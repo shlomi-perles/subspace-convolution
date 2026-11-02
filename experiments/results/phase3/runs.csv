@@ -1,0 +1,5 @@
+case,exit_code,peak_rss_gb,seconds
+paired_q32_small,0,0.53,16
+paired_q32_n5,0,179.11,13972
+sampled_q16_n5,0,2.00,90
+sampled_q8_n6,0,10.29,533

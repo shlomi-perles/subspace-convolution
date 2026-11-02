@@ -1,0 +1,9 @@
+[00:17:37] unit tests passed
+[00:17:37] start paired_q9_n6
+[04:16:28] end   paired_q9_n6: exit 0, peak 468.97 GB, 14331 s
+[04:16:28] start paired_q5_n7
+[07:20:57] end   paired_q5_n7: exit 0, peak 387.78 GB, 11069 s
+[07:20:57] skip  kernel_8_6_3: taken by the other socket
+[07:20:57] skip  kernel_3_8_4: taken by the other socket
+[07:20:57] skip  poisson_8_6_2_4: taken by the other socket
+[07:20:57] DONE

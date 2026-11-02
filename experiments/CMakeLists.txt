@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.16)
+project(fast_subspace_convolution LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+option(FSC_NATIVE "Tune for the build machine (-march=native)" ON)
+set(FSC_COORD_BITS 4 CACHE STRING "Bits per packed coordinate: 4 (q <= 16, n <= 16) or 5 (q <= 32, n <= 12)")
+
+find_package(OpenMP REQUIRED)
+
+add_library(fsc INTERFACE)
+target_include_directories(fsc INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(fsc INTERFACE OpenMP::OpenMP_CXX)
+target_compile_options(fsc INTERFACE -Wall -Wextra)
+target_compile_definitions(fsc INTERFACE FSC_COORD_BITS=${FSC_COORD_BITS})
+if(FSC_NATIVE)
+  target_compile_options(fsc INTERFACE -march=native)
+endif()
+
+enable_testing()
+foreach(t test_zeta test_incidence test_apps)
+  add_executable(${t} tests/${t}.cpp)
+  target_link_libraries(${t} PRIVATE fsc)
+  add_test(NAME ${t} COMMAND ${t})
+endforeach()
+
+# The drivers behind the paper's tables and figure (see README.md).
+foreach(b bench_paired bench_incidence_hard bench_poisson bench_grassmann verify_large)
+  add_executable(${b} bench/${b}.cpp)
+  target_link_libraries(${b} PRIVATE fsc)
+endforeach()
