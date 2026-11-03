@@ -8,9 +8,9 @@ import SubspaceConvolution.Transform.Algorithm
 import SubspaceConvolution.Transform.Incidence
 
 /-!
-# Exact integer evaluation (Appendix F, Corollary F.1)
+# Exact integer evaluation (Appendix D, Corollary 2)
 
-For integer inputs of magnitude below `2^H`, every transform of Theorems 1.1 and 1.2 is evaluated
+For integer inputs of magnitude below `2^H`, every transform of Theorems 1 and 2 is evaluated
 exactly by running the algorithm over `ℤ/Lℤ` for a modulus `L ∈ {2B+1, 2B+2}` coprime to
 `p = char K`, where `B = 2^H S q^{n(n-1)/2}` bounds the outputs, and taking centered residues
 (`ZMod.valMinAbs`).
@@ -22,12 +22,12 @@ exactly by running the algorithm over `ℤ/Lℤ` for a modulus `L ∈ {2B+1, 2B+
   (`IntegerAux.abs_zeta_le`, `IntegerAux.abs_zetaInv_le`, …).
 * `exists_coprime_modulus`, `IntegerAux.valMinAbs_cast_of_abs_le` — the modulus and centered
   residues.
-* `IntegerAux.exact_integer_generic` — the argument of Corollary F.1 for an abstract transform.
+* `IntegerAux.exact_integer_generic` — the argument of Corollary 2 for an abstract transform.
 * `exact_integer_zeta`, `exact_integer_zetaInv`, `exact_integer_zetaT`, `exact_integer_zetaTInv`,
-  `exact_integer_incid`, `exact_integer_incidT` — **Corollary F.1** for the six transforms.
+  `exact_integer_incid`, `exact_integer_incidT` — **Corollary 2** for the six transforms.
 
 **Bit-cost model.** The algorithm performs `s` gates `z = a x + b y` over `ℤ/Lℤ` (counted by
-`LinCost`, from Theorems 1.1 and 1.2).  We charge `(log₂ L + 1)²` bit operations per gate, the
+`LinCost`, from Theorems 1 and 2).  We charge `(log₂ L + 1)²` bit operations per gate, the
 schoolbook cost of one multiplication modulo `L`; the bound `s (log₂ L + 1)² = O_q(S (H + n² + 1)²
 log S)` is stated in this per-operation bit-cost model (it is not derived from a machine model).
 -/
@@ -282,7 +282,7 @@ theorem cost_arith (q n H S C₁ L : ℕ) (hq : 2 ≤ q) (hS : S ≤ 32 * q ^ (n
     _ = C₁ * (2 * Nat.log 2 q + 10) ^ 2 * S * (H + n ^ 2 + 1) ^ 2 * (Nat.log 2 S + 1) := by
         rw [h5]; ring
 
-/-- **Corollary F.1**, the generic argument: a transform `out` with integer coefficients, bounded
+/-- **Corollary 2**, the generic argument: a transform `out` with integer coefficients, bounded
 by `B = 2^H S q^{n(n-1)/2}`, computed by a linear program over every `ℤ/Lℤ` with `L` coprime to
 `p`, is recovered exactly from centered residues modulo some `L ∈ {2B+1, 2B+2}`. -/
 theorem exact_integer_generic {I O : Type*} (q p : ℕ) (hq : 2 ≤ q) (hp : p.Prime)
@@ -301,7 +301,7 @@ theorem exact_integer_generic {I O : Type*} (q p : ℕ) (hq : 2 ≤ q) (hp : p.P
   · rw [hout, valMinAbs_cast_of_abs_le (B := 2 ^ H * S * q ^ (n * (n - 1) / 2)) (by omega) (hB o)]
   · exact cost_arith q n H S C₁ L hq hS (by omega)
 
-/-! ### Corollary F.1 -/
+/-! ### Corollary 2 -/
 
 theorem isUnit_ringChar_zmod (K : Type*) [Field K] [Fintype K] {L : ℕ}
     (h : Nat.Coprime L (ringChar K)) : IsUnit ((ringChar K : ℕ) : ZMod L) :=
@@ -316,13 +316,13 @@ theorem natCast_bound_le {K : Type w} [Field K] [Fintype K] (H S S' e : ℕ) (hS
 
 end IntegerAux
 
-/-! ### Corollary F.1 -/
+/-! ### Corollary 2 -/
 
 section Corollary
 
 variable (K : Type w) [Field K] [Fintype K]
 
-/-- **Corollary F.1** for `Z_{n,k}`: exact evaluation on integer inputs `|f U| < 2^H` from the
+/-- **Corollary 2** for `Z_{n,k}`: exact evaluation on integer inputs `|f U| < 2^H` from the
 centered residues of a program with `s` gates over `ℤ/Lℤ`, `L ≤ 2B + 2` coprime to `p`, with
 `s (log₂ L + 1)² = O_q(S (H + n² + 1)² log S)`, `S = M_q(n,k)`.  The factor `(log₂ L + 1)²` per gate
 is the schoolbook bit cost of one operation modulo `L`: this per-operation cost is the bit-cost
@@ -346,7 +346,7 @@ theorem exact_integer_zeta :
     (fun W => (IntegerAux.abs_zeta_le k f (fun U => (hf U).le) (by positivity) W).trans
       (IntegerAux.natCast_bound_le H _ _ _ le_rfl))
 
-/-- **Corollary F.1** for `Z_{n,k}⁻¹` (coefficients `(-1)^j q^{j(j-1)/2}`,
+/-- **Corollary 2** for `Z_{n,k}⁻¹` (coefficients `(-1)^j q^{j(j-1)/2}`,
 `zetaInv_eq_sum_mobius`); same bit-cost model. -/
 theorem exact_integer_zetaInv :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
@@ -367,7 +367,7 @@ theorem exact_integer_zetaInv :
     (fun W => (IntegerAux.abs_zetaInv_le k g (fun U => (hg U).le) (by positivity) W).trans
       (IntegerAux.natCast_bound_le H _ _ _ le_rfl))
 
-/-- **Corollary F.1** for `Z_{n,k}ᵀ`; same bit-cost model. -/
+/-- **Corollary 2** for `Z_{n,k}ᵀ`; same bit-cost model. -/
 theorem exact_integer_zetaT :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
       k ≤ finrank K V → ∀ (H : ℕ) (f : SubLE K V k → ℤ), (∀ U, |f U| < 2 ^ H) →
@@ -387,7 +387,7 @@ theorem exact_integer_zetaT :
     (fun U => (IntegerAux.abs_zetaT_le k f (fun W => (hf W).le) (by positivity) U).trans
       (IntegerAux.natCast_bound_le H _ _ _ le_rfl))
 
-/-- **Corollary F.1** for `(Z_{n,k}ᵀ)⁻¹` (coefficients `(-1)^j q^{j(j-1)/2}`,
+/-- **Corollary 2** for `(Z_{n,k}ᵀ)⁻¹` (coefficients `(-1)^j q^{j(j-1)/2}`,
 `zetaTInv_eq_sum_mobius`); same bit-cost model. -/
 theorem exact_integer_zetaTInv :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
@@ -408,7 +408,7 @@ theorem exact_integer_zetaTInv :
     (fun U => (IntegerAux.abs_zetaTInv_le k g (fun W => (hg W).le) (by positivity) U).trans
       (IntegerAux.natCast_bound_le H _ _ _ le_rfl))
 
-/-- **Corollary F.1** for `I^{a,b}_n`, with `S = |Gr(n,a)| + |Gr(n,b)|`; same bit-cost model. -/
+/-- **Corollary 2** for `I^{a,b}_n`, with `S = |Gr(n,a)| + |Gr(n,b)|`; same bit-cost model. -/
 theorem exact_integer_incid :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (a b : ℕ),
       a ≤ b → b ≤ finrank K V → ∀ (H : ℕ) (f : Grass K V a → ℤ), (∀ U, |f U| < 2 ^ H) →
@@ -430,7 +430,7 @@ theorem exact_integer_incid :
     (fun W => (IntegerAux.abs_incid_le a b f (fun U => (hf U).le) (by positivity) W).trans
       (IntegerAux.natCast_bound_le H _ _ _ (Nat.le_add_right _ _)))
 
-/-- **Corollary F.1** for the transpose `I^{a,b}ᵀ`, with `S = |Gr(n,a)| + |Gr(n,b)|`; same
+/-- **Corollary 2** for the transpose `I^{a,b}ᵀ`, with `S = |Gr(n,a)| + |Gr(n,b)|`; same
 bit-cost model. -/
 theorem exact_integer_incidT :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (a b : ℕ),

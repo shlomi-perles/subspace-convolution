@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.WidthRest
 
 /-!
-# Lemma C.4, part 3: the remaining edges at a cut in the constraint part
+# Lemma 6, part 3: the remaining edges at a cut in the constraint part
 
 Let the cut `X` contain the selector `s_{C₀}` of the last constraint `C₀` it meets.  After
 removing the register edges, the test-clique edges and the private edges, the remaining nonzero

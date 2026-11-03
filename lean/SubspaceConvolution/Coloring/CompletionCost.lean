@@ -8,13 +8,13 @@ import SubspaceConvolution.Circuit.Arith
 import SubspaceConvolution.Coloring.Completion
 
 /-!
-# Proposition 7.3 with the cost of Theorem 1.1
+# Proposition 1 with the cost of Theorem 1
 
-`SubspaceConvolution.Completion` proves the identity behind Proposition 7.3
+`SubspaceConvolution.Completion` proves the identity behind Proposition 1
 (`completionSum_eq_zetaOn`: `B_g(U) = (Z_r^{⊗c} g)(U₁^⊥, …, U_c^⊥)`), the coordinatewise
 evaluation of `Z_r^{⊗c}` (`zetaOn_univ_eq_foldr`), and the arithmetic of the running time with
 the cost `K · N log N` of one call of the one-dimensional transform `Z_r` left as a parameter
-(`completion_cost_le`).  Here that parameter is replaced by the proved **Theorem 1.1**
+(`completion_cost_le`).  Here that parameter is replaced by the proved **Theorem 1**
 (`fast_subspace_summation`, for `K = F₂`, `V = F₂^r`, `k = r`), and the whole computation is
 assembled into one circuit in the cost models of `Circuit/SLP.lean` and `Circuit/Arith.lean`.
 
@@ -22,13 +22,13 @@ assembled into one circuit in the cost models of `Circuit/SLP.lean` and `Circuit
   coordinates held fixed (`N^{c-1}` independent copies, `LinCost.sigma`);
   `LinCost.foldr_zetaCoord` — the `c` passes composed (`LinCost.comp`).
 * `CompAux.zetaAll_linCost` — the one-dimensional transform `Z_r = zetaAll` on the subspaces
-  of `F₂^r` is Theorem 1.1's `Z_{r,r}` (every subspace of `F₂^r` has dimension at most `r`):
+  of `F₂^r` is Theorem 1's `Z_{r,r}` (every subspace of `F₂^r` has dimension at most `r`):
   `O(r² N)` gates with `N = N₂(r)`; `zetaCoord_eq_zetaAll` — `zetaCoord i` is `Z_r` in the
   argument `i`.
 * `completionSum_linCost` — all sums `B_g` with `c · C₁ r² S` gates, `S = N^c`
   (`card_profileTuples`).
 * `CompAux.mul_sq_le_log` — `c r² ≤ 7 log₂ S` (from `N₂(r) ≥ 2^{⌊r²/4⌋}`).
-* `fast_completionSum`, `fast_completion_count` — **Proposition 7.3**: the sums `B_g` and the
+* `fast_completionSum`, `fast_completion_count` — **Proposition 1**: the sums `B_g` and the
   number `∑_U f(U) B_g(U)` take `O(S log S)` arithmetic operations, over every commutative ring
   in which `2` is invertible.
 -/
@@ -92,7 +92,7 @@ theorem Circuit.LinCost.foldr_zetaCoord {ι S : Type*} [DecidableEq ι] [Fintype
 
 end Coord
 
-/-! ### Theorem 1.1 on the subspaces of `F₂^r` -/
+/-! ### Theorem 1 on the subspaces of `F₂^r` -/
 
 namespace CompAux
 
@@ -114,7 +114,7 @@ theorem zeta_subLEEquiv {R : Type*} [CommRing R] (r : ℕ) (g : Submodule F2 (Fi
   refine Finset.sum_equiv (subLEEquiv r) (fun U => ?_) (fun U _ => rfl)
   simp [subLEEquiv]
 
-/-- **Theorem 1.1 for the one-dimensional transform `Z_r` on `Sub(F₂^r)`**: over every
+/-- **Theorem 1 for the one-dimensional transform `Z_r` on `Sub(F₂^r)`**: over every
 commutative ring in which `2` is invertible, `zetaAll` on the `N = N₂(r)` subspaces of `F₂^r`
 costs `O(r² N)` gates. -/
 theorem zetaAll_linCost :
@@ -193,10 +193,10 @@ theorem CompAux.mul_sq_le_log (c r : ℕ) :
     _ = 7 * (c * Nat.log 2 (numSubspaces r)) := by ring
     _ ≤ 7 * Nat.log 2 (numSubspaces r ^ c) := Nat.mul_le_mul_left 7 h3
 
-/-- **Proposition 7.3**, the sums `B_g`: `O(S log S)` arithmetic operations, `S = N₂(r)^c`.
+/-- **Proposition 1**, the sums `B_g`: `O(S log S)` arithmetic operations, `S = N₂(r)^c`.
 
 This replaces the cost parameter `K` of `completion_cost_le` (the cost `K · N log N` of one call
-of the one-dimensional transform `Z_r`) by the proved Theorem 1.1 (`fast_subspace_summation`):
+of the one-dimensional transform `Z_r`) by the proved Theorem 1 (`fast_subspace_summation`):
 the circuit applies `Z_r` along each of the `c` arguments (`c · N^{c-1}` calls) and reads the
 result at `(U₁^⊥, …, U_c^⊥)` (`completionSum_eq_zetaOn`). -/
 theorem fast_completionSum :
@@ -216,7 +216,7 @@ theorem fast_completionSum :
       rw [show C₁ * S * (7 * Nat.log 2 S) = 7 * C₁ * S * Nat.log 2 S by ring]
       exact Nat.mul_le_mul_left _ (Nat.le_succ _)
 
-/-- **Proposition 7.3**, the number `∑_U f(U) B_g(U)` (bilinear in `f` and `g`, given as the two
+/-- **Proposition 1**, the number `∑_U f(U) B_g(U)` (bilinear in `f` and `g`, given as the two
 halves of one input table): `O(S log S)` arithmetic operations, `S = N₂(r)^c`.  The sums `B_g`
 (`fast_completionSum`), then `S` products `f(U) B_g(U)` (`ArithCost.mulPointwise`) and their
 sum (one dense all-ones row, `S` gates). -/

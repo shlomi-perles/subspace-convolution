@@ -6,12 +6,12 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.Basic
 
 /-!
-# Appendix C: the counter reduction — the construction
+# Appendix G: the counter reduction — the construction
 
-This file contains only the *construction* of Appendix C ("The counter reduction") of the paper:
+This file contains only the *construction* of Appendix G ("The counter reduction") of the paper:
 the source problem **4-Monotone min-CSP**, the parameters `d, M, h, Q`, the graph `graph I`
 with its vertex type `Vtx I`, the target number of colors `eta I`, and the linear layout
-`layout I` of Lemma C.4.  The theorems are proved in the other files of this directory.
+`layout I` of Lemma 6.  The theorems are proved in the other files of this directory.
 
 ## The source problem
 
@@ -40,7 +40,7 @@ The variables are padded to the `M` matrices `A ∈ F₂^{d×d}` via the injecti
 
 The target number of colors is `η = Q + |D| = Q + p + Σ_C Σ_R Σ_{x ∈ X_C} (n - c_{R,x})`.
 
-## The layout (Lemma C.4)
+## The layout (Lemma 6)
 
 The layout sorts the vertices by the lexicographic key `key I v : List ℕ`: first the rows
 `B_1, …, B_d`, then `B_*`, then for each `C` in turn: `s_C`, then the palette blocks
@@ -176,7 +176,7 @@ def numI (I : MinCSP) : ℕ :=
 constraint and one anchor per `I`-vertex). -/
 def eta (I : MinCSP) : ℕ := Q I + (I.p + numI I)
 
-/-- The vertices of the graph of Appendix C. -/
+/-- The vertices of the graph of Appendix G. -/
 inductive Vtx (I : MinCSP) : Type
   /-- Register vertex of the row `B_i`, with label `(e_i, A i)`. -/
   | row (i : Fin (d I)) (A : Mat I) (t : Fin I.n)
@@ -268,7 +268,7 @@ def edge (I : MinCSP) : Vtx I → Vtx I → Prop
 instance (I : MinCSP) : DecidableRel (edge I) := fun v w => by
   cases v <;> cases w <;> unfold edge <;> infer_instance
 
-/-- The graph of Appendix C. -/
+/-- The graph of Appendix G. -/
 def graph (I : MinCSP) : SimpleGraph (Vtx I) := SimpleGraph.fromRel (edge I)
 
 instance (I : MinCSP) : DecidableRel (graph I).Adj := fun v w =>
@@ -276,7 +276,7 @@ instance (I : MinCSP) : DecidableRel (graph I).Adj := fun v w =>
 
 /-! ## The linear layout -/
 
-/-- The lexicographic sort key of the layout of Lemma C.4. -/
+/-- The lexicographic sort key of the layout of Lemma 6. -/
 def key (I : MinCSP) : Vtx I → List ℕ
   | .row i A t => [0, i, matIdx A, t]
   | .star t => [1, t]
@@ -315,7 +315,7 @@ theorem key_injective (I : MinCSP) : Function.Injective (key I) := by
 /-- The layout order: lexicographic by `key`. -/
 instance (I : MinCSP) : LinearOrder (Vtx I) := LinearOrder.lift' (key I) (key_injective I)
 
-/-- The linear layout of Lemma C.4: the vertices sorted by `key`. -/
+/-- The linear layout of Lemma 6: the vertices sorted by `key`. -/
 def layout (I : MinCSP) : LinearLayout (Vtx I) where
   order := (Finset.univ : Finset (Vtx I)).sort (· ≤ ·)
   nodup := Finset.sort_nodup _ _

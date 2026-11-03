@@ -7,9 +7,9 @@ import SubspaceConvolution.Coloring.LowerBound.Counter.Main
 import SubspaceConvolution.Coloring.LowerBound.LittleO
 
 /-!
-# Theorem C.1: size of the counter reduction on the instances of Lemma C.2
+# Theorem 8: size of the counter reduction on the instances of Lemma 4
 
-Lemma C.2 (from FGLSZ19) supplies instances with `|C| = O(k² n²)` constraints and
+Lemma 4 (from FGL+19) supplies instances with `|C| = O(k² n²)` constraints and
 `L = max(1, max_C |R_C|) ≤ max(n, 4)` mini-constraints per constraint.  On such instances the
 counter-reduction graph has `N ≤ g(k) (n+1)^6` vertices (`card_Vtx_le_poly`; the paper writes
 `N ≤ g(k) n^6`).
@@ -19,7 +19,7 @@ open Finset
 
 namespace SubspaceConvolution.Counter
 
-/-- The instance class of Lemma C.2: normalized, at most `c₀ k² n²` constraints, and at most
+/-- The instance class of Lemma 4: normalized, at most `c₀ k² n²` constraints, and at most
 `max(n, 4)` mini-constraints per constraint. -/
 def Restricted (c₀ : ℕ) (I : MinCSP) : Prop :=
   I.Normalized ∧ I.p ≤ c₀ * I.k ^ 2 * I.n ^ 2 ∧ ∀ C, I.numMini C ≤ max I.n 4
@@ -55,7 +55,7 @@ def sizeFactor (c₀ k : ℕ) : ℕ :=
   let M := 2 ^ (d * d)
   (d + 1) * M + 37 * c₀ * k ^ 2 * (d + M + 1) + 68 * c₀ ^ 2 * k ^ 4
 
-/-- **Size of the reduction (Theorem C.1):** `N ≤ g(k) (n+1)^6` on the instances of Lemma C.2. -/
+/-- **Size of the reduction (Theorem 8):** `N ≤ g(k) (n+1)^6` on the instances of Lemma 4. -/
 theorem card_Vtx_le_poly {c₀ : ℕ} {I : MinCSP} (hI : Restricted c₀ I) :
     Fintype.card (Vtx I) ≤ sizeFactor c₀ I.k * (I.n + 1) ^ 6 := by
   obtain ⟨hN, hp, hL⟩ := hI

@@ -8,7 +8,7 @@ import SubspaceConvolution.Coloring.LowerBound.FixedPalette.Core
 /-!
 # Counting the three-colorings of `G_φ`
 
-The identity (cnt:identity) of the paper:
+The identity (eq. 35) of the paper:
 `#3-Color(G_φ) = 6 · 2^g · 16^m · #SAT(φ)` with `g = 2k + 3m` groups, for `k ≥ 1`.
 -/
 
@@ -180,7 +180,7 @@ theorem card_normCol_eq (hk : 1 ≤ k) (φ : GridCNF k) :
     Fintype.card_subtype]
   ring
 
-/-- **Counting identity** (paper eq. (cnt:identity)). -/
+/-- **Counting identity** (paper eq. (35)). -/
 theorem card_coloring (hk : 1 ≤ k) (φ : GridCNF k) :
     Fintype.card ((graph φ).Coloring (Fin 3)) =
       6 * 2 ^ (2 * k + 3 * φ.m) * 16 ^ φ.m * φ.numSat := by

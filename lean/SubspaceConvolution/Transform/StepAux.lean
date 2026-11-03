@@ -11,13 +11,13 @@ import SubspaceConvolution.Transform.Fourier
 * `linCost_selAdd`, `linCost_selSub` — copying entries and adding/subtracting pairs of entries
   costs one gate per sum.
 * `linCost_assemble`, `linCost_assembleInv` — the final assembly of a recursion step
-  (equations (cut) and (inverse)): an inside map, a crossing map and one addition (subtraction)
+  (equations (8) and (5)): an inside map, a crossing map and one addition (subtraction)
   per crossing output (input).
 * `fourierQ_linCost`, `fourierQInv_linCost`, `fourierSig_linCost`, `fourierInvSig_linCost` —
   costs of the Fourier transforms on the coset tables.
 * `blockMap`, `fourierConj` — `F⁻¹ ∘ (⊕_λ T_λ) ∘ F` for an arbitrary family of block maps
   `T_λ`, its cost `fourierConj_linCost`, and the algebra `fourierConj_comp`, `fourierConj_id`.
-* `affineT_eq_fourierConj`, `affineT_fourierConj_zetaInv` — equation (block) and its inverse.
+* `affineT_eq_fourierConj`, `affineT_fourierConj_zetaInv` — equation (10) and its inverse.
 -/
 
 open Finset Module
@@ -64,7 +64,7 @@ theorem linCost_selSub {J O : Type*} [Fintype O] (h1 : (1 : R) ∈ C) (hm1 : (-1
   funext u o
   ring
 
-/-- **Assembly of a step (equations (cut), (rank-cut))**: the inside outputs are read off the
+/-- **Assembly of a step (equations (8), (12))**: the inside outputs are read off the
 inside map; each crossing output adds an inside value and the crossing value. -/
 theorem linCost_assemble {I₀ I₁ O₀ O₀' O₁ : Type*} [Fintype O₁] (h1 : (1 : R) ∈ C)
     {M_in : (I₀ → R) → O₀ ⊕ O₀' → R} {s_in : ℕ} (h_in : LinCost C M_in s_in)
@@ -82,7 +82,7 @@ theorem linCost_assemble {I₀ I₁ O₀ O₀' O₁ : Type*} [Fintype O₁] (h1 
   funext g o
   rfl
 
-/-- **Assembly of an inverse step (equation (inverse))**: the inside part is inverted by `M₀`;
+/-- **Assembly of an inverse step (equation (5))**: the inside part is inverted by `M₀`;
 the crossing part first subtracts the known inside values, then is inverted by `M₁`. -/
 theorem linCost_assembleInv {I₀ I₁ : Type*} [Fintype I₁] (h1 : (1 : R) ∈ C)
     (hm1 : (-1 : R) ∈ C) {M₀ : (I₀ → R) → I₀ → R} {s₀ : ℕ} (h₀ : LinCost C M₀ s₀)
@@ -118,7 +118,7 @@ variable {W : Type*} [AddCommGroup W] [Module K W] [FiniteDimensional K W]
 
 section FourierCost
 
-/-- The Fourier transform of one coset table (equation (fft)) costs `e q |W/B|`,
+/-- The Fourier transform of one coset table (equation (6)) costs `e q |W/B|`,
 `e = dim W/B`. -/
 theorem fourierQ_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
     (B : Submodule K W) :
@@ -132,7 +132,7 @@ theorem fourierQ_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
   · rw [card_quotient, pow_succ]
     ring
 
-/-- The inverse transform of one table (equation (ifft)). -/
+/-- The inverse transform of one table (equation (7)). -/
 theorem fourierQInv_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
     (B : Submodule K W) :
     LinCost C (fourierQInv F B)
@@ -227,7 +227,7 @@ theorem fourierConj_id (F : FourierData K S) (P' : ℕ → Prop)
   simp only [Sigma.eta, Equiv.symm_apply_apply]
   exact fourierInvSig_fourierSig F P' h
 
-/-- **Equation (block)** in the form `A = F⁻¹ ∘ (⊕_λ T_{ker λ}) ∘ F`. -/
+/-- **Equation (10)** in the form `A = F⁻¹ ∘ (⊕_λ T_{ker λ}) ∘ F`. -/
 theorem affineT_eq_fourierConj (F : FourierData K S) (P' Q' : ℕ → Prop)
     (h : (Σ B : SubP K W P', W ⧸ B.1) → S) :
     affineT P' Q' h = fourierConj F P' Q' (fun _ => containT P' Q') h :=
@@ -244,7 +244,7 @@ theorem affineT_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
   funext h
   exact (affineT_eq_fourierConj F P' Q' h).symm
 
-/-- **Equation (inverse)**: `A⁻¹ = F⁻¹ ∘ (⊕_λ Z⁻¹_{ker λ}) ∘ F` (cutoff `k` on both sides). -/
+/-- **Equation (5)**: `A⁻¹ = F⁻¹ ∘ (⊕_λ Z⁻¹_{ker λ}) ∘ F` (cutoff `k` on both sides). -/
 theorem affineT_fourierConj_zetaInv (F : FourierData K S) (k : ℕ)
     (d : (Σ B : SubLE K W k, W ⧸ B.1) → S) :
     affineT (K := K) (· ≤ k) (· ≤ k)

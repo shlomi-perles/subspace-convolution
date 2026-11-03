@@ -6,10 +6,10 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.LBAux
 
 /-!
-# Möbius coefficients of the subspace lattice (Appendix F)
+# Möbius coefficients of the subspace lattice (Appendix D)
 
 The inverse containment coefficient for a dimension gap `j` is `μ(j) = (-1)^j q^{j(j-1)/2}`
-(`mobiusCoeff`), as equation (pascal) verifies by interval inversion; cutoffs preserve intervals.
+(`mobiusCoeff`), as equation (25) verifies by interval inversion; cutoffs preserve intervals.
 
 * `sum_gr_mul_mobiusCoeff` — `∑_{j ≤ m} (-1)^j q^{j(j-1)/2} |Gr(m, j)| = [m = 0]` (the
   `q`-binomial theorem at `x = -1`, from the recursion `S(m+1) = (1 - q^m) S(m)`,

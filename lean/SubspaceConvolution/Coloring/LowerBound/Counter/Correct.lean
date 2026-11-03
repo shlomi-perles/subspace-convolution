@@ -7,7 +7,7 @@ import SubspaceConvolution.Coloring.LowerBound.Counter.Forward
 import SubspaceConvolution.Coloring.LowerBound.Counter.Backward
 
 /-!
-# Lemma C.3 (`xp:correct`): correctness of the counter reduction
+# Lemma 5 (`xp:correct`): correctness of the counter reduction
 
 The graph `graph I` is `η`-colorable if and only if the (normalized) source instance `I` of
 4-Monotone min-CSP is satisfiable.
@@ -15,7 +15,7 @@ The graph `graph I` is `η`-colorable if and only if the (normalized) source ins
 
 namespace SubspaceConvolution.Counter
 
-/-- **Lemma C.3.** The graph is `η`-colorable if and only if the source instance is
+/-- **Lemma 5.** The graph is `η`-colorable if and only if the source instance is
 satisfiable. -/
 theorem colorable_iff (I : MinCSP) (hI : I.Normalized) :
     (graph I).Colorable (eta I) ↔ I.Satisfiable :=

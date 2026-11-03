@@ -6,20 +6,20 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Defs
 
 /-!
-# The hyperplane cut (Lemma 2.1, equations (cut) and (rank-cut))
+# The hyperplane cut (Lemma 1, equations (8) and (12))
 
 Fix a hyperplane `H ≤ V` and a vector `e ∉ H` (`HypData`); in the paper `V = F_q^n`,
 `H = F_q^{n-1} × {0}`, `e = (0, …, 0, 1)`.
 
 * `HypData.lift B x = U(B, x + B) = (B × {0}) + ⟨x + e⟩` (`x + B` a coset of `B ≤ H`).
-* **Lemma 2.1** (`HypData.existsUnique_lift`, `lift_inf_H`, `finrank_lift`, `lift_le_lift_iff`):
+* **Lemma 1** (`HypData.existsUnique_lift`, `lift_inf_H`, `finrank_lift`, `lift_le_lift_iff`):
   every subspace not contained in `H` is a unique `U(B, x + B)`; `U ∩ H = B`;
   `dim U = dim B + 1`; and `U(B₁, x₁ + B₁) ≤ U(B₂, x₂ + B₂)` iff `B₁ ≤ B₂` and `x₁ - x₂ ∈ B₂`.
 * `HypData.split P P' hP` — subspaces of `V` with dimension in `P` are the inside ones (in `H`)
   and the crossing ones, indexed by `(B, x + B)` with `dim B ∈ P'` (`P (d + 1) ↔ P' d`).
 * `affineT` — the affine transform `(A h)_D(x + D) = ∑_{B ≤ D} ∑_{y + B ⊆ x + D} h_B(y + B)`.
-* `HypData.containT_split_inl`, `HypData.containT_split_inr` — **equations (cut) and
-  (rank-cut)**, for the general containment transform `containT P Q`:
+* `HypData.containT_split_inl`, `HypData.containT_split_inr` — **equations (8) and
+  (12)**, for the general containment transform `containT P Q`:
   inside outputs see only inside inputs; a crossing output `U(D, x + D)` sees the inside inputs
   below `D` and the affine sum of the crossing inputs.
 -/
@@ -170,7 +170,7 @@ def lift (D : HypData K V) (B : Submodule K D.H) (x : D.H ⧸ B) : Submodule K V
 @[simp] theorem lift_mk (D : HypData K V) (B : Submodule K D.H) (x : D.H) :
     D.lift B (Submodule.Quotient.mk x) = D.liftRep B x := rfl
 
-/-- **Lemma 2.1**: `dim U(B, x + B) = dim B + 1`. -/
+/-- **Lemma 1**: `dim U(B, x + B) = dim B + 1`. -/
 theorem finrank_lift (D : HypData K V) (B : Submodule K D.H) (x : D.H ⧸ B) :
     finrank K (D.lift B x) = finrank K B + 1 := by
   obtain ⟨x, rfl⟩ := Submodule.Quotient.mk_surjective B x
@@ -183,7 +183,7 @@ theorem finrank_lift (D : HypData K V) (B : Submodule K D.H) (x : D.H ⧸ B) :
     finrank_span_singleton (D.add_e_ne_zero x)] at h1
   exact h1
 
-/-- **Lemma 2.1**: `U(B, x + B) ∩ H = B × {0}`. -/
+/-- **Lemma 1**: `U(B, x + B) ∩ H = B × {0}`. -/
 theorem lift_inf_H (D : HypData K V) (B : Submodule K D.H) (x : D.H ⧸ B) :
     D.lift B x ⊓ D.H = B.map D.H.subtype := by
   obtain ⟨x, rfl⟩ := Submodule.Quotient.mk_surjective B x
@@ -196,7 +196,7 @@ theorem not_lift_le_H (D : HypData K V) (B : Submodule K D.H) (x : D.H ⧸ B) :
   rw [lift_mk]
   exact fun hle => D.add_e_not_mem x (hle (D.add_e_mem_liftRep B x))
 
-/-- Existence part of Lemma 2.1: a crossing subspace is `U(U ∩ H, x + (U ∩ H))`. -/
+/-- Existence part of Lemma 1: a crossing subspace is `U(U ∩ H, x + (U ∩ H))`. -/
 theorem exists_lift (D : HypData K V) (U : Submodule K V) (hU : ¬ U ≤ D.H) :
     ∃ x : D.H, D.liftRep (U.comap D.H.subtype) x = U := by
   obtain ⟨u, huU, huH⟩ := IsConcreteLE.not_le_iff_exists.1 hU
@@ -259,7 +259,7 @@ theorem lift_inj (D : HypData K V) {B₁ B₂ : Submodule K D.H} {x₁ : D.H ⧸
   subst h₁ h₁'
   rfl
 
-/-- **Lemma 2.1**: every subspace not contained in `H` is `U(B, x + B)` for a unique pair. -/
+/-- **Lemma 1**: every subspace not contained in `H` is `U(B, x + B)` for a unique pair. -/
 theorem existsUnique_lift (D : HypData K V) (U : Submodule K V) (hU : ¬ U ≤ D.H) :
     ∃! Bx : Σ B : Submodule K D.H, D.H ⧸ B, D.lift Bx.1 Bx.2 = U := by
   obtain ⟨x, hx⟩ := D.exists_lift U hU
@@ -267,7 +267,7 @@ theorem existsUnique_lift (D : HypData K V) (U : Submodule K V) (hU : ¬ U ≤ D
   rintro ⟨B', x'⟩ hBx
   exact D.lift_inj (hBx.trans hx.symm)
 
-/-- **Lemma 2.1**: `U(B₁, x₁ + B₁) ≤ U(B₂, x₂ + B₂)` iff `B₁ ≤ B₂` and `x₁ - x₂ ∈ B₂`. -/
+/-- **Lemma 1**: `U(B₁, x₁ + B₁) ≤ U(B₂, x₂ + B₂)` iff `B₁ ≤ B₂` and `x₁ - x₂ ∈ B₂`. -/
 theorem lift_le_lift_iff (D : HypData K V) {B₁ B₂ : Submodule K D.H} {x₁ : D.H ⧸ B₁}
     {x₂ : D.H ⧸ B₂} : D.lift B₁ x₁ ≤ D.lift B₂ x₂ ↔ cosetLE B₁ B₂ x₁ x₂ := by
   refine ⟨D.cosetLE_of_lift_le, ?_⟩
@@ -358,7 +358,7 @@ theorem containT_eq_split (D : HypData K V) {P P' Q : ℕ → Prop} (hP : ∀ d,
   rw [Finset.sum_filter, ← (D.split P P' hP).symm.sum_comp, Fintype.sum_sum_type]
   rfl
 
-/-- **Equation (cut)/(rank-cut), inside outputs**: they see only inside inputs. -/
+/-- **Equation (8)/(12), inside outputs**: they see only inside inputs. -/
 theorem containT_split_inl (D : HypData K V) {P P' Q Q' : ℕ → Prop}
     (hP : ∀ d, P (d + 1) ↔ P' d) (hQ : ∀ d, Q (d + 1) ↔ Q' d) (f : SubP K V P → R)
     (W : SubP K D.H Q) :
@@ -374,7 +374,7 @@ theorem containT_split_inl (D : HypData K V) {P P' Q Q' : ℕ → Prop}
   · refine Finset.sum_eq_zero fun By _ => ite_eq_right fun hle => ?_
     exact D.not_lift_le_H By.1.1 By.2 (hle.trans (Submodule.map_subtype_le _ _))
 
-/-- **Equation (cut)/(rank-cut), crossing outputs**: the output at `U(D, x + D)` is the inside
+/-- **Equation (8)/(12), crossing outputs**: the output at `U(D, x + D)` is the inside
 transform at `D` plus the affine sum over crossing inputs. -/
 theorem containT_split_inr (D : HypData K V) {P P' Q Q' : ℕ → Prop}
     (hP : ∀ d, P (d + 1) ↔ P' d) (hQ : ∀ d, Q (d + 1) ↔ Q' d) (f : SubP K V P → R)

@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.Basic
 
 /-!
-# Lemma 7.1: compatibility and the parent profile
+# Lemma 3: compatibility and the parent profile
 
 Let `X₁, X₂` be disjoint vertex sets, `X = X₁ ∪ X₂` and `Y = V \ X`.  Vectors of `W_{X_i}` are
 represented as combinations `∑_{x ∈ X_i} a_x A_G[x, V \ X_i]ᵀ` (`combo`).  The paper's bilinear
@@ -161,7 +161,7 @@ theorem exists_rep_of_mem_profile {X C : Finset V} (hC : C ⊆ X) {a : V → F2}
   · intro x _ hx
     simp [hx]
 
-/-- **Lemma 7.1 (compatibility).** Classes `C₁ ⊆ X₁` and `C₂ ⊆ X₂` have no edges between them
+/-- **Lemma 3 (compatibility).** Classes `C₁ ⊆ X₁` and `C₂ ⊆ X₂` have no edges between them
 iff `β` vanishes on their profiles. -/
 theorem compatible_profile_iff (hd : Disjoint X₁ X₂) {C₁ C₂ : Finset V} (h₁ : C₁ ⊆ X₁)
     (h₂ : C₂ ⊆ X₂) :

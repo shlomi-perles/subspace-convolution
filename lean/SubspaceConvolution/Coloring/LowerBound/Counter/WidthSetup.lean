@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.Lemmas
 
 /-!
-# Lemma C.4, part 1: cuts of the layout and the easy parts of the cut-rank bound
+# Lemma 6, part 1: cuts of the layout and the easy parts of the cut-rank bound
 
 * Every prefix of `layout I` is a *cut*: a set `X` closed downwards under the sort key
   (`isCut_prefixSet`).

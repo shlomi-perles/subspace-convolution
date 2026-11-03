@@ -20,9 +20,9 @@ import SubspaceConvolution.Coloring.LowerBound.Arith
 import SubspaceConvolution.Coloring.LowerBound.LittleO
 import SubspaceConvolution.Coloring.LowerBound.Counter.Main
 import SubspaceConvolution.Coloring.LowerBound.CounterSize
-import SubspaceConvolution.Coloring.LowerBound.TheoremC1
+import SubspaceConvolution.Coloring.LowerBound.ChromaticLowerBound
 import SubspaceConvolution.Coloring.LowerBound.FixedPalette.Main
-import SubspaceConvolution.Coloring.LowerBound.TheoremD
+import SubspaceConvolution.Coloring.LowerBound.FixedPaletteLowerBound
 import SubspaceConvolution.Circuit.SLP
 import SubspaceConvolution.Circuit.Arith
 import SubspaceConvolution.Circuit.Morgenstern
@@ -39,7 +39,7 @@ import SubspaceConvolution.Transform.Rectangular
 import SubspaceConvolution.Transform.Grassmann
 import SubspaceConvolution.Transform.Spectral
 import SubspaceConvolution.Transform.Invariant
-import SubspaceConvolution.Transform.AppECost
+import SubspaceConvolution.Transform.GrassmannAppsCost
 import SubspaceConvolution.Transform.Mobius
 import SubspaceConvolution.Transform.Integer
 import SubspaceConvolution.Transform.LowerBound

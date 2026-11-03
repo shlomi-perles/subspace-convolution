@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.Lemmas
 
 /-!
-# Lemma C.3, first direction: an `η`-coloring gives a satisfying assignment
+# Lemma 5, first direction: an `η`-coloring gives a satisfying assignment
 
 Given an `η`-coloring `c` of `graph I`:
 
@@ -349,7 +349,7 @@ theorem thr_le_z (hI : I.Normalized) (C : Fin I.p) (x : Fin I.k) (hx : x ∈ I.s
 end Forward
 
 open Forward in
-/-- **Lemma C.3**, first direction: an `η`-coloring yields a satisfying assignment. -/
+/-- **Lemma 5**, first direction: an `η`-coloring yields a satisfying assignment. -/
 theorem satisfiable_of_colorable (hI : I.Normalized) (hcol : (graph I).Colorable (eta I)) :
     I.Satisfiable := by
   obtain ⟨c⟩ := hcol

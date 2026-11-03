@@ -8,7 +8,7 @@ import SubspaceConvolution.Transform.Invariant
 import SubspaceConvolution.Transform.Kernel
 
 /-!
-# Spectral projections of the Grassmann graph (Appendix E)
+# Spectral projections of the Grassmann graph (Appendix C)
 
 Let `D₁` be the adjacency matrix of `J_q(n, k)` (`adjEnd`: the intersection kernel with
 `a_j = [j = 1]`; `adjEnd_apply_eq_sum_adj`), `d = min(k, n - k)` and

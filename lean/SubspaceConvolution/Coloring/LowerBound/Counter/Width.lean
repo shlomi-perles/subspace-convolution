@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.WidthRestC
 
 /-!
-# Lemma C.4 (`xp:width`): the width of the layout
+# Lemma 6 (`xp:width`): the width of the layout
 
 The layout `layout I` (rows, then `B_*`, then for each constraint `C`: `s_C`, its palette blocks,
 its mini-constraints) has width at most `2d + 12`:
@@ -55,7 +55,7 @@ theorem cutRank_le_of_isCut (hI : I.Normalized) {X : Finset (Vtx I)} (hX : IsCut
   have := cutRank_le_parts X
   omega
 
-/-- **Lemma C.4.** The layout of the construction has width at most `2d + 12`. -/
+/-- **Lemma 6.** The layout of the construction has width at most `2d + 12`. -/
 theorem layout_width (I : MinCSP) (hI : I.Normalized) :
     (layout I).width (graph I) ≤ 2 * d I + 12 :=
   ((layout I).width_le_iff (graph I)).2 fun i => cutRank_le_of_isCut hI (isCut_prefixSet i)

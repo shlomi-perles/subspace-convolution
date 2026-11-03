@@ -6,14 +6,14 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Grassmann
 
 /-!
-# Invariant linear systems on the Grassmannian (Appendix E)
+# Invariant linear systems on the Grassmannian (Appendix C)
 
 Fix `E ∈ Gr(V, k)` and let `O_j = {U : dist(U, E) = j}`, `b_j = 𝟙_{O_j}` (`orbitInd`), for
 `0 ≤ j ≤ d = min(k, n - k)` (`gdiam`).  Choose `U_i ∈ O_i` (`orbitRep`).  For an intersection
 kernel `K(U, W) = a_{dist(U, W)}` over any field `F`:
 
 * `kernelApply_orbitInd` — `K b_j = ∑_i B_{ij} b_i` with `B_{ij} = (K b_j)(U_i)`
-  (equation (small-system), `smallSystem`): the stabilizer of `E` is transitive on each `O_i`
+  (equation (30), `smallSystem`): the stabilizer of `E` is transitive on each `O_i`
   and commutes with `K`.
 * `kernelApply_inverse` — if `B c = (1, 0, …, 0)ᵀ`, the kernel `C(U, W) = c_{dist(U, W)}` is a
   two-sided inverse of `K` (`(KC)(U, E) = [U = E]`, invariance gives all columns; no division by
@@ -51,7 +51,7 @@ theorem gDist_orbitRep {k : ℕ} (E : Grass K V k) (i : Fin (gdiam K V k + 1)) :
     gDist k (orbitRep E i) E = i :=
   (exists_gDist_eq E (Nat.lt_succ_iff.1 i.2)).choose_spec
 
-/-- Equation (small-system): `B_{ij} = (K b_j)(U_i)`. -/
+/-- Equation (30): `B_{ij} = (K b_j)(U_i)`. -/
 noncomputable def smallSystem (k : ℕ) (a : ℕ → F) (E : Grass K V k) :
     Matrix (Fin (gdiam K V k + 1)) (Fin (gdiam K V k + 1)) F :=
   Matrix.of fun i j => kernelApply k a (orbitInd k E j) (orbitRep E i)

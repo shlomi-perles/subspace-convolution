@@ -7,21 +7,21 @@ import SubspaceConvolution.Coloring.LowerBound.FixedPalette.Main
 import SubspaceConvolution.Coloring.LowerBound.LittleO
 
 /-!
-# Theorems D.1 and D.2: fixed-palette decision and counting lower bounds
+# Theorems 9 and 10: fixed-palette decision and counting lower bounds
 
 For a 3-CNF formula `φ` with `n` variables and `m` clauses, put `k = max(1, ⌈√n⌉)` (`side n`),
-pad `φ` onto the `k × k` grid (`CNF.toGrid`), build the graph `G_φ` of Appendix D, and for
+pad `φ` onto the `k × k` grid (`CNF.toGrid`), build the graph `G_φ` of Appendix H, and for
 `c = t + 3` colors add a universal `t`-clique placed first in the layout.
 
-* `reduction_spec` — the unconditional content of Theorems D.1/D.2 (exact vertex count, layout
+* `reduction_spec` — the unconditional content of Theorems 9/10 (exact vertex count, layout
   width `≤ 2k + 19 + t`, exact number of `c`-colorings
   `= c!/3! · 6 · 2^{2k+3m} · 16^m · 2^{k²-n} · #SAT(φ)`, and `c`-colorability ⟺ satisfiability),
   plus the caterpillar rank-decomposition of the same width.
-* `fixed_palette_lower_bound` — **Theorem D.1** in an abstract cost model `M`: if `M` satisfies
+* `fixed_palette_lower_bound` — **Theorem 9** in an abstract cost model `M`: if `M` satisfies
   ETH (no `2^{o(n)} poly(m)` algorithm for 3-SAT) and the reduction is computable within
   `2^{a k} (m+2)^{C₀}`, then for every fixed `c ≥ 3` no algorithm decides `c`-colorability of
   graphs supplied with a linear layout of width `r` within `2^{o(r²)} (N+2)^{O(1)}`.
-* `fixed_palette_counting_lower_bound` — **Theorem D.2**: the same for exact counting of proper
+* `fixed_palette_counting_lower_bound` — **Theorem 10**: the same for exact counting of proper
   `c`-colorings under #ETH (no `2^{o(n)} poly(m)` algorithm counting satisfying assignments),
   given that dividing by the explicitly known factor costs at most `2^{a k} (m+2)^{C₀}`.
 -/
@@ -72,7 +72,7 @@ abbrev redGraph (t : ℕ) {n : ℕ} (φ : CNF n) := joinClique (graph (grid φ))
 /-- The supplied linear layout. -/
 abbrev redLayout (t : ℕ) {n : ℕ} (φ : CNF n) := joinCliqueLayout (layout (grid φ)) t
 
-/-- **Theorems D.1/D.2, unconditional part.** -/
+/-- **Theorems 9/10, unconditional part.** -/
 theorem reduction_spec (t : ℕ) {n : ℕ} (φ : CNF n) :
     Fintype.card (Fin t ⊕ Vtx (side n) (grid φ).m) =
         t + (3 + (2 * side n + 3 * (grid φ).m) * (2 ^ (side n + 1) + 1) + 20 * (grid φ).m) ∧
@@ -107,7 +107,7 @@ noncomputable def colorDec (c : ℕ) : LayoutGraph → Bool := fun I => decide (
 noncomputable def colorCount (c : ℕ) : LayoutGraph → ℕ :=
   fun I => Fintype.card (I.G.Coloring (Fin c))
 
-/-- The reduction of Appendix D for `t + 3` colors. -/
+/-- The reduction of Appendix H for `t + 3` colors. -/
 noncomputable def red (t : ℕ) : (Σ n, CNF n) → LayoutGraph :=
   fun φ => LayoutGraph.ofGraph (redGraph t φ.2) (redLayout t φ.2)
 
@@ -202,7 +202,7 @@ def SharpETH (M : CostModel) : Prop :=
   ∀ (e : ℕ → ℝ) (C : ℕ), SubLin e →
     ¬ M.Runs satCount (fun φ => ⌊(2 : ℝ) ^ (e φ.1) * ((φ.2.m : ℝ) + 2) ^ C⌋₊)
 
-/-- The arithmetic shared by D.1 and D.2: the time of the reduction plus a `2^{f(r)} (N+2)^C`
+/-- The arithmetic shared by Theorems 9 and 10: the time of the reduction plus a `2^{f(r)} (N+2)^C`
 algorithm on its output is `2^{e(n)} (m+2)^{C'}` with `e(n) ≤ o(n)`. -/
 theorem composite_time (t : ℕ) (a : ℝ) (ha : 0 ≤ a) (C₀ : ℕ) (f : ℕ → ℝ) (hf : SubQuad f)
     (C : ℕ) :
@@ -290,7 +290,7 @@ theorem composite_time (t : ℕ) (a : ℝ) (ha : 0 ≤ a) (C₀ : ℕ) (f : ℕ 
           rfl
         linarith [hmax1, hmax2, hcol]
 
-/-- **Theorem D.1.**  If ETH holds in `M` and the reduction is computable within
+/-- **Theorem 9.**  If ETH holds in `M` and the reduction is computable within
 `2^{a k} (m+2)^{C₀}`, then for every fixed number of colors `c = t + 3 ≥ 3`, no algorithm decides
 `c`-colorability of `N`-vertex graphs supplied with a linear layout of width `r` within
 `2^{f(r)} (N+2)^C` with `f(r) ≤ o(r²)`. -/
@@ -304,7 +304,7 @@ theorem fixed_palette_lower_bound (M : CostModel) (hETH : ETH M) (t : ℕ) (a : 
   exact hETH e (max C₀ C) he
     (CostModel.Runs.reduce_le M hcol hred (satDec_eq t) fun φ => hbound φ)
 
-/-- **Theorem D.2.**  If #ETH holds in `M`, the reduction is computable within
+/-- **Theorem 10.**  If #ETH holds in `M`, the reduction is computable within
 `2^{a k} (m+2)^{C₀}`, and dividing an output by the known factor of the counting identity costs at
 most `2^{a k} (m+2)^{C₀}` more, then for every fixed `c = t + 3 ≥ 3` no algorithm counts the proper
 `c`-colorings of graphs supplied with a linear layout of width `r` within `2^{f(r)} (N+2)^C` with

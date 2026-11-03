@@ -9,11 +9,11 @@ import SubspaceConvolution.Transform.Count
 import SubspaceConvolution.Circuit.Arith
 
 /-!
-# Auxiliary lemmas for intersection kernels (Theorem 1.4)
+# Auxiliary lemmas for intersection kernels (Theorem 3)
 
 * `grassLeEquiv`, `card_grass_inside` — the `j`-dimensional subspaces of `V` inside `S` are
   the `j`-dimensional subspaces of `S`; there are `|Gr(dim S, j)|` of them.
-* `sum_grass_le_sum_ge` — the double count behind equations (moments) and (rect-moments).
+* `sum_grass_le_sum_ge` — the double count behind equations (15) and (31).
 * `subLESigmaEquiv`, `sum_subLE_eq` — the subspaces of dimension at most `k`, grouped by
   dimension.
 * Circuit helpers: `LinCost.scale` (one scaling gate per entry) and `LinCost.empty`
@@ -61,7 +61,7 @@ theorem card_grass_inside (S : Submodule K V) (j : ℕ) :
   exact Fintype.card_congr (grassLeEquiv S j)
 
 open Classical in
-/-- **The double count** behind equations (moments) and (rect-moments):
+/-- **The double count** behind equations (15) and (31):
 `∑_{L ≤ S, dim L = j} ∑_{W ≥ L} g(W) = ∑_W |Gr(dim(S ∩ W), j)| g(W)`. -/
 theorem sum_grass_le_sum_ge {j k : ℕ} (S : Submodule K V) (g : Grass K V k → R) :
     ∑ L ∈ univ.filter (fun L : Grass K V j => L.1 ≤ S),

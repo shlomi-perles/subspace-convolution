@@ -13,7 +13,7 @@ for a transform is a *linear* computation, so we count operations with **linear 
 programs** (linear circuits): a program is a list of gates `z = a x + b y`, where `x, y` are inputs
 or earlier gates and `a, b` are constants.  One gate costs at most three ring operations, so a bound
 on gates is a bound on arithmetic operations up to a factor of three.  The same gates, with
-`|a|, |b| ≤ 1` over `ℂ`, are the bounded-coefficient model of Appendix G.
+`|a|, |b| ≤ 1` over `ℂ`, are the bounded-coefficient model of Appendix F.
 
 * `SLP R I O` — a program with inputs `I` and outputs `O`; `SLP.eval`; `SLP.size` (number of gates).
 * `LinCost C M s` — the map `M : (I → R) → (O → R)` is computed by a program with at most `s`

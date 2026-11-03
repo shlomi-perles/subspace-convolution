@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Step
 
 /-!
-# Helper lemmas for Theorem 1.1
+# Helper lemmas for Theorem 1
 
 * `subsingleton_subLE` and `zeta_eq_id_of_subsingleton` (etc.): for `k = 0` or `dim V = 0`
   there is a single subspace and all four transforms are the identity.
@@ -175,7 +175,7 @@ theorem budget_step (D : HypData K V) (k : ℕ) :
 
 end Counts
 
-/-! ### The constants of Theorem 1.1 -/
+/-! ### The constants of Theorem 1 -/
 
 theorem cost_le (P c n k M : ℕ) (h : 1 ≤ n * k) :
     2 * P ^ 2 * (c * n * k * M) + P * M ≤ (2 * P ^ 2 * c + P) * n * k * M := by

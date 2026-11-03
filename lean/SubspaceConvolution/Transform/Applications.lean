@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Kernel
 
 /-!
-# Applications: convolutions, exact spans, distance sums (Sections 1, 5 and Appendix E)
+# Applications: convolutions, exact spans, distance sums (Sections 1, 5 and Appendix C)
 
 * **Span convolution** (Section 1, "Corollary: Fast Subspace Convolution"): `zetaAll_spanConv`
   (`Z_n (f ⋆ g) = (Z_n f)(Z_n g)`), the inverse `zetaAllInv`, the costs `fast_zetaAll` and
@@ -15,13 +15,13 @@ import SubspaceConvolution.Transform.Kernel
   (`zetaAllT_interConv`, `fast_interConv`); direct sums `directConv` through ranked span
   convolutions (`directConv_eq_coeff`; `directConv_eq_rankConv`, `zetaAll_rankConv` and the
   cost `fast_directConv`, `O_q(n³ N)`).
-* **Theorem 5.1** (exact spans): `spanTable`, `zetaAll_spanTable`, equation (exact-span)
+* **Theorem 5** (exact spans): `spanTable`, `zetaAll_spanTable`, equation (14)
   `two_pow_card_eq_sum_spanCount`, `spanCount_eq_zetaAllInv`, `fast_span_count`.
-* Appendix E: distance sums `distSum` (`distSum_eq_kernelApply`), equation (profile)
+* Appendix C: distance sums `distSum` (`distSum_eq_kernelApply`), equation (29)
   (`moment_profile`, `interSum_backsubst`), **`fast_distance_sums`** (all `d + 1` of them:
   `distSum_eq_zero_of_lt`); distances to a code
   (`isLeast_distSum_pos`, `sInf_distSum_pos`, `isLeast_minDist`); rectangular kernels,
-  equation (rect-moments) (`rect_moments`).
+  equation (31) (`rect_moments`).
 -/
 
 open Finset Module
@@ -203,7 +203,7 @@ end Full
 
 /-! ### Costs of the full transforms and convolutions -/
 
-/-- **Theorem 1.1 for `k = n`**: the full transforms `Z_n`, `Z_n⁻¹`, `Z_nᵀ`, `(Z_nᵀ)⁻¹` on all
+/-- **Theorem 1 for `k = n`**: the full transforms `Z_n`, `Z_n⁻¹`, `Z_nᵀ`, `(Z_nᵀ)⁻¹` on all
 subspaces cost `O_q(N log N)`, `N = N_q(n)`. -/
 theorem fast_zetaAll (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
@@ -462,7 +462,7 @@ theorem directConv_arithCost_of {s₁ s₂ : ℕ}
 
 end Ranked
 
-/-- Theorem 1.1 for `k = n` in the form `O(n² N)`. -/
+/-- Theorem 1 for `k = n` in the form `O(n² N)`. -/
 theorem fast_zetaAll_sq (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
       ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V],
@@ -504,7 +504,7 @@ theorem fast_directConv (K : Type w) [Field K] [Fintype K] :
   obtain ⟨h1, h2⟩ := hC R hR V
   exact (directConv_arithCost_of h1 h2).mono (directConv_bound C _ _)
 
-/-! ### Theorem 5.1: counting subsets by their exact span -/
+/-! ### Theorem 5: counting subsets by their exact span -/
 
 section ExactSpan
 
@@ -564,7 +564,7 @@ theorem zetaAll_spanTable {ℓ : ℕ} (v : Fin ℓ → V) (U : Submodule K V) :
     exact mem_filter.2 ⟨mem_univ _, (Submodule.span_singleton_le_iff_mem _ _).2 hi'⟩
 
 open Classical in
-/-- Equation (exact-span): `2^{a(U)} = ∑_{W ≤ U} C(W)`. -/
+/-- Equation (14): `2^{a(U)} = ∑_{W ≤ U} C(W)`. -/
 theorem two_pow_card_eq_sum_spanCount {ℓ : ℕ} (v : Fin ℓ → V) (U : Submodule K V) :
     2 ^ #(univ.filter fun i => v i ∈ U) =
       ∑ W ∈ univ.filter (fun W : Submodule K V => W ≤ U), spanCount v W := by
@@ -610,7 +610,7 @@ theorem spanCount_eq_zetaAllInv {ℓ : ℕ} (v : Fin ℓ → V) :
 end ExactSpan
 
 open Classical in
-/-- **Theorem 5.1 (Counting exact spans).** Over `ℚ`, for vectors `v_1, …, v_ℓ` of `V = F_q^n`:
+/-- **Theorem 5 (Counting exact spans).** Over `ℚ`, for vectors `v_1, …, v_ℓ` of `V = F_q^n`:
 `a = Z_n t` counts the vectors in each subspace (`t(B) = #{i : ⟨v_i⟩ = B}`), and the exact-span
 counts are `C = Z_n⁻¹ (U ↦ 2^{a(U)})`; each of the two transforms costs `O_q(N log N)`
 operations, `N = N_q(n)`.  Building `t` takes `ℓ` additions (once the vectors are indexed by their
@@ -634,7 +634,7 @@ theorem fast_span_count (K : Type w) [Field K] [Fintype K] :
   obtain ⟨h1, h2, -, -⟩ := hC ℚ hp V
   exact ⟨h1, h2, fun v => ⟨zetaAll_spanTable v, spanCount_eq_zetaAllInv v⟩⟩
 
-/-! ### Appendix E: distance sums -/
+/-! ### Appendix C: distance sums -/
 
 section DistanceSums
 
@@ -662,18 +662,18 @@ open Classical in
 noncomputable def interSum (k t : ℕ) (f : Grass K V k → R) (U : Grass K V k) : R :=
   ∑ W ∈ univ.filter (fun W : Grass K V k => finrank K (U.1 ⊓ W.1 : Submodule K V) = t), f W
 
-/-- `m_j(U) = ∑_W |Gr(dim(U ∩ W), j)| f(W)`, computed by equation (moments). -/
+/-- `m_j(U) = ∑_W |Gr(dim(U ∩ W), j)| f(W)`, computed by equation (15). -/
 noncomputable def momentSum (k j : ℕ) (f : Grass K V k → R) (U : Grass K V k) : R :=
   ∑ W : Grass K V k, (gr K (finrank K (U.1 ⊓ W.1 : Submodule K V)) j : R) * f W
 
 open Classical in
-/-- Equation (moments): `m_j` from the upper transform. -/
+/-- Equation (15): `m_j` from the upper transform. -/
 theorem momentSum_eq (k j : ℕ) (hj : j ≤ k) (f : Grass K V k → R) (U : Grass K V k) :
     momentSum k j f U = ∑ L ∈ univ.filter (fun L : Grass K V j => L.1 ≤ U.1),
       zetaT k (extGr k f) ⟨L.1, L.2.le.trans hj⟩ :=
   (moments k j hj f U).symm
 
-/-- Equation (profile): `m_j(U) = ∑_{t=j}^{k} |Gr(t,j)| h_t(U)`. -/
+/-- Equation (29): `m_j(U) = ∑_{t=j}^{k} |Gr(t,j)| h_t(U)`. -/
 theorem moment_profile (k j : ℕ) (f : Grass K V k → R) (U : Grass K V k) :
     momentSum k j f U = ∑ t ∈ Icc j k, (gr K t j : R) * interSum k t f U := by
   classical
@@ -711,7 +711,7 @@ theorem interSum_eq_zero_of_lt (k t : ℕ) (ht : k < t) (f : Grass K V k → R) 
   rw [(mem_filter.1 hW).2] at this
   omega
 
-/-- Equation (profile), back-substitution: `h_t = m_t - ∑_{r=t+1}^{k} |Gr(r,t)| h_r`. -/
+/-- Equation (29), back-substitution: `h_t = m_t - ∑_{r=t+1}^{k} |Gr(r,t)| h_r`. -/
 theorem interSum_backsubst (k t : ℕ) (f : Grass K V k → R) (U : Grass K V k) :
     interSum k t f U = momentSum k t f U - ∑ r ∈ Ioc t k, (gr K r t : R) * interSum k r f U := by
   rw [moment_profile]
@@ -757,9 +757,9 @@ theorem distSum_eq_zero_of_lt (k i : ℕ) (hi : min k (finrank K V - k) < i)
 
 end DistanceSums
 
-/-- **All distance sums** (Appendix E): the `d + 1` tables `D_0 f, …, D_d f`, `d = min(k, n-k)`,
+/-- **All distance sums** (Appendix C): the `d + 1` tables `D_0 f, …, D_d f`, `d = min(k, n-k)`,
 cost `O_q((d+1) N log N)`, `N = |Gr(n,k)|`: the input is fanned out (free) to `d + 1` fast
-kernels (Theorem 1.4). -/
+kernels (Theorem 3). -/
 theorem fast_distance_sums (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
       ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
@@ -782,7 +782,7 @@ theorem fast_distance_sums (K : Type w) [Field K] [Fintype K] :
   rw [sum_const, card_univ, Fintype.card_fin, smul_eq_mul]
   ring
 
-/-! ### Appendix E: distances to a code, rectangular kernels -/
+/-! ### Appendix C: distances to a code, rectangular kernels -/
 
 section Codes
 
@@ -808,7 +808,7 @@ theorem distSum_indicator_pos_iff (k i : ℕ) (𝒞 : Finset (Grass K V k)) (U :
   rw [distSum_indicator, Nat.cast_pos, card_pos, filter_nonempty_iff]
 
 open Classical in
-/-- **Distance to a code** (Appendix E): for a nonempty family `𝒞`, the least `i` with
+/-- **Distance to a code** (Appendix C): for a nonempty family `𝒞`, the least `i` with
 `(D_i 1_𝒞)(U) > 0` is the distance from `U` to the nearest member of `𝒞`. -/
 theorem isLeast_distSum_pos (k : ℕ) (𝒞 : Finset (Grass K V k)) (h𝒞 : 𝒞.Nonempty)
     (U : Grass K V k) :
@@ -851,7 +851,7 @@ theorem gDist_eq_zero_iff_eq (k : ℕ) (U W : Grass K V k) : gDist k U W = 0 ↔
     rw [inf_idem, U.2, Nat.sub_self]
 
 open Classical in
-/-- **Minimum distance of a code** (Appendix E): for `|𝒞| ≥ 2`, the least `i > 0` with
+/-- **Minimum distance of a code** (Appendix C): for `|𝒞| ≥ 2`, the least `i > 0` with
 `(D_i 1_𝒞)(U) > 0` for some `U ∈ 𝒞` is the minimum graph distance between distinct codewords
 (the subspace distance is twice the graph distance). -/
 theorem isLeast_minDist (k : ℕ) (𝒞 : Finset (Grass K V k)) (h𝒞 : 𝒞.offDiag.Nonempty) :
@@ -876,7 +876,7 @@ theorem isLeast_minDist (k : ℕ) (𝒞 : Finset (Grass K V k)) (h𝒞 : 𝒞.of
 
 variable {R : Type u} [CommRing R]
 
-/-- Equation (rect-moments): `(I^{t,b} (I^{t,a})ᵀ f)(W) = ∑_U |Gr(dim(U ∩ W), t)| f(U)`.
+/-- Equation (31): `(I^{t,b} (I^{t,a})ᵀ f)(W) = ∑_U |Gr(dim(U ∩ W), t)| f(U)`.
 (It holds for all `t`; the paper uses `t ≤ min(a, b)`.) -/
 theorem rect_moments (t a b : ℕ) (f : Grass K V a → R) (W : Grass K V b) :
     incid t b (incidT t a f) W =

@@ -8,7 +8,7 @@ import SubspaceConvolution.Coloring.TreeDP
 /-!
 # Chromatic polynomial and chromatic number from color-partition counts
 
-Paper, Section 7 ("Initialization and output", eq. (chromatic-falling)): with `a_t` the number of
+Paper, Section 6 ("Initialization and output", eq. (20)): with `a_t` the number of
 partitions of `V(G)` into `t` nonempty independent sets,
 
   `P_G(z) = ∑_t a_t (z)_t`,   `(z)_t = z (z - 1) ⋯ (z - t + 1)`,
@@ -20,7 +20,7 @@ and the chromatic number is the least `t` with `a_t > 0`.
   proper colorings at every natural number, and `eq_chromaticPolynomial_of_eval` — it is the unique
   integer polynomial doing so.
 * `colorable_iff_exists_numColorPartitions_pos`, `chromaticNumber_eq_sInf`.
-* `chromaticPolynomial_eq_treeDP`, `chromaticNumber_eq_treeDP` — Theorem 7.1: both are read off
+* `chromaticPolynomial_eq_treeDP`, `chromaticNumber_eq_treeDP` — Theorem 6: both are read off
   the output of the rank-decomposition dynamic program.
 -/
 
@@ -177,7 +177,7 @@ theorem card_coloring_eq_sum_colorParts (z : ℕ) :
 theorem card_parts_le (P : Finpartition (univ : Finset V)) : #P.parts ≤ Fintype.card V := by
   simpa using P.card_parts_le_card
 
-/-- **Equation (chromatic-falling):** the number of proper colorings with `z` colors is
+/-- **Equation (20):** the number of proper colorings with `z` colors is
 `∑_t a_t (z)_t`. -/
 theorem card_coloring_eq_sum (z : ℕ) :
     Fintype.card (G.Coloring (Fin z)) =
@@ -192,7 +192,7 @@ theorem card_coloring_eq_sum (z : ℕ) :
 
 /-! ### The chromatic polynomial -/
 
-/-- The chromatic polynomial `P_G(z) = ∑_t a_t (z)_t` (paper, eq. (chromatic-falling)). -/
+/-- The chromatic polynomial `P_G(z) = ∑_t a_t (z)_t` (paper, eq. (20)). -/
 noncomputable def chromaticPolynomial : Polynomial ℤ :=
   ∑ t ∈ range (Fintype.card V + 1), (numColorPartitions G t : ℤ) • descPochhammer ℤ t
 
@@ -255,16 +255,16 @@ theorem chromaticNumber_eq_sInf :
     obtain ⟨t, ht, hpos⟩ := (colorable_iff_exists_numColorPartitions_pos G _).1 hm
     exact (Nat.sInf_le hpos).trans ht
 
-/-! ### Reading the outputs off the dynamic program (Theorem 7.1) -/
+/-! ### Reading the outputs off the dynamic program (Theorem 6) -/
 
-/-- **Theorem 7.1 (chromatic polynomial).** The chromatic polynomial is obtained from the output
+/-- **Theorem 6 (chromatic polynomial).** The chromatic polynomial is obtained from the output
 of the dynamic program on any rank-decomposition. -/
 theorem chromaticPolynomial_eq_treeDP (D : RankDecomposition V) :
     chromaticPolynomial G = ∑ t ∈ range (Fintype.card V + 1),
       (((treeDP G D.tree).count (Multiset.replicate t ⊥) : ℕ) : ℤ) • descPochhammer ℤ t := by
   simp only [chromaticPolynomial, count_treeDP_root]
 
-/-- **Theorem 7.1 (chromatic number).** The chromatic number is the least `t` such that the
+/-- **Theorem 6 (chromatic number).** The chromatic number is the least `t` such that the
 dynamic program outputs the root histogram `t · δ_{0}` with positive count. -/
 theorem chromaticNumber_eq_treeDP (D : RankDecomposition V) :
     G.chromaticNumber =

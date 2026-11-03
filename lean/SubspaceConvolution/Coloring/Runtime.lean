@@ -7,7 +7,7 @@ import SubspaceConvolution.Coloring.LinearDP
 import SubspaceConvolution.Coloring.SubspaceCount
 
 /-!
-# Running time of Theorem 7.1 and Corollary 7.2
+# Running time of Theorem 6 and Corollary 1
 
 The paper's algorithm aggregates the merge recurrence: for a fixed left histogram, it keeps the set
 of *distinct* states `(b, H)` (available right histogram, formed parent histogram), adding counts at
@@ -317,7 +317,7 @@ theorem treeCost_le_aux {r : ℕ} :
     rw [e]
     linarith [ihl, ihr, hm]
 
-/-- **Running time of Theorem 7.1** (number of arithmetic operations): on a rank-decomposition
+/-- **Running time of Theorem 6** (number of arithmetic operations): on a rank-decomposition
 of width at most `r`, the dynamic program performs at most
 `2N · (N+1)^L · (N+1) · (L+1) · (N+1)^{2L}` operations, `L = N₂(r)`. -/
 theorem treeCost_le (D : RankDecomposition V) {r : ℕ} (hw : D.width G ≤ r) :
@@ -350,7 +350,7 @@ theorem two_mul_nodeBound_le {N L : ℕ} (hN : 2 ≤ N) (hL : 1 ≤ L) :
     _ = N ^ (7 * L + 4) := by rw [← pow_mul, ← pow_add, ← pow_add]; ring_nf
     _ ≤ N ^ (11 * L) := Nat.pow_le_pow_right (by omega) (by omega)
 
-/-- **Theorem 7.1 (running time):** `N^{O(N₂(r))} = N^{2^{r²/4+O(1)}}` operations; explicitly
+/-- **Theorem 6 (running time):** `N^{O(N₂(r))} = N^{2^{r²/4+O(1)}}` operations; explicitly
 at most `N^{11 · N₂(r)} ≤ N^{2^{⌊r²/4⌋ + 8}}` for `N ≥ 2`. -/
 theorem treeCost_le_pow (D : RankDecomposition V) {r : ℕ} (hw : D.width G ≤ r)
     (hN : 2 ≤ Fintype.card V) :
@@ -424,7 +424,7 @@ theorem linCost_le_aux {r : ℕ} :
     simp only [List.length_cons]
     nlinarith [ih, hstep]
 
-/-- **Corollary 7.2 (running time):** along a linear layout of width at most `r`, the dynamic
+/-- **Corollary 1 (running time):** along a linear layout of width at most `r`, the dynamic
 program performs at most `N · (N+1)^{N₂(r)} · (N₂(r) + 1)` operations, and
 `N₂(r) + 1 ≤ 2^{⌊r²/4⌋+4} + 1 = 2^{O(r²)}`. -/
 theorem linCost_le (π : LinearLayout V) {r : ℕ} (hw : π.width G ≤ r) :

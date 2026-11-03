@@ -14,9 +14,9 @@ import SubspaceConvolution.Transform.StepAux
 * the inside transforms `containT P Q` and `containT P Q'` on `H` (one map, cost `s_in`),
 * one containment transform `containT P' Q'` on each `ker λ`, `λ ∈ H*` (cost `s λ`),
 * the Fourier transforms of the crossing tables and the inverse transforms of the outputs, and
-  one addition per crossing output (equations (cut), (rank-cut), (block)).
+  one addition per crossing output (equations (8), (12), (10)).
 
-`zetaInv_step`: the same for `Z⁻¹`, through equation (inverse).
+`zetaInv_step`: the same for `Z⁻¹`, through equation (5).
 -/
 
 open Finset Module
@@ -46,7 +46,7 @@ def embLE {W : Type*} [AddCommGroup W] [Module K W] (k : ℕ) (B : SubLE K W k) 
 
 theorem hPk (k : ℕ) : ∀ d, d + 1 ≤ k + 1 ↔ d ≤ k := fun _ => Nat.succ_le_succ_iff
 
-/-- The circuit of equation (inverse): `f₀ = Z⁻¹ g₀`, `f₁ = A⁻¹ (g₁ - g₀(D))`. -/
+/-- The circuit of equation (5): `f₀ = Z⁻¹ g₀`, `f₁ = A⁻¹ (g₁ - g₀(D))`. -/
 noncomputable def invCand (F : FourierData K S) (D : HypData K V) (k : ℕ)
     (g : SubLE K V (k + 1) → S) (W : SubLE K V (k + 1)) : S :=
   Sum.elim
@@ -124,7 +124,7 @@ theorem containT_step (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C) (D
     have h5 := Nat.zero_le (n * q * X₂)
     nlinarith
 
-/-- **One step of equation (inverse)** for `Z⁻¹`. -/
+/-- **One step of equation (5)** for `Z⁻¹`. -/
 theorem zetaInv_step (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C) (D : HypData K V)
     (k : ℕ) {s₀ : ℕ} (h₀ : LinCost C (zetaInv (K := K) (V := D.H) (R := S) (k + 1)) s₀)
     (s : Module.Dual K D.H → ℕ)

@@ -8,7 +8,7 @@ import SubspaceConvolution.Transform.Count
 /-!
 # Counting subspaces in an interval; the `q`-Vandermonde identity
 
-Helpers for Appendices F and G (`Transform/Mobius.lean`, `Transform/LowerBound.lean`).
+Helpers for Appendices D and F (`Transform/Mobius.lean`, `Transform/LowerBound.lean`).
 
 * `finrank_map_mkQ_add` — rank–nullity for the image of a superspace of `U` in `V ⧸ U`.
 * `card_super` — superspaces `L ≥ U` with `dim L = dim U + j` correspond to `j`-dimensional
@@ -17,7 +17,7 @@ Helpers for Appendices F and G (`Transform/Mobius.lean`, `Transform/LowerBound.l
   elements; `sum_interval` groups a sum over an interval by dimension.
 * `card_superGrass` — `#{W' ∈ Gr(V, b) : S ≤ W'} = |Gr(n - dim S, b - dim S)|`.
 * `gr_vandermonde` — the `q`-Vandermonde identity
-  `|Gr(m+t, r)| = ∑_j |Gr(t, j)| |Gr(m, r-j)| q^{j(m+j-r)}` (from equation (pascal)).
+  `|Gr(m+t, r)| = ∑_j |Gr(t, j)| |Gr(m, r-j)| q^{j(m+j-r)}` (from equation (25)).
 
 Everything lives in the namespace `SubspaceConvolution.LBAux`.
 -/
@@ -162,7 +162,7 @@ variable (K : Type*) [Field K] [Fintype K]
 
 local notation "q" => Fintype.card K
 
-/-- The `q`-Vandermonde identity, from equation (pascal) by induction on `t`. -/
+/-- The `q`-Vandermonde identity, from equation (25) by induction on `t`. -/
 theorem gr_vandermonde (m t r : ℕ) :
     gr K (m + t) r =
       ∑ j ∈ range (r + 1), gr K t j * gr K m (r - j) * q ^ (j * (m + j - r)) := by

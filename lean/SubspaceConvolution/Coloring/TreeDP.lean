@@ -6,11 +6,11 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.MergeBijection
 
 /-!
-# Theorem 7.1: correctness of the dynamic program on a rank-decomposition
+# Theorem 6: correctness of the dynamic program on a rank-decomposition
 
 * `hists_union` — **the merge step**: for disjoint children `X₁, X₂`, the histograms of all color
   partitions of `G[X₁ ∪ X₂]` (with multiplicity) are obtained from the child histograms by the
-  paper's recurrence (process the left classes one at a time, eqs. (hist-row), (hist-weight)).
+  paper's recurrence (process the left classes one at a time, eqs. (18), (19)).
 * `treeDP` — the dynamic program over a rooted rank-decomposition; `treeDP_eq_hists` — it
   computes the histograms of all color partitions of the vertex set below each node.
 * `count_treeDP_root` — at the root all profiles vanish, and the count of the histogram
@@ -56,7 +56,7 @@ noncomputable def mergeHists (X₁ X₂ : Finset V) (A B : Multiset (Multiset (S
   A.bind fun h₁ => B.bind fun h₂ => (mergeData G X₁ X₂).run h₁.toList h₂ 0
 
 open Classical in
-/-- **The merge step of Theorem 7.1.**  The histograms (with multiplicity) of all color
+/-- **The merge step of Theorem 6.**  The histograms (with multiplicity) of all color
 partitions of `G[X₁ ∪ X₂]` are computed from those of the children by the merge recurrence. -/
 theorem hists_union {X₁ X₂ : Finset V} (hd : Disjoint X₁ X₂) :
     hists G (X₁ ∪ X₂) = mergeHists G X₁ X₂ (hists G X₁) (hists G X₂) := by
@@ -163,7 +163,7 @@ theorem hists_singleton (v : V) : hists G {v} = {{profile G {v} {v}}} := by
   simp [hist, hpart]
 
 open Classical in
-/-- **The dynamic program of Theorem 7.1** on a rooted rank-decomposition: a leaf `v` has the
+/-- **The dynamic program of Theorem 6** on a rooted rank-decomposition: a leaf `v` has the
 single histogram `{U_{{v}}({v})}`; a node merges the histogram multisets of its children. -/
 noncomputable def treeDP : DTree V → Multiset (Multiset (Submodule F2 (V → F2)))
   | .leaf v => {{profile G {v} {v}}}
@@ -222,7 +222,7 @@ theorem count_hists_univ (t : ℕ) :
   · intro h
     rw [h]
 
-/-- **Theorem 7.1 (correctness).**  For a rank-decomposition `D` of `G`, the dynamic program
+/-- **Theorem 6 (correctness).**  For a rank-decomposition `D` of `G`, the dynamic program
 returns at the root, for every `t`, exactly `a_t` copies of the histogram `t · δ_{0}`. -/
 theorem count_treeDP_root (D : RankDecomposition V) (t : ℕ) :
     (treeDP G D.tree).count (Multiset.replicate t ⊥) = numColorPartitions G t := by

@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Defs
 
 /-!
-# The Grassmann graph `J_q(n, k)` (Sections 1.3 and 5.3)
+# The Grassmann graph `J_q(n, k)` (Sections 1.1 and 5.3)
 
 * `finrank_inf_le_of_adj` — along an edge `U ~ U'`, `dim(U ∩ W)` drops by at most one.
 * `grassGraph_dist` — **the distance formula** `dist(U, W) = k - dim(U ∩ W) = gDist k U W`;

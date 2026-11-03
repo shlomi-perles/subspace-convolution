@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Spectral
 
 /-!
-# Costs of the Grassmannian applications (Appendix E)
+# Costs of the Grassmannian applications (Appendix C)
 
 `N = |Gr(n, k)|`, `d = min(k, n - k)`.
 
@@ -18,7 +18,7 @@ import SubspaceConvolution.Transform.Spectral
   multiplications (`fast_kernel`) give `D₁^i f`, then `(d+1)² N` gates combine them, and
   `(d+1)² N ≤ (d+1) N (log₂ N + 1)` since `2^d ≤ N`.
 * `smallSystem_linCost` — **invariant linear systems**: the small matrix `B` of
-  equation (small-system) is read off from `d + 1` kernel multiplications (of the indicators
+  equation (30) is read off from `d + 1` kernel multiplications (of the indicators
   `b_j`); `kernelInverse_linCost` — once `B c = e₀` is solved (a `(d+1) × (d+1)` system), the
   inverse `K⁻¹ = C`, `C(U,W) = c_{dist(U,W)}`, is applied with `O_q(N log N)` operations over every
   field in which `p` is invertible.
@@ -108,7 +108,7 @@ theorem gdiam_le_log (k : ℕ) (hk : k ≤ finrank K V) :
 theorem isUnit_ringChar_rat (K : Type w) [Field K] [Fintype K] : IsUnit (ringChar K : ℚ) :=
   isUnit_iff_ne_zero.2 (Nat.cast_ne_zero.2 (CharP.ringChar_ne_zero_of_finite K))
 
-/-- **Spectral projections** (Appendix E): over `ℚ`, all components `f_j = P_j(D₁) f`,
+/-- **Spectral projections** (Appendix C): over `ℚ`, all components `f_j = P_j(D₁) f`,
 `0 ≤ j ≤ d`, take `O_q((d+1) N log N)` operations. -/
 theorem specComponents_linCost (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
@@ -164,7 +164,7 @@ end Spectral
 
 section Invariant
 
-/-- **The small system** (equation (small-system)) comes from `d + 1` kernel multiplications:
+/-- **The small system** (equation (30)) comes from `d + 1` kernel multiplications:
 the columns `K b_j` evaluated at the representatives `U_i`. -/
 theorem smallSystem_linCost (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (F : Type u) [Field F], IsUnit (ringChar K : F) →

@@ -6,15 +6,15 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.CounterSize
 
 /-!
-# Theorem C.1: the Chromatic Number lower bound with the coefficient `1/4`
+# Theorem 8: the Chromatic Number lower bound with the coefficient `1/4`
 
 * `reduction_spec` — the unconditional content: for a normalized instance `I`,
-  `χ(G_I) ≤ η ⟺ I satisfiable` (Lemma C.3), the supplied layout has width `r ≤ 2d + 12`
-  (Lemma C.4), `d ≤ √(log₂ k) + 1`, and `2^{r²/4 - 17r} ≤ max {1, k 2^{-20 √(log₂ k) - 189}}`;
-  on the instance class of Lemma C.2 also `N ≤ g(k) (n+1)^6` (`card_Vtx_le_poly`).
-* `chromatic_lower_bound` — **Theorem C.1**, as a statement about any abstract cost model `M`:
-  if Lemma C.2 holds in `M` (no `F(k) n^{o(k)}` algorithm for 4-Monotone min-CSP on its instance
-  class; this is the ETH consequence proved in FGLSZ19), and the reduction is computable within
+  `χ(G_I) ≤ η ⟺ I satisfiable` (Lemma 5), the supplied layout has width `r ≤ 2d + 12`
+  (Lemma 6), `d ≤ √(log₂ k) + 1`, and `2^{r²/4 - 17r} ≤ max {1, k 2^{-20 √(log₂ k) - 189}}`;
+  on the instance class of Lemma 4 also `N ≤ g(k) (n+1)^6` (`card_Vtx_le_poly`).
+* `chromatic_lower_bound` — **Theorem 8**, as a statement about any abstract cost model `M`:
+  if Lemma 4 holds in `M` (no `F(k) n^{o(k)}` algorithm for 4-Monotone min-CSP on its instance
+  class; this is the ETH consequence proved in FGL+19), and the reduction is computable within
   `G(k) (n+1)^{C₁}` in `M`, then for every `f` and fixed `α ≥ 0` no algorithm decides
   `χ(G) ≤ η` on graphs supplied with a linear layout of width `r` within
   `f(r) N^{α + 2^{r²/4 - 17r}}`.
@@ -29,7 +29,7 @@ open Classical in
 noncomputable def chromDec : LayoutGraph × ℕ → Bool := fun J => decide (J.1.G.Colorable J.2)
 
 open Classical in
-/-- Deciding 4-Monotone min-CSP on the instance class of Lemma C.2. -/
+/-- Deciding 4-Monotone min-CSP on the instance class of Lemma 4. -/
 noncomputable def minCSPDec (c₀ : ℕ) : {I : MinCSP // Restricted c₀ I} → Bool :=
   fun I => decide I.1.Satisfiable
 
@@ -69,7 +69,7 @@ theorem d_le_sqrt_logb {I : MinCSP} (hI : I.Normalized) :
     push Not at this
     exact this
 
-/-- **Theorem C.1, unconditional part.** -/
+/-- **Theorem 8, unconditional part.** -/
 theorem reduction_spec (I : MinCSP) (hI : I.Normalized) :
     ((graph I).chromaticNumber ≤ eta I ↔ I.Satisfiable) ∧
       (layout I).width (graph I) ≤ 2 * d I + 12 ∧
@@ -80,14 +80,14 @@ theorem reduction_spec (I : MinCSP) (hI : I.Normalized) :
   · rw [SimpleGraph.chromaticNumber_le_iff_colorable, colorable_iff I hI]
   · exact two_rpow_b_le (by have := hI.two_le_k; omega) (d_le_sqrt_logb hI) (layout_width I hI)
 
-/-- **Lemma C.2 in the cost model `M`** (FGLSZ19, Lemma 3.1, under ETH): no algorithm decides
+/-- **Lemma 4 in the cost model `M`** (FGL+19, Lemma 3.1, under ETH): no algorithm decides
 4-Monotone min-CSP on the instances with `|C| ≤ c₀ k² n²` and `L ≤ max(n, 4)` within
 `F(k) (n+1)^{e(k)}` with `e(k) ≤ o(k)`. -/
 def MinCSPHard (M : CostModel) (c₀ : ℕ) : Prop :=
   ∀ (F : ℕ → ℝ) (e : ℕ → ℝ), SubLin e →
     ¬ M.Runs (minCSPDec c₀) (fun I => ⌊F I.1.k * ((I.1.n : ℝ) + 1) ^ (e I.1.k)⌋₊)
 
-/-- **Theorem C.1.**  Assume Lemma C.2 in the cost model `M` and that the reduction is computable
+/-- **Theorem 8.**  Assume Lemma 4 in the cost model `M` and that the reduction is computable
 within `G(k) (n+1)^{C₁}`.  Then for every function `f` and every fixed `α ≥ 0`, no algorithm
 decides `χ(G) ≤ η` on `N`-vertex graphs supplied with a linear layout of width `r` within
 `f(r) N^{α + 2^{r²/4 - 17r}}`. -/
@@ -224,7 +224,7 @@ theorem chromatic_lower_bound (M : CostModel) (c₀ : ℕ) (hhard : MinCSPHard M
         nlinarith [hcolor, hred']
 
 /-- The caterpillar rank-decomposition of the supplied layout has the same width bound `2d + 12`
-(Theorem C.1: "The same exclusion holds with a supplied rank-decomposition of width `r`"). -/
+(Theorem 8: "The same exclusion holds with a supplied rank-decomposition of width `r`"). -/
 theorem caterpillar_width (I : MinCSP) (hI : I.Normalized) (v : Vtx I) (vs : List (Vtx I))
     (h : (layout I).order = v :: vs) :
     ((layout I).toRankDecomposition v vs h).width (graph I) ≤ 2 * d I + 12 :=

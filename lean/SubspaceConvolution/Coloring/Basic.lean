@@ -9,7 +9,7 @@ import Mathlib
 # Basic definitions
 
 Shared objects for the formalization of the graph-coloring results of
-*A Fast Algorithm for Subspace Convolution* (Perles–Weinstein), Section 7 and Appendices C, D.
+*A Fast Algorithm for Subspace Convolution* (Perles–Weinstein), Section 6 and Appendices G, H.
 
 * `F2` — the field with two elements.
 * `cutRow`, `cutSpace`, `matCutRank` — the rows, row space and rank of the cut submatrix
@@ -317,7 +317,7 @@ end DTree
 /-- A (rooted) rank-decomposition: a rooted binary tree whose leaves are in bijection with the
 vertices.  Every tree edge corresponds to the subtree below it; the cut it induces is the leaf set
 of that subtree.  (Rooting a subcubic tree at a subdivided edge and suppressing degree-two nodes
-gives exactly such a tree with the same set of cuts, as in the proof of Theorem 7.1.) -/
+gives exactly such a tree with the same set of cuts, as in the proof of Theorem 6.) -/
 structure RankDecomposition (V : Type*) [Fintype V] where
   /-- The underlying rooted binary tree. -/
   tree : DTree V

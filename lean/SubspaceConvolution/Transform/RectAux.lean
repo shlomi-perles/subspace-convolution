@@ -6,12 +6,12 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.Applications
 
 /-!
-# Auxiliary lemmas for rectangular kernels (Appendix E)
+# Auxiliary lemmas for rectangular kernels (Appendix C)
 
 Helpers for `SubspaceConvolution/Transform/Rectangular.lean` ("Different input and output
 dimensions").
 
-* `rectCoeff`, `rectCoeff_spec`, `sum_gr_rectCoeff` — back-substitution in equation (profile):
+* `rectCoeff`, `rectCoeff_spec`, `sum_gr_rectCoeff` — back-substitution in equation (29):
   coefficients `c_t` with `∑_{t ≤ d} |Gr(d, t)| c_t = κ(d)` for every `d`.
 * `card_filter_le_finrank_eq`, `sum_le_finrank_eq` — the subspaces of `S`, grouped by dimension:
   `∑_{L ≤ S} g(dim L) = ∑_t |Gr(dim S, t)| g(t)`.
@@ -31,14 +31,14 @@ open Circuit
 
 universe u v w
 
-/-! ### Back-substitution in equation (profile) -/
+/-! ### Back-substitution in equation (29) -/
 
 section Coeff
 
 variable (K : Type w) [Field K] [Fintype K]
 variable {R : Type u} [CommRing R]
 
-/-- Back-substitution in equation (profile): `c_t = κ(t) - ∑_{j<t} |Gr(t,j)| c_j`. -/
+/-- Back-substitution in equation (29): `c_t = κ(t) - ∑_{j<t} |Gr(t,j)| c_j`. -/
 noncomputable def rectCoeff (κ : ℕ → R) (t : ℕ) : R :=
   κ t - ∑ j : Fin t, (gr K t j : R) * rectCoeff κ j
 termination_by t
@@ -131,7 +131,7 @@ theorem gr_le_four_mul_pow_sq (n j : ℕ) : gr K n j ≤ 4 * Fintype.card K ^ (n
     exact Nat.zero_le _
 
 /-- `log₂(|Gr(n, i)| + |Gr(n, j)|) ≤ (log₂ q + 4)(n + 1)²`: the logarithmic factor of
-Theorem 1.2 is `O_q(n²)`. -/
+Theorem 2 is `O_q(n²)`. -/
 theorem log_gr_add_le (n i j : ℕ) :
     Nat.log 2 (gr K n i + gr K n j) ≤ (Nat.log 2 (Fintype.card K) + 4) * (n + 1) ^ 2 := by
   set e := Nat.log 2 (Fintype.card K)

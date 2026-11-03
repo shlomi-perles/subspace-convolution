@@ -6,11 +6,11 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Circuit.SLP
 
 /-!
-# Morgenstern's bound (Appendix G)
+# Morgenstern's bound (Appendix F)
 
 A linear straight-line program over `ℂ` whose constants have modulus at most one and which
 computes a square linear map `M` has at least `log₂ |det M|` gates (main.tex, proof of the
-bounded-coefficient lower bound in Appendix G).
+bounded-coefficient lower bound in Appendix F).
 
 Every wire `w` of a program `gs` carries a *coefficient row* `row gs w : I → ℂ`: its values on the
 unit vectors.  A gate `z = a x + b y` has row `a • row x + b • row y`, and appending a gate leaves
@@ -189,7 +189,7 @@ theorem det_row_le (gs : List (Gate ℂ I))
 
 end MorgensternAux
 
-/-- **Morgenstern's bound** (Appendix G): a program over `ℂ` with constants of modulus at most one,
+/-- **Morgenstern's bound** (Appendix F): a program over `ℂ` with constants of modulus at most one,
 computing a square linear map, has at least `log₂ |det|` gates. -/
 theorem morgenstern {I O : Type*} [Fintype I] [DecidableEq I] [Fintype O] (e : O ≃ I)
     {M : (I → ℂ) → O → ℂ} {s : ℕ} (h : LinCost (Metric.closedBall (0 : ℂ) 1) M s) :

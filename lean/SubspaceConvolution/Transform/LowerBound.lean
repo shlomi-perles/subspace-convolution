@@ -9,7 +9,7 @@ import SubspaceConvolution.Circuit.SLP
 import SubspaceConvolution.Circuit.Morgenstern
 
 /-!
-# A matching lower bound for incidence (Appendix G, Theorem G.1)
+# A matching lower bound for incidence (Appendix F, Theorem 7)
 
 Let `dim V = 4r` and `I = I^{r,3r}`, a square matrix (`|Gr(4r, r)| = |Gr(4r, 3r)|`).
 
@@ -21,9 +21,9 @@ Let `dim V = 4r` and `I = I^{r,3r}`, a square matrix (`|Gr(4r, r)| = |Gr(4r, 3r)
 * `LowerBoundAux.sq_det_ge_of_quadForm` — if `‖B x‖² ≥ c ‖x‖²` for all `x` then `det(B)² ≥ c^v`
   (all eigenvalues of `BᵀB` are at least `c`); hence `LowerBoundAux.abs_det_incMat_ge`:
   `|det I| ≥ q^{r² v}` for the square incidence matrix.
-* `incidence_lower_bound` — **Theorem G.1**: with Morgenstern's bound (`Circuit.morgenstern`),
+* `incidence_lower_bound` — **Theorem 7**: with Morgenstern's bound (`Circuit.morgenstern`),
   `Ω_q(v log v)` bounded-coefficient gates, `v = |Gr(4r, r)|` (here `c = 1/5`).
-* `incidence_lower_bound_attained` — the algorithm of Theorem 1.2 attains it.
+* `incidence_lower_bound_attained` — the algorithm of Theorem 2 attains it.
 
 Helper lemmas live in the namespace `SubspaceConvolution.LowerBoundAux`.
 -/
@@ -57,7 +57,7 @@ theorem coefC_self (K : Type*) [Field K] [Fintype K] (r : ℕ) :
   ring_nf
 
 open Classical in
-/-- `(IᵀI)(U, U') = ∑_{L ≤ U ∩ U'} c_{dim L}` (proof of Theorem G.1). -/
+/-- `(IᵀI)(U, U') = ∑_{L ≤ U ∩ U'} c_{dim L}` (proof of Theorem 7). -/
 theorem card_common_super {r : ℕ} (hV : finrank K V = 4 * r) (U U' : Grass K V r) :
     #(univ.filter fun W : Grass K V (3 * r) => U.1 ≤ W.1 ∧ U'.1 ≤ W.1) =
       ∑ L ∈ univ.filter (fun L : Submodule K V => L ≤ U.1 ⊓ U'.1), coefC K r (finrank K L) := by
@@ -98,7 +98,7 @@ theorem sum_sq_linear {α β : Type*} [Fintype α] [Fintype β] (a : β → α �
   ring
 
 open Classical in
-/-- `‖I x‖² = ∑_{L} c_{dim L} (∑_{U ≥ L} x_U)²` (proof of Theorem G.1). -/
+/-- `‖I x‖² = ∑_{L} c_{dim L} (∑_{U ≥ L} x_U)²` (proof of Theorem 7). -/
 theorem sum_sq_incid_eq {r : ℕ} (hV : finrank K V = 4 * r) (x : Grass K V r → ℝ) :
     ∑ W : Grass K V (3 * r), (∑ U, (if U.1 ≤ W.1 then (1 : ℝ) else 0) * x U) ^ 2 =
       ∑ L : Submodule K V, (coefC K r (finrank K L) : ℝ) *
@@ -121,7 +121,7 @@ theorem sum_sq_incid_eq {r : ℕ} (hV : finrank K V = 4 * r) (x : Grass K V r �
   simp only [le_inf_iff]
 
 open Classical in
-/-- `‖I x‖² ≥ q^{2r²} ‖x‖²` (proof of Theorem G.1). -/
+/-- `‖I x‖² ≥ q^{2r²} ‖x‖²` (proof of Theorem 7). -/
 theorem sum_sq_incid_ge {r : ℕ} (hV : finrank K V = 4 * r) (x : Grass K V r → ℝ) :
     (Fintype.card K : ℝ) ^ (2 * r ^ 2) * ∑ U, x U ^ 2 ≤
       ∑ W : Grass K V (3 * r), (∑ U, (if U.1 ≤ W.1 then (1 : ℝ) else 0) * x U) ^ 2 := by
@@ -148,7 +148,7 @@ theorem sum_sq_incid_ge {r : ℕ} (hV : finrank K V = 4 * r) (x : Grass K V r �
 
 open Classical in
 /-- `(IᵀI x)(U) = ∑_{L ≤ U} c_{dim L} ∑_{W ≥ L, dim W = r} x(W)` over any commutative ring
-(proof of Theorem G.1). -/
+(proof of Theorem 7). -/
 theorem incidT_incid_apply {R : Type*} [CommRing R] {r : ℕ} (hV : finrank K V = 4 * r)
     (x : Grass K V r → R) (U : Grass K V r) :
     incidT r (3 * r) (incid r (3 * r) x) U =
@@ -223,7 +223,7 @@ noncomputable def incMat {r : ℕ} (e : Grass K V (3 * r) ≃ Grass K V r) :
   Matrix.of fun i j => if j.1 ≤ (e.symm i).1 then 1 else 0
 
 open Classical in
-/-- `|det I| ≥ q^{r² v}`, `v = |Gr(4r, r)|` (proof of Theorem G.1). -/
+/-- `|det I| ≥ q^{r² v}`, `v = |Gr(4r, r)|` (proof of Theorem 7). -/
 theorem abs_det_incMat_ge {r : ℕ} (hV : finrank K V = 4 * r)
     (e : Grass K V (3 * r) ≃ Grass K V r) :
     (Fintype.card K : ℝ) ^ (r ^ 2 * Fintype.card (Grass K V r)) ≤ |(incMat e).det| := by
@@ -245,7 +245,7 @@ theorem abs_det_incMat_ge {r : ℕ} (hV : finrank K V = 4 * r)
 
 end Det
 
-/-! ### Theorem G.1 -/
+/-! ### Theorem 7 -/
 
 open Classical in
 /-- The bounded-coefficient circuit computing `I^{r,3r}` gives a matrix with `det = det(incMat)`. -/
@@ -262,7 +262,7 @@ theorem morgenstern_matrix_eq {K : Type*} [Field K] [Fintype K]
 
 end LowerBoundAux
 
-/-- **Theorem G.1**, lower bound: applying `I^{r,3r}_{4r}` over `ℂ` with gates `z = αx + βy`,
+/-- **Theorem 7**, lower bound: applying `I^{r,3r}_{4r}` over `ℂ` with gates `z = αx + βy`,
 `|α|, |β| ≤ 1`, takes `Ω_q(v log v)` gates, `v = |Gr(4r, r)|`. -/
 theorem incidence_lower_bound (K : Type w) [Field K] [Fintype K] :
     ∃ c : ℝ, 0 < c ∧ ∀ r : ℕ, 1 ≤ r → ∀ (V : Type v) [AddCommGroup V] [Module K V]
@@ -319,7 +319,7 @@ theorem incidence_lower_bound (K : Type w) [Field K] [Fintype K] :
     _ ≤ s * Real.log 2 := h1
     _ ≤ s := by nlinarith
 
-/-- **Theorem G.1**, upper bound: the algorithm of Theorem 1.2 applies `I^{r,3r}_{4r}` over `ℂ`
+/-- **Theorem 7**, upper bound: the algorithm of Theorem 2 applies `I^{r,3r}_{4r}` over `ℂ`
 with `O_q(v log v)` gates of modulus at most one. -/
 theorem incidence_lower_bound_attained (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ r : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V],

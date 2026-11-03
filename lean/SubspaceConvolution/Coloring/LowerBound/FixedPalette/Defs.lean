@@ -6,10 +6,10 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.Basic
 
 /-!
-# Fixed-palette lower bounds (Appendix D): the construction
+# Fixed-palette lower bounds (Appendix H): the construction
 
 This file defines the input formulas (3-CNF formulas over a `k × k` grid of Boolean variables),
-the graph `G_φ` of Appendix D ("Fixed-palette decision and counting lower bounds") and its
+the graph `G_φ` of Appendix H ("Fixed-palette decision and counting lower bounds") and its
 supplied linear layout.
 
 ## The construction

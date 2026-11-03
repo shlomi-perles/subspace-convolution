@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.WidthSetup
 
 /-!
-# Lemma C.4, part 2: the remaining edges — neighborhoods and the initial cuts
+# Lemma 6, part 2: the remaining edges — neighborhoods and the initial cuts
 
 After removing the register edges, the edges inside test cliques and the private edges, the
 remaining rows of a cut matrix take only few distinct values ("future neighborhoods").  Here we

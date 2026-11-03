@@ -13,12 +13,12 @@ import SubspaceConvolution.Transform.FourierAuxRing
 
 For `B ≤ W`, frequencies are the functionals vanishing on `B` (`Freq B`, the annihilator `B°`).
 
-* `fourierQ F B` — equation (fft); `fourierQInv F B` — equation (ifft); inversion both ways.
+* `fourierQ F B` — equation (6); `fourierQInv F B` — equation (7); inversion both ways.
 * `sum_freq_psi` — `∑_{λ ∈ B°} ψ(λ(z)) = q^{dim W - dim B} [z ∈ B]`.
 * `fourierQ_eq_dft` — after choosing coordinates, `fourierQ` is the `e`-dimensional DFT
   `Circuit.dft` (so it costs `O_q(e |W/B|)` by `Circuit.dft_cost`).
-* `fourier_affineT` — **Lemma 3.1** (affine Fourier identity).
-* `affineT_eq` — **equation (block)**: `A = F⁻¹ ∘ (⊕_λ Z_{ker λ}) ∘ F`, with the entries regrouped
+* `fourier_affineT` — **Lemma 2** (affine Fourier identity).
+* `affineT_eq` — **equation (10)**: `A = F⁻¹ ∘ (⊕_λ Z_{ker λ}) ∘ F`, with the entries regrouped
   by frequency through `freqEquiv`.
 * Coefficient rings: `FourierData.complex` (`ψ(t) = exp(2πi Tr(t)/p)`, all circuit constants of
   modulus at most one) and `FourierData.ext` on `ExtRing R p = R[t]/(1 + t + ⋯ + t^{p-1})`
@@ -26,7 +26,7 @@ For `B ≤ W`, frequencies are the functionals vanishing on `B` (`Freq B`, the a
 
 Helpers: `freqTo`/`freqFrom` (the two directions of `freqEquiv`, with `freqEquiv_apply`,
 `freqEquiv_symm_apply`), `blockT_freqEquiv`, `fourierSig_freqEquiv_symm`, and `sum_le_eq_blockT`
-(one block of equation (block)).  General lemmas are in `Transform/FourierAux.lean` and
+(one block of equation (10)).  General lemmas are in `Transform/FourierAux.lean` and
 `Transform/FourierAuxRing.lean` (namespace `SubspaceConvolution.FourierAux`).
 -/
 
@@ -48,12 +48,12 @@ abbrev Freq (B : Submodule K W) := {ξ : Module.Dual K W // B ≤ LinearMap.ker 
 
 noncomputable instance instFintypeFreq (B : Submodule K W) : Fintype (Freq B) := Fintype.ofFinite _
 
-/-- Equation (fft): `ĥ_λ(B) = ∑_{x + B} h_B(x + B) ψ(λ(x))`. -/
+/-- Equation (6): `ĥ_λ(B) = ∑_{x + B} h_B(x + B) ψ(λ(x))`. -/
 noncomputable def fourierQ (F : FourierData K S) (B : Submodule K W) (h : W ⧸ B → S)
     (ξ : Freq B) : S :=
   ∑ x : W ⧸ B, h x * F.ψ (B.liftQ ξ.1 ξ.2 x)
 
-/-- Equation (ifft): `h_B(x + B) = q^{-(dim W - dim B)} ∑_{λ ∈ B°} ĥ_λ(B) ψ(-λ(x))`. -/
+/-- Equation (7): `h_B(x + B) = q^{-(dim W - dim B)} ∑_{λ ∈ B°} ĥ_λ(B) ψ(-λ(x))`. -/
 noncomputable def fourierQInv (F : FourierData K S) (B : Submodule K W) (g : Freq B → S)
     (x : W ⧸ B) : S :=
   F.qinv ^ finrank K (W ⧸ B) * ∑ ξ : Freq B, g ξ * F.ψ (-(B.liftQ ξ.1 ξ.2 x))
@@ -280,7 +280,7 @@ theorem sum_le_eq_blockT (F : FourierData K S) (P' Q' : ℕ → Prop)
     exact fourierQ_congr_sub F h (FourierAux.subOut_subIn _ _).symm _ _ _
 
 open Classical in
-/-- **Lemma 3.1** (affine Fourier identity). -/
+/-- **Lemma 2** (affine Fourier identity). -/
 theorem fourier_affineT (F : FourierData K S) (P' Q' : ℕ → Prop)
     (h : (Σ B : SubP K W P', W ⧸ B.1) → S) (D : SubP K W Q') (ξ : Freq D.1) :
     fourierQ F D.1 (fun x => affineT P' Q' h ⟨D, x⟩) ξ =
@@ -300,7 +300,7 @@ theorem fourier_affineT (F : FourierData K S) (P' Q' : ℕ → Prop)
     refine Finset.sum_eq_zero fun y _ => Finset.sum_eq_zero fun x _ => ?_
     rw [ite_eq_right (FourierAux.not_cosetLE hB y x)]
 
-/-- **Equation (block)**: `A = F⁻¹ ∘ (⊕_λ T_{ker λ}) ∘ F`. -/
+/-- **Equation (10)**: `A = F⁻¹ ∘ (⊕_λ T_{ker λ}) ∘ F`. -/
 theorem affineT_eq (F : FourierData K S) (P' Q' : ℕ → Prop)
     (h : (Σ B : SubP K W P', W ⧸ B.1) → S) :
     affineT P' Q' h =

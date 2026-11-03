@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.SubspaceCount
 
 /-!
-# Proposition 7.3: coloring-completion queries across a cut
+# Proposition 1: coloring-completion queries across a cut
 
 Across a cut `(X, V \ X)` of binary cut-rank at most `r`, vertices carry labels
 `p_x, q_y ∈ F₂^r` with `xy ∈ E ⇔ p_xᵀ q_y = 1` (`exists_cutLabels`, a rank factorization).
@@ -19,12 +19,12 @@ vertices of color `i`; unused colors have profile `{0}`.
 * `card_coloring_eq_completionSum` — with `f, g` counting the colorings of the two sides by their ordered
   profile tuples, `∑_U f(U) B_g(U)` counts the proper `c`-colorings of `G`, where
   `B_g(U₁,…,U_c) = ∑_{V_i ≤ U_i^⊥} g(V₁,…,V_c)`.
-* `Bg_eq_zetaTensor` — eq. (color-compatibility): `B_g(U) = (Z_r^{⊗c} g)(U₁^⊥, …, U_c^⊥)`.
+* `Bg_eq_zetaTensor` — eq. (23): `B_g(U) = (Z_r^{⊗c} g)(U₁^⊥, …, U_c^⊥)`.
 * `zetaOn_eq_foldr` — `Z^{⊗c}` is obtained by applying the one-dimensional transform in each
   argument, holding the other arguments fixed.
 * `completion_cost_le` — the arithmetic of the running time: `c · N^{c-1}` calls of a transform of
   cost `K · N log N` cost `K · S log S` with `S = N^c`.  (The cost bound for one call is the
-  paper's Theorem 1.1, which is not part of the coloring results; it enters as the parameter `K`.)
+  paper's Theorem 1, which is not part of the coloring results; it enters as the parameter `K`.)
 -/
 
 open Finset Module
@@ -249,7 +249,7 @@ theorem card_pairs_eq_sum {A B α β : Type*} [Fintype A] [Fintype B] [Fintype �
   rw [key u w]
 
 open Classical in
-/-- **The final sum of Proposition 7.3 counts the proper `c`-colorings of `G`:**
+/-- **The final sum of Proposition 1 counts the proper `c`-colorings of `G`:**
 `|{proper c-colorings of G}| = ∑_U f(U) B_g(U)`. -/
 theorem card_coloring_eq_completionSum :
     Fintype.card (G.Coloring (Fin c)) =
@@ -374,7 +374,7 @@ theorem zetaOn_univ_eq_foldr (g : (ι → S) → R) :
 end Zeta
 
 open Classical in
-/-- **Equation (color-compatibility):** `B_g(U₁,…,U_c) = (Z_r^{⊗c} g)(U₁^⊥, …, U_c^⊥)`. -/
+/-- **Equation (23):** `B_g(U₁,…,U_c) = (Z_r^{⊗c} g)(U₁^⊥, …, U_c^⊥)`. -/
 theorem completionSum_eq_zetaOn {R : Type*} [AddCommMonoid R] {c r : ℕ}
     (g : (Fin c → Submodule F2 (Fin r → F2)) → R) (U : Fin c → Submodule F2 (Fin r → F2)) :
     completionSum g U = zetaOn univ g (fun i => perp (U i)) := by
@@ -387,7 +387,7 @@ theorem completionSum_eq_zetaOn {R : Type*} [AddCommMonoid R] {c r : ℕ}
 
 /-! ### The running-time arithmetic -/
 
-/-- **Running time of Proposition 7.3.**  Applying a one-dimensional transform of cost at most
+/-- **Running time of Proposition 1.**  Applying a one-dimensional transform of cost at most
 `K · N log N` along each of the `c` arguments uses `c · N^{c-1}` calls, of total cost at most
 `K · S log S` with `S = N^c`; the final inner product `∑_U f(U) B_g(U)` adds `S` multiplications
 and `S` additions. -/

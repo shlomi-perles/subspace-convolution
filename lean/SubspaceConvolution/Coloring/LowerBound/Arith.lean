@@ -6,14 +6,14 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Complexity
 
 /-!
-# The exponent arithmetic of Theorem C.1
+# The exponent arithmetic of Theorem 8
 
 With `s = √(log₂ k)` and `d = ⌈s⌉` (the least `d` with `k ≤ 2^{d²}`), a layout of width
 `r ≤ 2d + 12 ≤ 2s + 14` gives, by convexity of `b(t) = t²/4 - 17 t`,
 
   `2^{b(r)} ≤ max {1, 2^{b(2s+14)}} = max {1, k · 2^{-20 s - 189}}`
 
-(paper, proof of Theorem C.1).  `two_rpow_b_le` is this inequality; `d_le_sqrt_log` is
+(paper, proof of Theorem 8).  `two_rpow_b_le` is this inequality; `d_le_sqrt_log` is
 `d ≤ s + 1`.
 -/
 
@@ -43,7 +43,7 @@ theorem d_le_sqrt_log {k d : ℕ} (hk : 1 ≤ k) (hmin : ∀ d' < d, 2 ^ (d' * d
       simp
     linarith
 
-/-- **The exponent bound of Theorem C.1**: for `r ≤ 2d + 12` with `d ≤ √(log₂ k) + 1`,
+/-- **The exponent bound of Theorem 8**: for `r ≤ 2d + 12` with `d ≤ √(log₂ k) + 1`,
 `2^{r²/4 - 17 r} ≤ max {1, k · 2^{-20 √(log₂ k) - 189}}`. -/
 theorem two_rpow_b_le {k : ℕ} (hk : 1 ≤ k) {d r : ℕ} (hd : (d : ℝ) ≤ √(logb 2 k) + 1)
     (hr : r ≤ 2 * d + 12) :

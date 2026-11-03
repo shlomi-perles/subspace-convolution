@@ -7,13 +7,13 @@ import SubspaceConvolution.Coloring.Profiles
 import SubspaceConvolution.Coloring.MatchingDP
 
 /-!
-# The merge step of Theorem 7.1
+# The merge step of Theorem 6
 
 For disjoint `X₁, X₂`, color partitions of `G[X₁ ∪ X₂]` correspond bijectively to triples
 `(P₁, P₂, M)` of color partitions `P_i` of `G[X_i]` and compatible partial matchings `M` between
 their classes (paper: "Classes sharing a color form a compatible partial matching … the
 correspondence is a bijection").  The histogram of the parent partition is the parent histogram
-of the matching, computed from the child profiles by Lemma 7.1.
+of the matching, computed from the child profiles by Lemma 3.
 
 Combined with `MergeData.run_spec`, this proves that the histogram recurrence of the paper
 computes, for every parent histogram, the number of color partitions of `G[X₁ ∪ X₂]` realizing
@@ -56,7 +56,7 @@ noncomputable def hists (X : Finset V) : Multiset (Multiset (Submodule F2 (V →
   (colorParts G X).val.map (hist G)
 
 /-- The merge data for the children `X₁, X₂`: compatibility is the vanishing of `β`, and parent
-profiles are obtained by restricting to `Y = V \ (X₁ ∪ X₂)` (Lemma 7.1). -/
+profiles are obtained by restricting to `Y = V \ (X₁ ∪ X₂)` (Lemma 3). -/
 noncomputable def mergeData (X₁ X₂ : Finset V) :
     MergeData (Submodule F2 (V → F2)) (Submodule F2 (V → F2)) (Submodule F2 (V → F2)) where
   compat := Compatible G X₁ X₂

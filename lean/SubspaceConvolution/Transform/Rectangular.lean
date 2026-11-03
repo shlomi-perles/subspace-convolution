@@ -6,24 +6,24 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.RectAux
 
 /-!
-# Rectangular kernels (Appendix E, "Different input and output dimensions")
+# Rectangular kernels (Appendix C, "Different input and output dimensions")
 
 Kernels with columns indexed by `Gr(n, a)` and rows by `Gr(n, b)` whose entry `K(W, U)` depends
 only on `dim(U ∩ W)`:
 
 * `rectKernel a b κ` — `(K f)(W) = ∑_{U ∈ Gr(V, a)} κ(dim(U ∩ W)) f(U)`, `W ∈ Gr(V, b)`.
-* `rectKernel_eq_sum_incid` — back-substitution in equation (profile), through equation
-  (rect-moments): `K f = ∑_{t ≤ min(a,b)} c_t I^{t,b} (I^{t,a})ᵀ f` with `c = rectCoeff K κ`.
+* `rectKernel_eq_sum_incid` — back-substitution in equation (29), through equation
+  (31): `K f = ∑_{t ≤ min(a,b)} c_t I^{t,b} (I^{t,a})ᵀ f` with `c = rectCoeff K κ`.
 * `finrank_dualAnnihilator_inf_grass`, `rectKernel_dual` — annihilators change the intersection
   dimension to `n - a - b + dim(U ∩ W)`: the kernel on `V` is the kernel
   `κ'(s) = κ(s + a + b - n)` from `Gr(V*, n - a)` to `Gr(V*, n - b)`.
 * `rectKernel_linCost_half`, **`fast_rectKernel`** — `S poly(n)` work, precisely
   `O_q((n + 1)³ S)` with `S = |Gr(n, a)| + |Gr(n, b)|`: for `min(a, b) ≤ n/2` every
   intermediate table is at most `S` (unimodality) and each of the `≤ n + 1` terms costs
-  `O(S log S) = O_q(n² S)` by Theorem 1.2; otherwise take annihilators.
+  `O(S log S) = O_q(n² S)` by Theorem 2; otherwise take annihilators.
 * Special cases: the sums by intersection dimension `rectInterSum` (`κ(s) = [s = t]`,
   `rectInterSum_eq_rectKernel`, `fast_rectInterSum`), and for `a = b` the intersection kernels
-  of Theorem 1.4 (`rectKernel_self_eq_kernelApply`).
+  of Theorem 3 (`rectKernel_self_eq_kernelApply`).
 * Unions of dimensions, on the table of all subspaces: `allKernel κ`,
   `(K f)(W) = ∑_U κ(dim U, dim W, dim(U ∩ W)) f(U)`; `allKernel_eq_zetaAll` (one upper transform
   per input dimension, one weighted lower transform per output dimension) and
@@ -59,7 +59,7 @@ theorem finrank_inf_le_min (a b : ℕ) (U : Grass K V a) (W : Grass K V b) :
   le_min (le_of_le_of_eq (Submodule.finrank_mono inf_le_left) U.2)
     (le_of_le_of_eq (Submodule.finrank_mono inf_le_right) W.2)
 
-/-- **Back-substitution in equation (profile)**, through equation (rect-moments):
+/-- **Back-substitution in equation (29)**, through equation (31):
 `K f = ∑_{t ≤ min(a,b)} c_t I^{t,b} (I^{t,a})ᵀ f`, where `c_t = κ(t) - ∑_{j<t} |Gr(t,j)| c_j`. -/
 theorem rectKernel_eq_sum_incid (a b : ℕ) (κ : ℕ → R) (f : Grass K V a → R)
     (W : Grass K V b) :
@@ -74,7 +74,7 @@ theorem rectKernel_eq_sum_incid (a b : ℕ) (κ : ℕ → R) (f : Grass K V a �
   ring
 
 /-- For `a = b = k` a rectangular kernel is an intersection kernel on `Gr(V, k)`
-(Theorem 1.4), with `a_i = κ(k - i)`. -/
+(Theorem 3), with `a_i = κ(k - i)`. -/
 theorem rectKernel_self_eq_kernelApply (k : ℕ) (κ : ℕ → R) :
     rectKernel (K := K) (V := V) k k κ = kernelApply k (fun i => κ (k - i)) := by
   funext f W
@@ -152,7 +152,7 @@ variable {K : Type w} [Field K] [Fintype K]
 variable {V : Type v} [AddCommGroup V] [Module K V] [FiniteDimensional K V]
 variable {R : Type u} [CommRing R]
 
-/-- One term `I^{t,b} (I^{t,a})ᵀ`, `t ≤ min(a, b) ≤ n/2`: two incidence transforms (Theorem 1.2)
+/-- One term `I^{t,b} (I^{t,a})ᵀ`, `t ≤ min(a, b) ≤ n/2`: two incidence transforms (Theorem 2)
 on tables of size at most `2S`, so `4 C S L` gates with `L = (log₂ q + 4)(n+1)² ≥ log₂ (2S)`. -/
 theorem incid_incidT_linCost {C : ℕ}
     (hinc : ∀ a b : ℕ, a ≤ b → b ≤ finrank K V →
@@ -234,7 +234,7 @@ theorem rectKernel_linCost_half {C : ℕ}
 
 end Cost
 
-/-- **Rectangular kernels** (Appendix E, "Different input and output dimensions"): over any
+/-- **Rectangular kernels** (Appendix C, "Different input and output dimensions"): over any
 commutative ring in which `p` is invertible, a kernel from `Gr(V, a)` to `Gr(V, b)` depending
 only on `dim(U ∩ W)` is applied with `O_q((n + 1)³ S)` operations, `S = |Gr(n, a)| + |Gr(n, b)|`
 (`S poly(n)` work). -/
@@ -280,7 +280,7 @@ theorem fast_rectKernel (K : Type w) [Field K] [Fintype K] :
     funext f W
     exact (rectKernel_dual a b han hbn κ f W).symm
 
-/-- **Sums by intersection dimension** (Appendix E): `h_t(W) = ∑_{dim(U ∩ W) = t} f(U)` from
+/-- **Sums by intersection dimension** (Appendix C): `h_t(W) = ∑_{dim(U ∩ W) = t} f(U)` from
 `Gr(V, a)` to `Gr(V, b)` in `O_q((n + 1)³ S)` operations. -/
 theorem fast_rectInterSum (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
@@ -327,10 +327,10 @@ theorem sum_mul_zetaAllT_rankPart (c : ℕ → R) (f : Submodule K V → R) (L :
   exact sum_congr rfl fun U _ => sum_mul_rankPart c f U
 
 open Classical in
-/-- **Unions of dimensions** (Appendix E): one upper transform per input dimension
+/-- **Unions of dimensions** (Appendix C): one upper transform per input dimension
 (`H_a = Z_nᵀ f_a`) and one weighted lower transform per output dimension
 (`(K f)(W) = Z_n (G_{dim W})(W)` with `G_b(L) = ∑_a c^{a,b}_{dim L} H_a(L)`, where
-`c^{a,b} = rectCoeff K (κ a b)` is the back-substitution of equation (profile)). -/
+`c^{a,b} = rectCoeff K (κ a b)` is the back-substitution of equation (29)). -/
 theorem allKernel_eq_zetaAll (κ : ℕ → ℕ → ℕ → R) (f : Submodule K V → R) (W : Submodule K V) :
     allKernel κ f W = zetaAll (fun L : Submodule K V => ∑ a ∈ range (finrank K V + 1),
       rectCoeff K (κ a (finrank K W)) (finrank K L) * zetaAllT (rankPart a f) L) W := by
@@ -413,11 +413,11 @@ theorem allKernel_bound (C n N : ℕ) :
 
 end AllSubspaces
 
-/-- **Unions of dimensions** (Appendix E, last sentence of "Different input and output
+/-- **Unions of dimensions** (Appendix C, last sentence of "Different input and output
 dimensions"): on the table of all subspaces, a kernel depending only on `dim U`, `dim W` and
 `dim(U ∩ W)` is applied with `O_q((n + 1)³ N_q(n))` operations over any commutative ring in which
 `p` is invertible: one upper transform per input dimension and one weighted lower transform per
-output dimension (Theorem 1.1 for `k = n`). -/
+output dimension (Theorem 1 for `k = n`). -/
 theorem fast_allKernel (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
       ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V]

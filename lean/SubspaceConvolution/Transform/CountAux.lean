@@ -187,7 +187,7 @@ theorem mul_self_le_five_mul_div_four {n : ℕ} (hn : 2 ≤ n) : n * n ≤ 5 * (
 
 /-! ### Appendix B arithmetic -/
 
-/-- The case `a < c` of eq. (slack): `I + aJ ≤ 3S/4`, from `|Gr(n-1, j)| ≤ q^{-j} |Gr(n, j)|`
+/-- The case `a < c` of eq. (28): `I + aJ ≤ 3S/4`, from `|Gr(n-1, j)| ≤ q^{-j} |Gr(n, j)|`
 and `A ≤ B`.  Here `x, y, z` stand for `|Gr(n-1,a)|, |Gr(n-1,b)|, |Gr(n-1,b-1)|`. -/
 theorem slack_core {q m x y z A B e₁ e₂ : ℕ} (hq : 2 ≤ q) (hx : q ^ m * x ≤ A)
     (hy : q ^ e₁ * y ≤ B) (hz : q ^ e₂ * z ≤ B) (he₁ : m + 1 ≤ e₁) (he₂ : m + 1 ≤ e₂)
@@ -209,13 +209,13 @@ theorem slack_core {q m x y z A B e₁ e₂ : ℕ} (hq : 2 ≤ q) (hx : q ^ m * 
     exact Nat.le_of_mul_le_mul_left h3 (by omega)
   linarith
 
-/-- The case `a = c` of eq. (slack): `aJ ≤ 3S/4` from `J ≤ q^{-a} S`. -/
+/-- The case `a = c` of eq. (28): `aJ ≤ 3S/4` from `J ≤ q^{-a} S`. -/
 theorem slack_core_eq {q m J S : ℕ} (hq : 2 ≤ q) (h : q ^ m * J ≤ S) : 4 * m * J ≤ 3 * S := by
   have h1 : 2 * m ≤ q ^ m := two_mul_le_pow hq m
   calc 4 * m * J ≤ 3 * (q ^ m * J) := by nlinarith
     _ ≤ 3 * S := Nat.mul_le_mul_left _ h
 
-/-- Eq. (slack), case `a < c`: the bookkeeping. `x, y, z, w` are `|Gr(n-1, ·)|` at
+/-- Eq. (28), case `a < c`: the bookkeeping. `x, y, z, w` are `|Gr(n-1, ·)|` at
 `a, b, b-1, a-1`, `u, v` are `|Gr(n-2, ·)|` at `a-1, b-1`, `A, B` are `|Gr(n, a)|, |Gr(n, b)|`,
 `E = q^{n-1} - 1`, and `m₁, …, m₄` are the minima of the recursive calls. -/
 theorem slack_arith_lt {m d m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hm : m = d + 1)
@@ -227,7 +227,7 @@ theorem slack_arith_lt {m d m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hm : m
   subst h₁ h₂ h₃ h₄ hm hA hB
   nlinarith [core]
 
-/-- Eq. (slack), case `a = c`. -/
+/-- Eq. (28), case `a = c`. -/
 theorem slack_arith_eq {m d m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hm : m = d + 1)
     (h₁ : m₁ = d) (h₂ : m₂ = m) (h₃ : m₃ = d) (h₄ : m₄ = d)
     (hA : A = x + w + E * u) (hB : B = y + z + E * v)
@@ -237,7 +237,7 @@ theorem slack_arith_eq {m d m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hm : m
   subst h₁ h₂ h₃ h₄ hm hA hB
   nlinarith [core]
 
-/-- Eq. (slack), case `a > c` (the dual of the case `a < c`). -/
+/-- Eq. (28), case `a > c` (the dual of the case `a < c`). -/
 theorem slack_arith_gt {c e m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hc : c = e + 1)
     (h₁ : m₁ = e) (h₂ : m₂ = c) (h₃ : m₃ = c) (h₄ : m₄ = e)
     (hA : A = x + w + E * u) (hB : B = y + z + E * v)
@@ -247,7 +247,7 @@ theorem slack_arith_gt {c e m₁ m₂ m₃ m₄ x y z w u v E A B : ℕ} (hc : c
   subst h₁ h₂ h₃ h₄ hc hA hB
   nlinarith [core]
 
-/-- The induction step of Appendix B, given eq. (slack): `I, J, F, G` are the sizes of the
+/-- The induction step of Appendix B, given eq. (28): `I, J, F, G` are the sizes of the
 recursive calls (`F` the frequency call with `λ = 0`, `G` the other `E = q^{n-1} - 1` ones). -/
 theorem budget_arith {C₁ n n₁ n₂ m₁ m₂ m₃ m₄ I J F G E S : ℕ} (hn : 1 ≤ n) (hn₁ : n₁ ≤ n)
     (hn₂ : n₂ ≤ n) (hS : S = I + F + E * G) (hJ : J ≤ S)

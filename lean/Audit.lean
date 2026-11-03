@@ -14,11 +14,11 @@ declaration depends only on `propext`, `Classical.choice` and `Quot.sound`.
 -/
 
 open SubspaceConvolution
--- Lemma 7.1
+-- Lemma 3
 #print axioms SubspaceConvolution.compatible_profile_iff
 #print axioms SubspaceConvolution.profile_eq_map
 #print axioms SubspaceConvolution.bilin_congr_left
--- Theorem 7.1
+-- Theorem 6
 #print axioms SubspaceConvolution.MergeData.run_spec
 #print axioms SubspaceConvolution.hists_union
 #print axioms SubspaceConvolution.treeDP_eq_hists
@@ -32,13 +32,13 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.exists_optimal_of_treeDP
 #print axioms SubspaceConvolution.treeCost_le
 #print axioms SubspaceConvolution.treeCost_le_pow
--- Corollary 7.2
+-- Corollary 1
 #print axioms SubspaceConvolution.hists_insert
 #print axioms SubspaceConvolution.linDP_layout
 #print axioms SubspaceConvolution.chromaticPolynomial_eq_linDP
 #print axioms SubspaceConvolution.chromaticNumber_eq_linDP
 #print axioms SubspaceConvolution.linCost_le
--- Proposition 7.3
+-- Proposition 1
 #print axioms SubspaceConvolution.exists_cutLabels
 #print axioms SubspaceConvolution.proper_iff_profiles
 #print axioms SubspaceConvolution.card_coloring_eq_completionSum
@@ -49,13 +49,13 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.numSubspaces_le
 #print axioms SubspaceConvolution.le_numSubspaces
 #print axioms SubspaceConvolution.card_finrank_eq_mul_prod
--- Appendix C
+-- Appendix G
 #print axioms SubspaceConvolution.Counter.colorable_iff
 #print axioms SubspaceConvolution.Counter.layout_width
 #print axioms SubspaceConvolution.Counter.card_Vtx_le_poly
 #print axioms SubspaceConvolution.Counter.reduction_spec
 #print axioms SubspaceConvolution.Counter.chromatic_lower_bound
--- Appendix D
+-- Appendix H
 #print axioms SubspaceConvolution.FixedPalette.card_coloring
 #print axioms SubspaceConvolution.FixedPalette.layout_width
 #print axioms SubspaceConvolution.FixedPalette.reduction_spec
@@ -64,14 +64,14 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.FixedPalette.caterpillar_width
 #print axioms SubspaceConvolution.Counter.caterpillar_width
 -- ===== Part I: the transforms =====
--- Lemma 2.1, equations (cut)/(rank-cut)
+-- Lemma 1, equations (8)/(12)
 #print axioms SubspaceConvolution.HypData.existsUnique_lift
 #print axioms SubspaceConvolution.HypData.lift_le_lift_iff
 #print axioms SubspaceConvolution.HypData.finrank_lift
 #print axioms SubspaceConvolution.HypData.lift_inf_H
 #print axioms SubspaceConvolution.HypData.containT_split_inl
 #print axioms SubspaceConvolution.HypData.containT_split_inr
--- Fourier, Lemma 3.1, equation (block), coefficient rings
+-- Fourier, Lemma 2, equation (10), coefficient rings
 #print axioms SubspaceConvolution.fourierQInv_fourierQ
 #print axioms SubspaceConvolution.sum_freq_psi
 #print axioms SubspaceConvolution.fourier_affineT
@@ -87,13 +87,13 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.Circuit.idft_cost
 #print axioms SubspaceConvolution.Circuit.morgenstern
 #print axioms SubspaceConvolution.Circuit.ArithCost.comp
--- Theorem 1.1
+-- Theorem 1
 #print axioms SubspaceConvolution.containT_step
 #print axioms SubspaceConvolution.zeta_linCost
 #print axioms SubspaceConvolution.zetaInv_linCost
 #print axioms SubspaceConvolution.fast_subspace_summation
 #print axioms SubspaceConvolution.fast_subspace_summation_log
--- Theorem 1.2
+-- Theorem 2
 #print axioms SubspaceConvolution.incid_linCost
 #print axioms SubspaceConvolution.fast_incidence
 #print axioms SubspaceConvolution.fast_incidence_complex
@@ -119,7 +119,7 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.coverPairs_theta_rpow
 #print axioms SubspaceConvolution.sqDist_lineIndicator
 #print axioms SubspaceConvolution.card_inclusions_theta
--- Section 5: convolution, Theorem 5.1
+-- Section 5: convolution, Theorem 5
 #print axioms SubspaceConvolution.zetaAll_spanConv
 #print axioms SubspaceConvolution.fast_spanConv
 #print axioms SubspaceConvolution.zetaAllT_interConv
@@ -127,7 +127,7 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.two_pow_card_eq_sum_spanCount
 #print axioms SubspaceConvolution.spanCount_eq_zetaAllInv
 #print axioms SubspaceConvolution.fast_span_count
--- Theorem 1.4 and Section 5.3
+-- Theorem 3 and Section 5.3
 #print axioms SubspaceConvolution.moments
 #print axioms SubspaceConvolution.kernelCoeff_spec
 #print axioms SubspaceConvolution.kernelApply_eq_zeta
@@ -136,7 +136,7 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.fast_kernel_arith
 #print axioms SubspaceConvolution.grassGraph_dist
 #print axioms SubspaceConvolution.invariant_iff_exists_dist
--- Appendix E
+-- Appendix C
 #print axioms SubspaceConvolution.moment_profile
 #print axioms SubspaceConvolution.fast_distance_sums
 #print axioms SubspaceConvolution.isLeast_minDist
@@ -152,7 +152,7 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.bijective_kernelApply_iff
 #print axioms SubspaceConvolution.kernelApply_inverse
 #print axioms SubspaceConvolution.kernelInverse_linCost
--- Corollary F.1
+-- Corollary 2
 #print axioms SubspaceConvolution.zetaInv_eq_sum_mobius
 #print axioms SubspaceConvolution.exact_integer_zeta
 #print axioms SubspaceConvolution.exact_integer_zetaInv
@@ -160,10 +160,10 @@ open SubspaceConvolution
 #print axioms SubspaceConvolution.exact_integer_zetaTInv
 #print axioms SubspaceConvolution.exact_integer_incid
 #print axioms SubspaceConvolution.exact_integer_incidT
--- Theorem G.1
+-- Theorem 7
 #print axioms SubspaceConvolution.LowerBoundAux.abs_det_incMat_ge
 #print axioms SubspaceConvolution.incidence_lower_bound
 #print axioms SubspaceConvolution.incidence_lower_bound_attained
--- Proposition 7.3 with the cost of Theorem 1.1
+-- Proposition 1 with the cost of Theorem 1
 #print axioms SubspaceConvolution.fast_completionSum
 #print axioms SubspaceConvolution.fast_completion_count

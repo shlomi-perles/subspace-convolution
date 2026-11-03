@@ -6,12 +6,12 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.ChromaticPolynomial
 
 /-!
-# Theorem 7.1: recovering an optimal coloring by backtracking
+# Theorem 6: recovering an optimal coloring by backtracking
 
 The paper recovers an optimal coloring by backtracking through the dynamic program: at every node
 it recovers a left and a right histogram and the pairing choices that produced the parent histogram,
 recursively recovers child partitions with these histograms, and follows the pairing choices using
-available classes of the recorded profiles; Lemma 7.1 makes each pairing valid.
+available classes of the recorded profiles; Lemma 3 makes each pairing valid.
 
 `realize` implements this recursion: for every histogram `h` produced by the dynamic program at a
 node, it returns a color partition of the vertices below the node with histogram exactly `h`, built
@@ -64,7 +64,7 @@ def leafPartition (v : V) : Finpartition (DTree.leaf v).leafSet :=
   (Finpartition.indiscrete (singleton_ne_empty v)).copy (by simp [DTree.leafSet, DTree.leaves])
 
 open Classical in
-/-- **Backtracking (Theorem 7.1).**  For a histogram `h` produced by the dynamic program at the
+/-- **Backtracking (Theorem 6).**  For a histogram `h` produced by the dynamic program at the
 node `t`, a color partition of the vertices below `t` with histogram `h`. -/
 noncomputable def realize : (t : DTree V) → t.leaves.Nodup → (h : Multiset (Submodule F2 (V → F2))) →
     h ∈ treeDP G t → {P : Finpartition t.leafSet // IsColorPartition G P ∧ hist G P = h}
@@ -119,7 +119,7 @@ noncomputable def realize : (t : DTree V) → t.leaves.Nodup → (h : Multiset (
         exact isColorPartition_ofTriple G hd hM.1 P₁.2.1 P₂.2.1 hM.2.1 C hC
       · rw [hist_copy, hist_ofTriple, hM.2.2]⟩
 
-/-- **Theorem 7.1 (optimal coloring).**  Realizing the root histogram `χ(G) · δ_{0}` by
+/-- **Theorem 6 (optimal coloring).**  Realizing the root histogram `χ(G) · δ_{0}` by
 backtracking gives a color partition of `G` into exactly `χ(G)` classes. -/
 theorem exists_optimal_of_treeDP (D : RankDecomposition V) :
     ∃ (t : ℕ) (P : Finpartition D.tree.leafSet), G.chromaticNumber = t ∧

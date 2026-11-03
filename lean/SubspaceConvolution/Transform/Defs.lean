@@ -21,7 +21,7 @@ role of `F_q^n`; working with abstract spaces lets the recursion of Section 3 ca
 * `incid a b` — the incidence transform `I^{a,b}`; `incidT a b` — its transpose.
 * `gDist`, `grassGraph`, `kernelApply` — distances, the Grassmann graph `J_q(n,k)` and
   intersection kernels `K(U,W) = a_{dist(U,W)}`.
-* `spanConv` — span convolution; `spanCount` — exact-span counts (Theorem 5.1).
+* `spanConv` — span convolution; `spanCount` — exact-span counts (Theorem 5).
 * `FourierData` — a coefficient ring with a primitive additive character of `K`
   (Sections 2.1 and 3.4).
 * `numLE K n k = M_q(n,k)`, `gr K n j = |Gr(n,j)|`, and `card_subLE`/`card_grass`: the counts
@@ -280,7 +280,7 @@ noncomputable def zetaAll (f : Submodule K V → R) (W : Submodule K V) : R :=
   ∑ U ∈ univ.filter (fun U : Submodule K V => U ≤ W), f U
 
 open Classical in
-/-- Exact-span counts `C(U) = #{A ⊆ [ℓ] : span{v_i : i ∈ A} = U}` (Theorem 5.1). -/
+/-- Exact-span counts `C(U) = #{A ⊆ [ℓ] : span{v_i : i ∈ A} = U}` (Theorem 5). -/
 noncomputable def spanCount {ℓ : ℕ} (v : Fin ℓ → V) (U : Submodule K V) : ℕ :=
   #(univ.filter fun A : Finset (Fin ℓ) => Submodule.span K (v '' (A : Set (Fin ℓ))) = U)
 

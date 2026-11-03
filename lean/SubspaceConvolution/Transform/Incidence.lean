@@ -7,14 +7,14 @@ import SubspaceConvolution.Transform.Step
 import SubspaceConvolution.Transform.Count
 
 /-!
-# The fast incidence transform: Theorem 1.2
+# The fast incidence transform: Theorem 2
 
-* `incid_linCost` — the recursion of Section 4 (equation (rank-cut), two inside calls) with the
+* `incid_linCost` — the recursion of Section 4 (equation (12), two inside calls) with the
   budget `incidBound` of Appendix B, over a ring with a Fourier character.
-* `fast_incidence` — **Theorem 1.2** over any commutative ring in which `p` is invertible, for
+* `fast_incidence` — **Theorem 2** over any commutative ring in which `p` is invertible, for
   `I^{a,b}` and its transpose.
 * `fast_incidence_complex` — over `ℂ` the algorithm uses only constants of modulus at most one
-  (the upper bound of Theorem G.1).
+  (the upper bound of Theorem 7).
 -/
 
 open Finset Module
@@ -254,7 +254,7 @@ theorem incid_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
 
 end FourierRing
 
-/-! ### Theorem 1.2 -/
+/-! ### Theorem 2 -/
 
 section Ring
 
@@ -294,7 +294,7 @@ theorem transposeMap_incid (a b : ℕ) [DecidableEq (Grass K V a)] :
 
 end Ring
 
-/-- **Theorem 1.2.** `I^{a,b}_n` and its transpose take `O_q(S log S)` arithmetic operations,
+/-- **Theorem 2.** `I^{a,b}_n` and its transpose take `O_q(S log S)` arithmetic operations,
 `S = |Gr(n,a)| + |Gr(n,b)|`. -/
 theorem fast_incidence (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
@@ -346,8 +346,8 @@ theorem fast_incidence (K : Type w) [Field K] [Fintype K] :
     calc 2 * (E * S * L) + gr K (finrank K V) b ≤ 2 * (E * S * L) + S * L := by gcongr
       _ = (2 * E + 1) * S * L := by ring
 
-/-- **Theorem 1.2 over `ℂ` in the bounded-coefficient model**: the algorithm uses only additions,
-roots of unity and Fourier normalizations, all of modulus at most one (Appendix G). -/
+/-- **Theorem 2 over `ℂ` in the bounded-coefficient model**: the algorithm uses only additions,
+roots of unity and Fourier normalizations, all of modulus at most one (Appendix F). -/
 theorem fast_incidence_complex (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (a b : ℕ),
         a ≤ b → b ≤ finrank K V →

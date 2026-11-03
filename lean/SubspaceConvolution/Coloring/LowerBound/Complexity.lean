@@ -19,7 +19,7 @@ such model.
 * `CostModel`, `CostModel.Runs.reduce` — the transfer through a reduction.
 * `exists_tendsto_sup_mul` — the "sup trick" turning `2^{ε(r) r²}` with `ε → 0` and `r ≤ B(n)`,
   `B(n)² = O(n)`, into `2^{ε'(n) (n+1)}` with `ε' → 0`.
-* `quad_le_max` — convexity of `t²/4 - 17 t` (used in Theorem C.1).
+* `quad_le_max` — convexity of `t²/4 - 17 t` (used in Theorem 8).
 -/
 
 open Filter Topology
@@ -122,7 +122,7 @@ theorem exists_tendsto_sup_mul {ε : ℕ → ℝ} (hε0 : ∀ r, 0 ≤ ε r)
 
 /-! ### Convexity of `b(t) = t²/4 - 17t` -/
 
-/-- For `0 ≤ t ≤ R`: `t²/4 - 17 t ≤ max 0 (R²/4 - 17 R)` (convexity of `b`, Theorem C.1). -/
+/-- For `0 ≤ t ≤ R`: `t²/4 - 17 t ≤ max 0 (R²/4 - 17 R)` (convexity of `b`, Theorem 8). -/
 theorem quad_le_max {t R : ℝ} (ht : 0 ≤ t) (htR : t ≤ R) :
     t ^ 2 / 4 - 17 * t ≤ max 0 (R ^ 2 / 4 - 17 * R) := by
   by_cases h : t ≤ 68

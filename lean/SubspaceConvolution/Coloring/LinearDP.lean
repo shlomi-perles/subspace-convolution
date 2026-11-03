@@ -6,21 +6,21 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.ChromaticPolynomial
 
 /-!
-# Corollary 7.2: the dynamic program on a linear layout
+# Corollary 1: the dynamic program on a linear layout
 
 On a linear layout, adding one vertex `x` to a prefix `X` updates one histogram at a time.  With
 `R = V \ (X ∪ {x})`, `π` the restriction to `R`, `b = A_G[x, R]ᵀ` and `ℓ` evaluating the
 `x`-coordinate, the paper's transitions are
 
-* (lin:fresh)  `h ↦ π_* h + δ_{span b}`, weight `1`;
-* (lin:reuse)  `h ↦ π_*(h - δ_U) + δ_{π(U) + span b}` if `h(U) > 0` and `ℓ(U) = {0}`, weight `h(U)`.
+* (eq. 21)  `h ↦ π_* h + δ_{span b}`, weight `1`;
+* (eq. 22)  `h ↦ π_*(h - δ_U) + δ_{π(U) + span b}` if `h(U) > 0` and `ℓ(U) = {0}`, weight `h(U)`.
 
 `linStep` implements one step, `linDP` the whole layout.  We prove (`hists_insert`) that one step
 maps the histograms of all color partitions of `G[X]` to those of `G[X ∪ {x}]`, by specializing the
-merge recurrence of Theorem 7.1 to a singleton right child (`MergeData.run_single`), and hence
+merge recurrence of Theorem 6 to a singleton right child (`MergeData.run_single`), and hence
 (`linDP_eq_hists`) that the dynamic program along any linear layout returns the histograms of all
 color partitions of `G`.  The outputs (chromatic polynomial, chromatic number) follow as in
-Theorem 7.1 (`chromaticPolynomial_eq_linDP`, `chromaticNumber_eq_linDP`).
+Theorem 6 (`chromaticPolynomial_eq_linDP`, `chromaticNumber_eq_linDP`).
 -/
 
 open Finset
@@ -190,9 +190,9 @@ theorem hists_empty : hists G ∅ = {0} := by
   simp [hist, hpart]
 
 open Classical in
-/-- **One step of the linear dynamic program (Corollary 7.2).**  From a histogram `h` at the
-prefix `X`, adding the vertex `x`: open a new class (lin:fresh), or let `x` join a class of a
-profile `U` with `ℓ(U) = {0}`, with multiplicity `h(U)` (lin:reuse). -/
+/-- **One step of the linear dynamic program (Corollary 1).**  From a histogram `h` at the
+prefix `X`, adding the vertex `x`: open a new class (eq. 21), or let `x` join a class of a
+profile `U` with `ℓ(U) = {0}`, with multiplicity `h(U)` (eq. 22). -/
 noncomputable def linStep (X : Finset V) (x : V) (h : Multiset (Submodule F2 (V → F2))) :
     Multiset (Multiset (Submodule F2 (V → F2))) :=
   {h.map (Submodule.map (restrictOut (X ∪ {x}))) +
@@ -214,7 +214,7 @@ theorem hist_le_cutSpace {X : Finset V} (P : Finpartition X) :
   exact profile_le_cutSpace G (P.subset hC)
 
 open Classical in
-/-- **Correctness of one step (Corollary 7.2).** -/
+/-- **Correctness of one step (Corollary 1).** -/
 theorem hists_insert {X : Finset V} {x : V} (hx : x ∉ X) :
     hists G (X ∪ {x}) = (hists G X).bind (linStep G X x) := by
   rw [hists_union G (disjoint_singleton_right.2 hx), hists_singleton, mergeHists]
@@ -268,7 +268,7 @@ theorem linDP_eq_hists : ∀ (l : List V) (X : Finset V), l.Nodup → (∀ x ∈
       simp only [mem_union, mem_singleton, not_or]
       exact ⟨hdis y (List.mem_cons_of_mem _ hy), fun h => hx (h ▸ hy)⟩
 
-/-- **Corollary 7.2 (correctness).**  Along any linear layout, the dynamic program started from
+/-- **Corollary 1 (correctness).**  Along any linear layout, the dynamic program started from
 the empty histogram returns the histograms of all color partitions of `G`. -/
 theorem linDP_layout (π : LinearLayout V) : linDP G π.order ∅ {0} = hists G univ := by
   rw [← hists_empty G, linDP_eq_hists G π.order ∅ π.nodup (fun _ _ => notMem_empty _)]
@@ -280,14 +280,14 @@ theorem count_linDP_layout (π : LinearLayout V) (t : ℕ) :
     (linDP G π.order ∅ {0}).count (Multiset.replicate t ⊥) = numColorPartitions G t := by
   rw [linDP_layout, count_hists_univ]
 
-/-- **Corollary 7.2 (chromatic polynomial).** -/
+/-- **Corollary 1 (chromatic polynomial).** -/
 theorem chromaticPolynomial_eq_linDP (π : LinearLayout V) :
     chromaticPolynomial G = ∑ t ∈ range (Fintype.card V + 1),
       (((linDP G π.order ∅ {0}).count (Multiset.replicate t ⊥) : ℕ) : ℤ) •
         descPochhammer ℤ t := by
   simp only [chromaticPolynomial, count_linDP_layout]
 
-/-- **Corollary 7.2 (chromatic number).** -/
+/-- **Corollary 1 (chromatic number).** -/
 theorem chromaticNumber_eq_linDP (π : LinearLayout V) :
     G.chromaticNumber =
       ((sInf {t | 0 < (linDP G π.order ∅ {0}).count (Multiset.replicate t ⊥)} : ℕ) : ℕ∞) := by

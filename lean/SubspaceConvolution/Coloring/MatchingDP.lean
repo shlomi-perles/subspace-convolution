@@ -8,7 +8,7 @@ import SubspaceConvolution.Coloring.Basic
 /-!
 # Counting compatible partial matchings one left class at a time
 
-This file isolates the purely combinatorial core of the merge step in Section 7
+This file isolates the purely combinatorial core of the merge step in Section 6
 ("Grouping partial colorings"), independently of graphs.
 
 We have finitely many *left classes* `L` and *right classes* `R`, each carrying a profile
@@ -54,7 +54,7 @@ namespace MergeData
 
 variable {P₁ P₂ Q : Type*} (D : MergeData P₁ P₂ Q) [DecidableEq P₂] [DecidableRel D.compat]
 
-/-- The merge recurrence of the paper (equations (hist-row) and (hist-weight)): process the
+/-- The merge recurrence of the paper (equations (18) and (19)): process the
 remaining left profiles `us`, with available right histogram `b` and formed parent histogram `H`.
 The result is the multiset of final parent histograms, counted with the transition weights. -/
 def run : List P₁ → Multiset P₂ → Multiset Q → Multiset (Multiset Q)

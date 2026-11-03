@@ -4,7 +4,7 @@
 \usepackage{enumitem}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 
-\newtheorem*{lemC}{Lemma C.2 (FGLSZ19, Lemma~3.1 and its construction)}
+\newtheorem*{lemC}{Lemma 4 (FGL+19, Lemma~3.1 and its construction)}
 
 \newcommand{\F}{\mathbb F}
 \newcommand{\Gr}{\operatorname{Gr}_q}
@@ -25,17 +25,17 @@ does not cover}
 Every numbered result of the paper is formalized and checked by Lean using only the three standard
 axioms:
 \begin{itemize}
-  \item Theorems~1.1, 1.2 and~1.4, Lemmas~2.1 and~3.1, Theorem~5.1, Corollary~F.1 and
-    Theorem~G.1;
-  \item Lemma~7.1, Theorem~7.1, Corollary~7.2, Proposition~7.3, Lemmas~C.3 and~C.4,
-    Theorems~C.1, D.1 and~D.2.
+  \item Theorems~1, 2 and~3, Lemmas~1 and~2, Theorem~5, Corollary~2 and
+    Theorem~7;
+  \item Lemma~3, Theorem~6, Corollary~1, Proposition~1, Lemmas~5 and~6,
+    Theorems~8, 9 and~10.
 \end{itemize}
 The unnumbered claims are formalized too: the estimates of Appendices~A and~B, the equations of
-Sections~3--5, the applications of Section~5 and Appendix~E, and the footnote of Section~1.
+Sections~3--5, the applications of Section~5 and Appendix~C, and the footnote of Section~1.
 This note lists, as precisely as possible, what is \emph{not} formalized: modelling choices,
 hypotheses, and the few claims outside the model.
 
-\section*{A. The transform part (Sections 1--5, Appendices A, B, E, F, G)}
+\section*{A. The transform part (Sections 1--5, Appendices A, B, C, D, F)}
 
 \begin{enumerate}[leftmargin=1.6em]
 \item \textbf{Arithmetic operations are gates of straight-line programs.}
@@ -49,16 +49,16 @@ hypotheses, and the few claims outside the model.
   \end{itemize}
 \item \textbf{Index construction is not formalized.} The paper's claims that constructing subspace
   bases, cosets, kernels and coordinate changes takes table size times $\poly(n)$ work
-  (Section~1, Section~5.2 and the first paragraph of Appendix~F) concern a machine model. They are
+  (Section~1, Section~5.2 and the first paragraph of Appendix~D) concern a machine model. They are
   not formalized.
-\item \textbf{Bit costs (Corollary~F.1).}
+\item \textbf{Bit costs (Corollary~2).}
   \begin{itemize}
     \item Proved: the Möbius coefficients and the output bound; the choice of a modulus
       $L\in\{2B+1,2B+2\}$ coprime to $p$; exact recovery from centered residues; and the number of
       operations modulo $L$.
     \item Taken as the bit-cost model: each operation modulo $L$ is charged $(\log_2 L+1)^2$ bit
       operations (schoolbook arithmetic).
-    \item Not formalized: the remarks after Corollary~F.1, namely
+    \item Not formalized: the remarks after Corollary~2, namely
       \begin{itemize}
         \item evaluating over explicitly represented finite fields;
         \item the polynomial bit overhead of span convolution;
@@ -66,7 +66,7 @@ hypotheses, and the few claims outside the model.
           $\poly(n,H)$ bit costs of kernel applications and of solving.
       \end{itemize}
   \end{itemize}
-\item \textbf{Theorem~5.1 outside the arithmetic model.}
+\item \textbf{Theorem~5 outside the arithmetic model.}
   \begin{itemize}
     \item Formalized: both transforms (with their costs over $\mathbb Q$), the table $t$, and
       the identities $a=\ZetaTransform_n t$ and $C=\ZetaTransform_n^{-1}(2^{a})$.
@@ -74,9 +74,9 @@ hypotheses, and the few claims outside the model.
       $2^0,\dots,2^\ell$ ($\ell$ doublings). Indexing the list by the integer $a(U)$ is a table
       lookup, not an arithmetic operation.
   \end{itemize}
-\item \textbf{Invariant linear systems (Appendix~E).}
+\item \textbf{Invariant linear systems (Appendix~C).}
   \begin{itemize}
-    \item Formalized: the structure of the small system~(small-system), the equivalence
+    \item Formalized: the structure of the small system~(eq. 30), the equivalence
       ``$K$ invertible $\iff$ $\det B\ne0$'', and the inverse kernel $C$ when $Bc=e_0$.
     \item Formalized: the cost of applying $C=K^{-1}$.
     \item Not counted as gates: solving the $(d+1)\times(d+1)$ system, which needs field
@@ -92,40 +92,40 @@ hypotheses, and the few claims outside the model.
   \end{itemize}
 \end{enumerate}
 
-\section*{B. The coloring part (Section 7, Appendices C, D): hypotheses and unmodelled details}
+\section*{B. The coloring part (Section 6, Appendices G, H): hypotheses and unmodelled details}
 
 \begin{enumerate}[leftmargin=1.6em]
-\item \textbf{Lemma~C.2 is a hypothesis.} It is cited from Fomin--Golovach--Lokshtanov--Saurabh--Zehavi
-  and enters Theorem~C.1 as a hypothesis about the cost model:
+\item \textbf{Lemma~4 is a hypothesis.} It is cited from Fomin--Golovach--Lokshtanov--Saurabh--Zehavi
+  and enters Theorem~8 as a hypothesis about the cost model:
   \begin{lemC}
   Under $\ETH$, for any computable $f$, 4-Monotone min-CSP has no $f(k)n^{o(k)}$ algorithm, even
   when $|\mathcal C|=O(k^2n^2)$ and $L:=\max(1,\max_C|\mathcal R_C|)\le\max(n,4)$.
   \end{lemC}
 \item \textbf{ETH and \#ETH are hypotheses.}
   \begin{itemize}
-    \item Theorems~D.1 and~D.2 assume them in an abstract cost model.
+    \item Theorems~9 and~10 assume them in an abstract cost model.
     \item A Lean-checked refutation of ETH was published in October 2026
       (\texttt{github.com/anthropics/formal-math}, folder \texttt{eth/}); it has not been peer
-      reviewed. If it is correct, the conditional forms of Theorems~C.1, D.1 and~D.2 hold
+      reviewed. If it is correct, the conditional forms of Theorems~8, 9 and~10 hold
       vacuously.
     \item The unconditional running-time transfers are proved, and they are unaffected.
   \end{itemize}
 \item \textbf{Running times of the reductions are assumed.} The cost model assumes the following
   instead of proving them on a machine model:
   \begin{itemize}
-    \item the constructions take $g_1(k)n^{O(1)}$ time (Theorem~C.1) and $2^{O(k)}\poly(m)$ time
-      (Appendix~D);
-    \item exact division by the known factor of eq.~(cnt:identity) is cheap (Theorem~D.2).
+    \item the constructions take $g_1(k)n^{O(1)}$ time (Theorem~8) and $2^{O(k)}\poly(m)$ time
+      (Appendix~H);
+    \item exact division by the known factor of eq.~(35) is cheap (Theorem~10).
   \end{itemize}
 \item \textbf{Computability of $f$ is not tracked.}
   \begin{itemize}
-    \item Theorem~C.1 is formalized for arbitrary real-valued $f$ on both sides.
-    \item Applying Lemma~C.2 as stated needs the step ``the composite bound $F(k)$ is computable
+    \item Theorem~8 is formalized for arbitrary real-valued $f$ on both sides.
+    \item Applying Lemma~4 as stated needs the step ``the composite bound $F(k)$ is computable
       when $f$ is''. That step is not formalized.
   \end{itemize}
-\item \textbf{Bit complexity of Theorem~7.1 is not modelled.}
+\item \textbf{Bit complexity of Theorem~6 is not modelled.}
   \begin{itemize}
-    \item Theorem~7.1 and Corollary~7.2 are verified in arithmetic operations, counting the
+    \item Theorem~6 and Corollary~1 are verified in arithmetic operations, counting the
       transitions of the aggregated dynamic program.
     \item Not formalized: the claims that all counts have $O(N\log N)$ bits, and that exact
       arithmetic costs a polynomial factor.
@@ -134,7 +134,7 @@ hypotheses, and the few claims outside the model.
   \begin{itemize}
     \item The backtracking recursion and its correctness are formalized; its running time is not.
     \item Neither is the separate reconstruction for the linear-layout program of
-      Corollary~7.2.
+      Corollary~1.
   \end{itemize}
 \item \textbf{Unrooted rank-decompositions are not formalized.}
   \begin{itemize}
@@ -142,7 +142,7 @@ hypotheses, and the few claims outside the model.
     \item The passage from a subcubic tree (``suppress degree-two vertices and subdivide an edge
       to root it'') is not formalized.
   \end{itemize}
-\item \textbf{Appendix~D is verified for a variant grouping.}
+\item \textbf{Appendix~H is verified for a variant grouping.}
   \begin{itemize}
     \item Lean makes the clause-local groups once per literal occurrence, so $g=2k+3m$. The paper
       makes them once per pair $(i,j\in J_i)$, so $g=2k+\sum_i|J_i|$.
@@ -151,7 +151,7 @@ hypotheses, and the few claims outside the model.
   \end{itemize}
 \item \textbf{Rank-decomposition versions are only partly formalized.}
   \begin{itemize}
-    \item For Theorems~C.1, D.1 and~D.2 only the caterpillar width bound is proved: the
+    \item For Theorems~8, 9 and~10 only the caterpillar width bound is proved: the
       caterpillar of the supplied layout has the same width.
     \item The corresponding cost-model statements for supplied rank-decompositions are not
       stated.
@@ -161,7 +161,7 @@ hypotheses, and the few claims outside the model.
 \begin{thebibliography}{9}
 \bibitem{BTV10} B.-M.~Bui-Xuan, J.~A.~Telle, M.~Vatshelle, \emph{$H$-join decomposable graphs and
 algorithms with runtime single exponential in rankwidth}, Discrete Appl.\ Math.\ 158(7), 2010.
-\bibitem{FGLSZ19} F.~V.~Fomin, P.~A.~Golovach, D.~Lokshtanov, S.~Saurabh, M.~Zehavi,
+\bibitem{FGL+19} F.~V.~Fomin, P.~A.~Golovach, D.~Lokshtanov, S.~Saurabh, M.~Zehavi,
 \emph{Clique-width III: Hamiltonian Cycle and the Odd Case of Graph Coloring},
 ACM Trans.\ Algorithms 15(1), 2019.
 \bibitem{GHO13} R.~Ganian, P.~Hlin\v{e}n\'y, J.~Obdr\v{z}\'alek, \emph{A unified approach to

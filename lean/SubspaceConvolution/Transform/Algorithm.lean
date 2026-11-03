@@ -8,16 +8,16 @@ import SubspaceConvolution.Transform.Count
 import SubspaceConvolution.Transform.AlgAux
 
 /-!
-# The fast zeta transform: Theorem 1.1
+# The fast zeta transform: Theorem 1
 
 * `zeta_linCost`, `zetaInv_linCost` — the recursion of Section 3 over a ring with a Fourier
   character: `O(nk M_q(n,k))` gates, constants among `0, ±1, ψ(x), q⁻¹ψ(x)`.
-* `fast_subspace_summation` — **Theorem 1.1** over any commutative ring in which `p` is
+* `fast_subspace_summation` — **Theorem 1** over any commutative ring in which `p` is
   invertible (through `R[t]/(1 + t + ⋯ + t^{p-1})` and base change), for `Z`, `Z⁻¹`, `Zᵀ`,
   `(Zᵀ)⁻¹` (through the transposition principle); `fast_subspace_summation_log` — the
   `O(M log M)` form.
 
-Theorem 1.2 is in `Transform/Incidence.lean`.
+Theorem 2 is in `Transform/Incidence.lean`.
 -/
 
 open Finset Module
@@ -71,7 +71,7 @@ theorem zeta_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
       ((4 * Fintype.card K + 2) * finrank K V * k * Fintype.card (SubLE K V k)) :=
   zeta_linCost_aux F hC _ V k rfl
 
-/-- The recursion of equation (inverse) for `Z⁻¹`, by strong induction on the dimension. -/
+/-- The recursion of equation (5) for `Z⁻¹`, by strong induction on the dimension. -/
 theorem zetaInv_linCost_aux (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C) (n : ℕ) :
     ∀ (V : Type u) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),
       finrank K V = n →
@@ -97,7 +97,7 @@ theorem zetaInv_linCost_aux (F : FourierData K S) {C : Set S} (hC : F.consts ⊆
   have hstep := zetaInv_step F hC D k h₀ _ h_blk
   exact hstep.mono (AlgAux.budget_step D k)
 
-/-- **Section 3** (equation (inverse)): the same bound for `Z_{n,k}⁻¹`. -/
+/-- **Section 3** (equation (5)): the same bound for `Z_{n,k}⁻¹`. -/
 theorem zetaInv_linCost (F : FourierData K S) {C : Set S} (hC : F.consts ⊆ C)
     (V : Type u) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ) :
     LinCost C (zetaInv (K := K) (V := V) (R := S) k)
@@ -110,7 +110,7 @@ section Ring
 
 variable (K : Type w) [Field K] [Fintype K]
 
-/-- The constant of Theorem 1.1: base change costs a factor `2(p-1)²` and `(p-1)` gates per
+/-- The constant of Theorem 1: base change costs a factor `2(p-1)²` and `(p-1)` gates per
 input; transposition doubles the gates and adds one per output. -/
 noncomputable def fastConst : ℕ :=
   2 * (2 * (ringChar K - 1) ^ 2 * (4 * Fintype.card K + 2) + (ringChar K - 1)) + 1
@@ -147,7 +147,7 @@ theorem zetaInv_linCost_ring (R : Type u) [CommRing R] (hR : IsUnit (ringChar K 
     exact ExtRing.basis_repr_algebraMap R (ringChar K) hp2 _
   · simp only [Fintype.card_fin]
 
-/-- **Theorem 1.1** with the explicit constant `fastConst K`. -/
+/-- **Theorem 1** with the explicit constant `fastConst K`. -/
 theorem fast_subspace_summation_aux (R : Type u) [CommRing R] (hR : IsUnit (ringChar K : R))
     (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ)
     (hk : k ≤ finrank K V) :
@@ -185,7 +185,7 @@ theorem fast_subspace_summation_aux (R : Type u) [CommRing R] (hR : IsUnit (ring
 
 end Ring
 
-/-- **Theorem 1.1 (Fast Subspace Summation).** Over any commutative ring in which
+/-- **Theorem 1 (Fast Subspace Summation).** Over any commutative ring in which
 `p = char F_q` is invertible, each of `Z_{n,k}`, `Z_{n,k}⁻¹`, `Z_{n,k}ᵀ`, `(Z_{n,k}ᵀ)⁻¹` can be
 applied with `O_q(n k M_q(n, k))` arithmetic operations (gates `z = a x + b y`), `k ≤ n`. -/
 theorem fast_subspace_summation (K : Type w) [Field K] [Fintype K] :
@@ -202,7 +202,7 @@ theorem fast_subspace_summation (K : Type w) [Field K] [Fintype K] :
             (C * finrank K V * k * Fintype.card (SubLE K V k)) :=
   ⟨fastConst K, fun R _ hR V _ _ _ k hk => fast_subspace_summation_aux K R hR V k hk⟩
 
-/-- **Theorem 1.1**, "in particular": `O_q(M log M)` with `M = M_q(n, k)`. -/
+/-- **Theorem 1**, "in particular": `O_q(M log M)` with `M = M_q(n, k)`. -/
 theorem fast_subspace_summation_log (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
       ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),

@@ -6,19 +6,19 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Transform.KernelAux
 
 /-!
-# Intersection kernels on the Grassmannian: Theorem 1.4 (Section 5.3)
+# Intersection kernels on the Grassmannian: Theorem 3 (Section 5.3)
 
 For `U, W ∈ Gr(V, k)` the distance in the Grassmann graph is `dist(U, W) = k - dim(U ∩ W)`
 (`gDist`), and an intersection kernel is `(K f)(U) = ∑_W a_{dist(U,W)} f(W)` (`kernelApply`).
 
 * `extGr`, `zetaT_extGr` — extend `f` by zero below dimension `k`; the upper transform gives
   `H(L) = ∑_{W ⊇ L} f(W)`.
-* `moments` — equation (moments): `∑_{L ≤ U, dim L = j} H(L) = ∑_W |Gr(dim(U ∩ W), j)| f(W)`.
-* `kernelCoeff`, `kernelCoeff_spec` — equation (kernel-coefficients), by back-substitution.
-* `kernelApply_eq_zeta` — equation (two-transforms): `K f = Z (c_{dim} · Zᵀ f)`.
+* `moments` — equation (15): `∑_{L ≤ U, dim L = j} H(L) = ∑_W |Gr(dim(U ∩ W), j)| f(W)`.
+* `kernelCoeff`, `kernelCoeff_spec` — equation (16), by back-substitution.
+* `kernelApply_eq_zeta` — equation (17): `K f = Z (c_{dim} · Zᵀ f)`.
 * `finrank_dualAnnihilator_inf`, `grassDualEquiv`, `gDist_grassDualEquiv`, `kernelApply_dual` —
   annihilators preserve distances, which handles `k > n/2`.
-* `fast_kernel` — **Theorem 1.4** with fixed coefficients (a linear straight-line program);
+* `fast_kernel` — **Theorem 3** with fixed coefficients (a linear straight-line program);
   `fast_kernel_arith` — with the coefficients `a_0, …, a_k` as further inputs (an arithmetic
   straight-line program).
 -/
@@ -71,7 +71,7 @@ theorem zetaT_extGr (k : ℕ) (f : Grass K V k → R) (L : SubLE K V k) :
     exact ⟨⟨W.1, h⟩, (mem_filter.1 hW).2, rfl⟩
 
 open Classical in
-/-- Equation (moments). -/
+/-- Equation (15). -/
 theorem moments (k j : ℕ) (hj : j ≤ k) (f : Grass K V k → R) (U : Grass K V k) :
     ∑ L ∈ univ.filter (fun L : Grass K V j => L.1 ≤ U.1),
         zetaT k (extGr k f) ⟨L.1, L.2.le.trans hj⟩ =
@@ -80,7 +80,7 @@ theorem moments (k j : ℕ) (hj : j ≤ k) (f : Grass K V k → R) (U : Grass K 
   exact sum_grass_le_sum_ge U.1 f
 
 variable (K) in
-/-- Equation (kernel-coefficients), back-substitution `c_t = a_{k-t} - ∑_{j<t} |Gr(t,j)| c_j`. -/
+/-- Equation (16), back-substitution `c_t = a_{k-t} - ∑_{j<t} |Gr(t,j)| c_j`. -/
 noncomputable def kernelCoeff (k : ℕ) (a : ℕ → R) (t : ℕ) : R :=
   a (k - t) - ∑ j : Fin t, (gr K t j : R) * kernelCoeff k a j
 termination_by t
@@ -92,7 +92,7 @@ theorem kernelCoeff_eq (k : ℕ) (a : ℕ → R) (t : ℕ) :
   rw [kernelCoeff, Fin.sum_univ_eq_sum_range (fun j => (gr K t j : R) * kernelCoeff K k a j)]
 
 variable (K) in
-/-- Equation (kernel-coefficients): `a_{k-t} = ∑_{j ≤ t} |Gr(t,j)| c_j`.  (The back-substitution
+/-- Equation (16): `a_{k-t} = ∑_{j ≤ t} |Gr(t,j)| c_j`.  (The back-substitution
 satisfies this for every `t`; only `t ≤ k` is used.) -/
 theorem kernelCoeff_spec (k : ℕ) (a : ℕ → R) {t : ℕ} (_ht : t ≤ k) :
     ∑ j ∈ range (t + 1), (gr K t j : R) * kernelCoeff K k a j = a (k - t) := by
@@ -142,7 +142,7 @@ theorem sum_fin_gr_kernelCoeff (k : ℕ) (a : ℕ → R) {t : ℕ} (ht : t ≤ k
   rw [gr_eq_zero_of_lt K (by simpa using hj), Nat.cast_zero, zero_mul]
 
 open Classical in
-/-- Equation (two-transforms). -/
+/-- Equation (17). -/
 theorem kernelApply_eq_zeta (k : ℕ) (a : ℕ → R) (f : Grass K V k → R) (U : Grass K V k) :
     kernelApply k a f U =
       zeta k (fun L => kernelCoeff K k a (finrank K L.1) * zetaT k (extGr k f) L)
@@ -229,7 +229,7 @@ theorem kernelApply_dual (k : ℕ) (hk : k ≤ finrank K V) (a : ℕ → R) (f :
 
 end Identities
 
-/-! ### Theorem 1.4 -/
+/-! ### Theorem 3 -/
 
 section Cost
 
@@ -248,7 +248,7 @@ theorem extGr_linCost (k : ℕ) :
   simp only [extGr]
   split_ifs <;> rfl
 
-/-- The circuit of equation (two-transforms): `Zᵀ`, one scaling per entry, `Z`. -/
+/-- The circuit of equation (17): `Zᵀ`, one scaling per entry, `Z`. -/
 theorem kernelApply_linCost_of (k : ℕ) (a : ℕ → R) {s₁ s₂ : ℕ}
     (hzT : LinCost (Set.univ : Set R) (zetaT (K := K) (V := V) k) s₁)
     (hz : LinCost (Set.univ : Set R) (zeta (K := K) (V := V) k) s₂) :
@@ -293,7 +293,7 @@ theorem kernelCoeff_linCost (k : ℕ) :
   rw [hx, kernelCoeff_sum]
   exact sum_congr rfl fun s _ => mul_comm _ _
 
-/-- The arithmetic circuit of equation (two-transforms) with the coefficients as inputs. -/
+/-- The arithmetic circuit of equation (17) with the coefficients as inputs. -/
 theorem kernelApply_arithCost_of (k : ℕ) {s₁ s₂ : ℕ}
     (hzT : LinCost (Set.univ : Set R) (zetaT (K := K) (V := V) k) s₁)
     (hz : LinCost (Set.univ : Set R) (zeta (K := K) (V := V) k) s₂) :
@@ -315,7 +315,7 @@ theorem kernelApply_arithCost_of (k : ℕ) {s₁ s₂ : ℕ}
   rw [kernelApply_eq_zeta]
   rfl
 
-/-- The operation count of equation (two-transforms) is `O(N log N)` for `2k ≤ n`. -/
+/-- The operation count of equation (17) is `O(N log N)` for `2k ≤ n`. -/
 theorem kernel_bound {C n k M N : ℕ} (hM : M ≤ 2 * N) (hnk : n * k ≤ 2 * Nat.log 2 N) :
     C * n * k * M + M + C * n * k * M ≤ (8 * C + 2) * N * (Nat.log 2 N + 1) := by
   have h1 : C * n * k * M ≤ 4 * (C * N * Nat.log 2 N) := by
@@ -343,7 +343,7 @@ theorem kernel_arith_bound {C n k M N : ℕ} (hM : M ≤ 2 * N) (hnk : n * k ≤
       (8 * C + 2) * N * (Nat.log 2 N + 1) + 7 * (N * (Nat.log 2 N + 1)) := by ring
   omega
 
-/-- **Theorem 1.4** for `2k ≤ n`, from the costs of `Z` and `Zᵀ` in Theorem 1.1. -/
+/-- **Theorem 3** for `2k ≤ n`, from the costs of `Z` and `Zᵀ` in Theorem 1. -/
 theorem fast_kernel_half {C : ℕ} (k : ℕ) (a : ℕ → R) (hkn : 2 * k ≤ finrank K V)
     (hz : LinCost (Set.univ : Set R) (zeta (K := K) (V := V) k)
       (C * finrank K V * k * Fintype.card (SubLE K V k)))
@@ -358,7 +358,7 @@ theorem fast_kernel_half {C : ℕ} (k : ℕ) (a : ℕ → R) (hkn : 2 * k ≤ fi
   · rw [card_grass rfl]
     exact mul_le_log_gr K hkn
 
-/-- **Theorem 1.4** (arithmetic version) for `2k ≤ n`. -/
+/-- **Theorem 3** (arithmetic version) for `2k ≤ n`. -/
 theorem fast_kernel_arith_half {C : ℕ} (k : ℕ) (hkn : 2 * k ≤ finrank K V)
     (hz : LinCost (Set.univ : Set R) (zeta (K := K) (V := V) k)
       (C * finrank K V * k * Fintype.card (SubLE K V k)))
@@ -382,7 +382,7 @@ theorem fast_kernel_arith_half {C : ℕ} (k : ℕ) (hkn : 2 * k ≤ finrank K V)
 
 end Cost
 
-/-- **Theorem 1.4** (Fast multiplication on the Grassmann graph), coefficients fixed: for
+/-- **Theorem 3** (Fast multiplication on the Grassmann graph), coefficients fixed: for
 `V = F_q^n` and every `k`, the intersection kernel `f ↦ (U ↦ ∑_W a_{dist(U,W)} f(W))` on
 `Gr(V, k)` is computed by a linear straight-line program with `O_q(N log N)` gates,
 `N = |Gr(n, k)|`, over any commutative ring in which `p` is invertible. -/
@@ -416,7 +416,7 @@ theorem fast_kernel (K : Type w) [Field K] [Fintype K] :
       ⟨fun U => hkn (U.2 ▸ Submodule.finrank_le U.1)⟩
     exact LinCost.empty _ _
 
-/-- **Theorem 1.4** with the coefficients `a_0, …, a_k` as inputs (arithmetic program). -/
+/-- **Theorem 3** with the coefficients `a_0, …, a_k` as inputs (arithmetic program). -/
 theorem fast_kernel_arith (K : Type w) [Field K] [Fintype K] :
     ∃ C : ℕ, ∀ (R : Type u) [CommRing R], IsUnit (ringChar K : R) →
       ∀ (V : Type v) [AddCommGroup V] [Module K V] [FiniteDimensional K V] (k : ℕ),

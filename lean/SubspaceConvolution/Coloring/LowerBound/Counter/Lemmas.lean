@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.Defs
 
 /-!
-# Appendix C: basic facts about the construction
+# Appendix G: basic facts about the construction
 
 Parameters, cardinalities, the entry test `(e_i, Tᵀ e_i)ᵀ t_{A,j} = T_{ij} + A_{ij}`, and
 characterizations of the adjacency relation of `graph I`.

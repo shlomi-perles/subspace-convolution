@@ -6,7 +6,7 @@ Authors: Shlomo A. Perles
 import SubspaceConvolution.Coloring.LowerBound.Counter.Lemmas
 
 /-!
-# Lemma C.3, second direction: a satisfying assignment gives an `η`-coloring
+# Lemma 5, second direction: a satisfying assignment gives an `η`-coloring
 
 Given a satisfying assignment `α`:
 
@@ -295,7 +295,7 @@ theorem exists_data (hI : I.Normalized) (hsat : I.Satisfiable) : ∃ D : Data I,
 end Backward
 
 open Backward in
-/-- **Lemma C.3**, second direction: a satisfying assignment yields an `η`-coloring. -/
+/-- **Lemma 5**, second direction: a satisfying assignment yields an `η`-coloring. -/
 theorem colorable_of_satisfiable (hI : I.Normalized) (hsat : I.Satisfiable) :
     (graph I).Colorable (eta I) := by
   obtain ⟨D, hD⟩ := exists_data hI hsat

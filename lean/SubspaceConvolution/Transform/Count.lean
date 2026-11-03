@@ -12,13 +12,13 @@ import SubspaceConvolution.Transform.CountAux
 `gr K n j = |Gr(n, j)|` and `numLE K n k = M_q(n, k)` (defined in `Transform/Defs.lean` as
 cardinalities of the subspace types of `K^n`).  Write `q = |K|`.
 
-* Appendix A: `gr_mul_prod` (gaussian), `gr_succ_succ` (pascal), `gr_symm` (annihilators),
+* Appendix A: `gr_mul_prod` (eq. 24), `gr_succ_succ` (eq. 25), `gr_symm` (annihilators),
   `pow_le_gr`/`gr_le` (`|Gr(n,r)| = Θ_q(q^{r(n-r)})`), `pow_le_numLE_self`/`numLE_self_le`
-  (`N_q(n) = Θ_q(q^{⌊n²/4⌋})`), `numLE_le_two_mul_gr` (truncated-size), `coverPairs_*`
-  (cover-pairs).
-* Section 3.3: `numLE_count` (count), `two_mul_numLE_le` (`M_q(n,k) - 2 M_q(n-1,k) ≥ 0`),
+  (`N_q(n) = Θ_q(q^{⌊n²/4⌋})`), `numLE_le_two_mul_gr` (eq. 26), `coverPairs_*`
+  (eq. 27).
+* Section 3.3: `numLE_count` (eq. 11), `two_mul_numLE_le` (`M_q(n,k) - 2 M_q(n-1,k) ≥ 0`),
   `mul_le_log_numLE` (`nk = O(log M_q(n, k))`).
-* Appendix B: `incidBound`, `slack` (eq. (slack)), `incid_budget_step` (the induction step),
+* Appendix B: `incidBound`, `slack` (eq. (28)), `incid_budget_step` (the induction step),
   `incidBound_le` (`n min(a, n-b) ≤ 2 log_q S`, hence `O(S log S)`).
 
 Everything is derived from the product formula `gr_mul_prod` through the two ratio identities
@@ -43,7 +43,7 @@ namespace CountAux
 
 theorem two_le_card : 2 ≤ q := Fintype.one_lt_card
 
-/-- Eq. (gaussian) with `qprod q j j = ∏_{i<j} (q^j - q^i)`. -/
+/-- Eq. (24) with `qprod q j j = ∏_{i<j} (q^j - q^i)`. -/
 theorem gr_mul_qprod {n j : ℕ} (h : j ≤ n) : gr K n j * qprod q j j = qprod q n j := by
   have := card_finrank_eq_mul_prod_fin (K := K) h
   rw [Fin.prod_univ_eq_prod_range (fun i => q ^ j - q ^ i),
@@ -85,7 +85,7 @@ theorem gr_pos {n j : ℕ} (h : j ≤ n) : 0 < gr K n j := by
   rw [← h1] at h2
   exact Nat.pos_of_ne_zero fun h0 => by simp [h0] at h2
 
-/-- Equation (gaussian): counting ordered bases. -/
+/-- Equation (24): counting ordered bases. -/
 theorem gr_mul_prod {n j : ℕ} (h : j ≤ n) :
     gr K n j * ∏ i ∈ range j, (q ^ j - q ^ i) = ∏ i ∈ range j, (q ^ n - q ^ i) :=
   gr_mul_qprod K h
@@ -136,7 +136,7 @@ theorem gr_succ_left_mul (n j : ℕ) :
 
 end CountAux
 
-/-- Equation (pascal): `|Gr(n+1, j+1)| = |Gr(n, j+1)| + q^{n-j} |Gr(n, j)|`. -/
+/-- Equation (25): `|Gr(n+1, j+1)| = |Gr(n, j+1)| + q^{n-j} |Gr(n, j)|`. -/
 theorem gr_succ_succ (n j : ℕ) : gr K (n + 1) (j + 1) = gr K n (j + 1) + q ^ (n - j) * gr K n j := by
   rcases Nat.lt_trichotomy j n with hjn | rfl | hjn
   · have h1 := gr_succ_left_mul K n (j + 1)
@@ -196,14 +196,14 @@ theorem gr_one_mul (n : ℕ) : gr K n 1 * (q - 1) = q ^ n - 1 := by
   have := gr_succ_right_mul K n 0
   simpa [gr_zero_right] using this
 
-/-- Equation (gaussian), lower bound. -/
+/-- Equation (24), lower bound. -/
 theorem pow_le_gr {n j : ℕ} (h : j ≤ n) : q ^ (j * (n - j)) ≤ gr K n j := by
   have h1 := gr_mul_qprod K h
   have h2 := pow_mul_qprod_le (by have := two_le_card K; omega : 0 < q) h
   rw [← h1] at h2
   exact Nat.le_of_mul_le_mul_right h2 (qprod_pos (two_le_card K) le_rfl)
 
-/-- Equation (gaussian), upper bound (uniform in `q ≥ 2`). -/
+/-- Equation (24), upper bound (uniform in `q ≥ 2`). -/
 theorem gr_le (n j : ℕ) : gr K n j ≤ 4 * q ^ (j * (n - j)) := by
   rcases Nat.lt_or_ge n j with h | h
   · rw [gr_eq_zero_of_lt K h]; exact Nat.zero_le _
@@ -309,7 +309,7 @@ theorem gr_mul_two_pow_le {n k : ℕ} (h : 2 * k ≤ n) :
 
 end CountAux
 
-/-- Equation (truncated-size): `M_q(n, k) = Θ_q(|Gr(n, k)|)` for `k ≤ n/2`. -/
+/-- Equation (26): `M_q(n, k) = Θ_q(|Gr(n, k)|)` for `k ≤ n/2`. -/
 theorem numLE_le_two_mul_gr {n k : ℕ} (h : 2 * k ≤ n) : numLE K n k ≤ 2 * gr K n k := by
   rw [numLE_eq_sum, ← sum_range_reflect]
   refine sum_le_two_mul_of_mul_pow_le fun t ht => ?_
@@ -350,7 +350,7 @@ theorem gr_one_le_two_mul_pow {m : ℕ} (hm : 1 ≤ m) : gr K m 1 ≤ 2 * q ^ (m
 
 end CountAux
 
-/-- Equation (cover-pairs), lower bound. -/
+/-- Equation (27), lower bound. -/
 theorem pow_le_coverPairs {n : ℕ} (hn : 1 ≤ n) :
     q ^ ((n + 1) * (n + 1) / 4 - 1) ≤ coverPairs K n := by
   obtain ⟨s, hs⟩ : ∃ s, s = (n + 1) / 2 := ⟨_, rfl⟩
@@ -373,7 +373,7 @@ theorem pow_le_coverPairs {n : ℕ} (hn : 1 ≤ n) :
   exact hterm.trans (single_le_sum (f := fun r => gr K n r * gr K (n - r) 1)
     (fun i _ => Nat.zero_le _) (mem_range.2 (by omega)))
 
-/-- Equation (cover-pairs), upper bound. -/
+/-- Equation (27), upper bound. -/
 theorem coverPairs_le (n : ℕ) : coverPairs K n ≤ 64 * q ^ ((n + 1) * (n + 1) / 4 - 1) := by
   rcases Nat.eq_zero_or_pos n with rfl | hn
   · simp [coverPairs]
@@ -419,7 +419,7 @@ theorem coverPairs_le (n : ℕ) : coverPairs K n ≤ 64 * q ^ ((n + 1) * (n + 1)
 
 namespace CountAux
 
-/-- The fixed-dimension version of eq. (count):
+/-- The fixed-dimension version of eq. (11):
 `|Gr(n+2, j+1)| = |Gr(n+1, j+1)| + |Gr(n+1, j)| + (q^{n+1} - 1) |Gr(n, j)|`. -/
 theorem gr_count (n j : ℕ) :
     gr K (n + 2) (j + 1) =
@@ -437,7 +437,7 @@ theorem gr_count (n j : ℕ) :
 
 end CountAux
 
-/-- Equation (count): the Goldman–Rota recurrence with a cutoff. -/
+/-- Equation (11): the Goldman–Rota recurrence with a cutoff. -/
 theorem numLE_count (n k : ℕ) :
     numLE K (n + 2) (k + 1) =
       numLE K (n + 1) (k + 1) + numLE K (n + 1) k + (q ^ (n + 1) - 1) * numLE K n k := by
@@ -578,7 +578,7 @@ theorem pow_mul_gr_pred_pred_le {n j : ℕ} (hj : 1 ≤ j) (hjn : j ≤ n) :
 
 end CountAux
 
-/-- Equation (slack): the recursive calls of an interior call `0 < a < b < n` have total budget
+/-- Equation (28): the recursive calls of an interior call `0 < a < b < n` have total budget
 `∑ min(a', c') S'` at least `S/4` below `min(a, c) S` (`c = n - b`). -/
 theorem slack {n a b : ℕ} (ha : 0 < a) (hab : a < b) (hbn : b < n) :
     4 * (min a (n - 1 - b) * (gr K (n - 1) a + gr K (n - 1) b) +

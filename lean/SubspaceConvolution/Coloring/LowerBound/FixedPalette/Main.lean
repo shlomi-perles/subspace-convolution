@@ -9,9 +9,9 @@ import SubspaceConvolution.Coloring.LowerBound.FixedPalette.Clique
 import SubspaceConvolution.Coloring.LowerBound.FixedPalette.Padding
 
 /-!
-# Appendix D: fixed-palette decision and counting lower bounds
+# Appendix H: fixed-palette decision and counting lower bounds
 
-Summary of the formalization of the reduction of Appendix D ("Fixed-palette decision and counting
+Summary of the formalization of the reduction of Appendix H ("Fixed-palette decision and counting
 lower bounds"):
 
 * `Defs`: 3-CNF formulas over the `k × k` grid (`GridCNF`), the graph `graph φ = G_φ` on the

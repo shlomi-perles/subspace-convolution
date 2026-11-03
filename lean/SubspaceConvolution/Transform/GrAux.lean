@@ -7,7 +7,7 @@ import SubspaceConvolution.Transform.Grassmann
 import SubspaceConvolution.Transform.Count
 
 /-!
-# Counting subspaces in intervals (helpers for Appendix E)
+# Counting subspaces in intervals (helpers for Appendix C)
 
 * `qnum q m = [m]_q = 1 + q + ⋯ + q^{m-1}` and its identities; `gr_one_eq_qnum`
   (`|Gr(m, 1)| = [m]`), `gr_pred_eq_qnum` (`|Gr(m, m-1)| = [m]`).
