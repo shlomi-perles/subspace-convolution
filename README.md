@@ -6,7 +6,7 @@
 
 Code accompanying the paper
 
-> Shlomo A. Perles and Omri Weinstein. **A Fast Algorithm for Subspace Convolution.** 2026.
+> Shlomo A. Perles and Omri Weinstein. **[A Fast Algorithm for Subspace Convolution](paper/subspace-convolution.pdf).** 2026.
 
 The paper sums a function over all subspaces of each subspace of $\mathbb F_q^n$, the analogue
 of the subset-zeta transform, in $O_q(N\log N)$ operations for $N$ subspaces; the lattice-based
@@ -14,10 +14,11 @@ algorithms need $\Theta_q(Nq^{n/2})$ additions. It extends the recursion to the 
 incidence between two dimensions and to span convolution, and applies it to kernels on the
 Grassmann graph and to coloring graphs of low binary cut-rank.
 
-The repository has two independent parts:
+The repository holds the paper and two independent parts of code:
 
 | directory | contents | requires |
 |---|---|---|
+| [`paper/`](paper) | the paper, [`subspace-convolution.pdf`](paper/subspace-convolution.pdf) | a PDF viewer |
 | [`experiments/`](experiments) | a header-only C++17 implementation of the transforms and of the algorithms they are compared against; the benchmark drivers and campaign scripts; every measurement behind the paper's experiments; the scripts that turn them into its tables and figure | Linux, a C++17 compiler with OpenMP, CMake ≥ 3.20, Python ≥ 3.8 |
 | [`lean/`](lean) | a Lean 4 formalization, on Mathlib, of every numbered result of the paper, with an axiom audit | [elan](https://github.com/leanprover/elan) (the toolchain is pinned) |
 

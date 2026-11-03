@@ -1,8 +1,9 @@
 # Implementation and experiments
 
-Code, measurements and analysis behind the experiments of *A Fast Algorithm for Subspace
-Convolution* by Shlomo A. Perles and Omri Weinstein. Each of the paper's three algorithms is
-run against the alternatives that compute the same sums:
+Code, measurements and analysis behind the experiments of
+[*A Fast Algorithm for Subspace Convolution*](../paper/subspace-convolution.pdf) by
+Shlomo A. Perles and Omri Weinstein (Section 7 and Appendix E). Each of the paper's three
+algorithms is run against the alternatives that compute the same sums:
 
 * **Zeta and Möbius transforms** on the $N$ subspaces of $\mathbb F_q^n$ (Theorem 1): our
   Fourier recursion, $O_q(N\log N)$ operations, and a hybrid that hands subproblems of

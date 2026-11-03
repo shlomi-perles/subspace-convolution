@@ -3,7 +3,7 @@
 This directory is a complete formalization, in [Lean 4](https://lean-lang.org) with
 [Mathlib](https://github.com/leanprover-community/mathlib4), of the paper
 
-> Shlomo A. Perles and Omri Weinstein. **A Fast Algorithm for Subspace Convolution.**
+> Shlomo A. Perles and Omri Weinstein. **[A Fast Algorithm for Subspace Convolution](../paper/subspace-convolution.pdf).**
 
 Every numbered result of the paper is stated and proved in Lean:
 
